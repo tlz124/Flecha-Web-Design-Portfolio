@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flecha Design - Web Design for Education & Small Business</title>
+    <link rel="stylesheet" href="Business_Portfolio.css">
+</head>
+<body>
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="cookie-consent hidden">
+        <div class="cookie-content">
+            <p>We use cookies to improve your experience and analyze our traffic. You can choose to accept all or reject non-essential cookies.</p>
+            <div class="cookie-buttons">
+                <button id="acceptAll" class="cookie-btn accept">Accept All</button>
+                <button id="rejectAll" class="cookie-btn reject">Reject All</button>
+                <button id="managePreferences" class="cookie-btn manage">Manage Preferences</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header/Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo"><span class="logo-arrow">→</span> Flecha Design</h1>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hamburger Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <button class="close-menu" id="closeMenu" aria-label="Close menu">&times;</button>
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="#home" class="menu-link">Home</a></li>
+                <li><a href="#about" class="menu-link">About</a></li>
+                <li><a href="#portfolio" class="menu-link">View Our Work</a></li>
+                <li><a href="#testimonials" class="menu-link">Testimonials</a></li>
+                <li><a href="#contact" class="menu-link">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Hero/Landing Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">Moving Your Vision Forward</h2>
+            <p class="hero-subtitle">Web design for education and local businesses that points you in the right direction</p>
+        </div>
+    </section>
+
+    <!-- Company Description Section -->
+    <section class="company-intro">
+        <div class="container">
+            <h2 class="section-title">Welcome to Flecha Design</h2>
+            <p class="intro-text">At Flecha Design, we specialize in creating purposeful, user-friendly websites for educational institutions and local businesses. Our name, "Flecha" (Spanish for "arrow"), represents our mission: to point your business or organization in the right direction and help you move forward in the digital world.</p>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section class="what-we-do">
+        <div class="container">
+            <h2 class="section-title">What We Do</h2>
+            <p class="what-we-do-text">Every project begins with understanding your unique goals and audience. We don't believe in one-size-fits-all templates. Instead, we take time to learn about your vision, your values, and what sets you apart. Our design strategy focuses on three core principles: clarity, functionality, and purpose. Whether you're an educational platform helping students achieve their dreams or a local business serving your community, we craft websites that are intuitive, professional, and designed to grow with you. We combine clean aesthetics with practical features to ensure your site doesn't just look good—it works hard for you.</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">View Our Work</h2>
+            <p class="section-subtitle">Recent projects across education and small business</p>
+            
+            <div class="projects-grid">
+                <!-- Education Projects -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&h=400&fit=crop" alt="Organic Chemistry DAT Prep">
+                        <div class="project-overlay">
+                            <button class="view-details" data-project="0">View Details <span class="arrow-icon">→</span></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Education</span>
+                        <h3 class="project-title">Organic Chemistry DAT Prep</h3>
+                        <p class="project-description">Comprehensive study platform for dental admission test preparation</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=400&fit=crop" alt="School Website">
+                        <div class="project-overlay">
+                            <button class="view-details" data-project="1">View Details <span class="arrow-icon">→</span></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Education</span>
+                        <h3 class="project-title">Elementary School Website</h3>
+                        <p class="project-description">Modern school website with parent portal and event calendar</p>
+                    </div>
+                </div>
+
+                <!-- Small Business Project -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600&h=400&fit=crop" alt="Lena's Flower Shop">
+                        <div class="project-overlay">
+                            <button class="view-details" data-project="2">View Details <span class="arrow-icon">→</span></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Small Business</span>
+                        <h3 class="project-title">Lena's Flower Shop</h3>
+                        <p class="project-description">Local florist website with online ordering and delivery</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About the Name</h2>
+            <div class="about-content">
+                <p>The name "Flecha Design" holds special meaning for us. "Flecha" is the Spanish word for "arrow," symbolizing direction, precision, and forward movement. Just as an arrow points toward a target with purpose and clarity, we help businesses and educational institutions navigate the digital landscape with confidence.</p>
+                <p>We chose this name because we believe great web design should do more than look good—it should guide users exactly where they need to go and help organizations move toward their goals. Every arrow has a direction, and we're here to make sure yours is pointed toward success.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Testimonials</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Working with Flecha Design transformed our online presence. The website is clean, professional, and our customers love how easy it is to place orders. Highly recommend!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <h4>Lena Martinez</h4>
+                        <span>Owner, Lena's Flower Shop</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The team understood exactly what our students needed. The DAT prep platform is intuitive and has helped countless pre-dental students achieve their goals."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <h4>Dr. Sarah Chen</h4>
+                        <span>Founder, Chemistry DAT Prep</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Parents and staff love our new website. The event calendar and parent portal have made communication so much easier. Professional work from start to finish."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <h4>Principal James Rivera</h4>
+                        <span>Oakwood Elementary School</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <strong>Email:</strong>
+                            <a href="mailto:Flecha-WebDesign@Flecha-WebDesign.com">Flecha-WebDesign@Flecha-WebDesign.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Phone:</strong>
+                            <a href="tel:+1234567890">(123) 456-7890</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Address:</strong>
+                            <p>123 Design Street<br>Phoenix, AZ 85001</p>
+                        </div>
+                    </div>
+
+                    <!-- Simple Map Placeholder -->
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212270.5409287724!2d-112.07708155!3d33.448376700000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b12ed50a179cb%3A0x8c69c7f8354a1bac!2sPhoenix%2C%20AZ!5e0!3m2!1sen!2sus!4v1234567890"
+                            width="100%"
+                            height="250"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                    <div class="social-links">
+                        <h4>Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="#" aria-label="Facebook">Facebook</a>
+                            <a href="#" aria-label="Instagram">Instagram</a>
+                            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="consultation-form">
+                    <h3>Request a Consultation</h3>
+                    <form id="consultationForm">
+                        <div class="form-group">
+                            <input type="text" id="consultName" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="consultEmail" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="consultPhone" placeholder="Your Phone Number" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Request Consultation <span class="arrow-icon">→</span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Flecha Design. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#privacyModal" class="footer-link" id="privacyLink">Privacy Policy</a>
+                <a href="#accessibilityModal" class="footer-link" id="accessibilityLink">Accessibility Statement</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content legal-modal">
+            <span class="close-modal" data-modal="privacyModal">&times;</span>
+            <div class="modal-body-legal">
+                <h2>Privacy Policy</h2>
+                <p>Your privacy is a priority. This policy explains what data we collect, why we need it, and how you can control it.</p>
+                
+                <h3>Data Collection</h3>
+                <p>We only collect your phone number and email only when you request a consultation.</p>
+                
+                <h3>Third-Party Sharing</h3>
+                <p>We never share your data.</p>
+                
+                <h3>User Rights</h3>
+                <p>You have the right to delete your information at any time. Simply email us at <a href="mailto:Flecha-WebDesign@Flecha-WebDesign.com">Flecha-WebDesign@Flecha-WebDesign.com</a>.</p>
+                
+                <h2>Terms of Service</h2>
+                <p>By using our site, you agree to use it for lawful purposes and respect our intellectual property. While we strive for 100% uptime, we cannot guarantee the site will always be error-free.</p>
+                
+                <h3>Relationship of Parties</h3>
+                <p>It is understood that Flecha Design is an independent contractor and not an employee of the Client. Flecha Design shall be responsible for all self-employment taxes and social security contributions. The Client shall not provide fringe benefits, including health insurance or paid vacation, and shall not exercise control over the specific methods or timing used to complete the deliverables, provided deadlines are met.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accessibility Statement Modal -->
+    <div id="accessibilityModal" class="modal">
+        <div class="modal-content legal-modal">
+            <span class="close-modal" data-modal="accessibilityModal">&times;</span>
+            <div class="modal-body-legal">
+                <h2>Accessibility Statement for Flecha Design</h2>
+                
+                <h3>Our Commitment</h3>
+                <p>At Flecha Design, we are committed to ensuring digital accessibility for everyone, including people with disabilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards to ensure our digital products are inclusive.</p>
+                
+                <h3>Conformance Status</h3>
+                <p>The Web Content Accessibility Guidelines (WCAG) defines requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA.</p>
+                <p>Flecha Design is partially conformant with WCAG 2.1 Level AA. Partially conformant means that some parts of the content do not yet fully conform to the accessibility standard (for example, we may be in the process of adding descriptive alt-text to older portfolio pieces).</p>
+                
+                <h3>Accessibility Features</h3>
+                <p>To ensure a seamless experience, our website currently includes:</p>
+                <p><strong>Keyboard Navigation:</strong> All essential site functions are accessible via keyboard.</p>
+                <p><strong>Screen Reader Compatibility:</strong> Proper use of ARIA labels and semantic HTML.</p>
+                <p><strong>Contrast Ratios:</strong> Text and UI elements meet or exceed minimum contrast requirements for readability.</p>
+                <p><strong>Responsive Design:</strong> Content scales gracefully on all devices and zoom levels up to 400%.</p>
+                
+                <h3>Feedback and Contact</h3>
+                <p>We welcome your feedback on the accessibility of Flecha Design. Please let us know if you encounter accessibility barriers on our site.</p>
+                <p><strong>Email:</strong> <a href="mailto:Flecha-WebDesign@Flecha-WebDesign.com">Flecha-WebDesign@Flecha-WebDesign.com</a></p>
+                <p><strong>Phone:</strong> (123) 456-7890</p>
+                <p><strong>Response Time:</strong> We aim to respond to accessibility inquiries within 2 business days.</p>
+                
+                <h3>Ongoing Efforts</h3>
+                <p>Accessibility is an ongoing journey. We perform regular audits and updates to our site to ensure we remain compliant with 2026 industry standards.</p>
+                
+                <h3>Formal Approval of this Statement</h3>
+                <p>This Accessibility Statement is approved by:<br>
+                Flecha Design<br>
+                <strong>Last Updated:</strong> January 18, 2026</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Detail Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" data-modal="projectModal">&times;</span>
+            <div class="modal-body">
+                <img id="modalImage" src="" alt="Project">
+                <div class="modal-info">
+                    <span id="modalCategory" class="project-category"></span>
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalDescription"></p>
+                    <div class="modal-details">
+                        <h3>Project Details</h3>
+                        <p id="modalFullDescription"></p>
+                        <h4>Technologies Used</h4>
+                        <div id="modalTechnologies" class="tech-tags"></div>
+                        <div class="modal-links">
+                            <a href="#" class="modal-link" target="_blank">View Live Site <span class="arrow-icon">→</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Business_Portfolio.js"></script>
+</body>
+</html>
