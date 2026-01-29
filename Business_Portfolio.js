@@ -2,33 +2,83 @@
 const projects = [
     {
         id: 0,
-        title: "Organic Chemistry DAT Prep",
-        category: "Education",
-        description: "Comprehensive study platform for dental admission test preparation",
-        fullDescription: "A specialized educational platform designed to help pre-dental students master organic chemistry for the Dental Admission Test (DAT). The site features interactive practice problems, video tutorials, progress tracking, and comprehensive study materials organized by topic. The clean, distraction-free design helps students focus on learning while the intuitive navigation makes it easy to find specific topics and track progress through the curriculum.",
-        image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&h=400&fit=crop",
-        technologies: ["HTML5", "CSS3", "JavaScript", "Progress Tracking", "Interactive Quizzes"],
-        liveLink: "#"
+        title: "Local Flower Shop",
+        category: "Small Business",
+        description: "Modern florist website with online ordering and delivery",
+        fullDescription: "A beautiful, user-friendly website for a local flower shop featuring an elegant gallery of floral arrangements, easy online ordering with customization options, and delivery scheduling. The site includes information about special occasion packages for weddings, funerals, and events. The design captures elegance and warmth while making it simple for customers to browse and order flowers for any occasion.",
+        image: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600&h=400&fit=crop",
+        technologies: ["HTML5", "CSS3", "JavaScript", "Online Ordering", "Local SEO"],
+        liveLink: "https://tlz124.github.io/Watsons-Flowers/"
     },
     {
         id: 1,
-        title: "Elementary School Website",
-        category: "Education",
-        description: "Modern school website with parent portal and event calendar",
-        fullDescription: "A comprehensive website for an elementary school that serves as a central hub for parents, students, and staff. Features include a parent portal for accessing grades and attendance, an interactive event calendar, staff directory with email contact, photo galleries from school events, and a news section for announcements. The design is bright, welcoming, and easy to navigate for users of all technical abilities, with mobile optimization for parents on the go.",
-        image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=400&fit=crop",
-        technologies: ["HTML5", "CSS3", "JavaScript", "Parent Portal", "Event Calendar", "CMS"],
-        liveLink: "#"
+        title: "Mexican Restaurant",
+        category: "Small Business",
+        description: "Authentic Mexican restaurant with menu and reservation system",
+        fullDescription: "A vibrant website for a Mexican restaurant featuring an interactive menu with high-quality food photography, online reservation system, and information about catering services. The design reflects the restaurant's authentic atmosphere with warm colors and engaging visuals. Includes hours of operation, location details, and special events calendar.",
+        image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&h=400&fit=crop",
+        technologies: ["HTML5", "CSS3", "JavaScript", "Reservation System", "Menu Display"],
+        liveLink: "https://tlz124.github.io/restaurant/"
     },
     {
         id: 2,
-        title: "Lena's Flower Shop",
+        title: "Pet Grooming Salon",
         category: "Small Business",
-        description: "Local florist website with online ordering and delivery",
-        fullDescription: "A beautiful, user-friendly website for Lena's Flower Shop, a beloved local florist. The site showcases their stunning floral arrangements with a full-screen image gallery, offers easy online ordering with customization options, provides delivery scheduling within the local area, and includes information about special occasion packages for weddings, funerals, and events. The design captures the elegance and warmth of the shop while making it simple for customers to browse and order flowers for any occasion. Local SEO optimization helps the shop appear in searches for nearby florists.",
-        image: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600&h=400&fit=crop",
-        technologies: ["HTML5", "CSS3", "JavaScript", "E-commerce", "Online Ordering", "Local SEO"],
-        liveLink: "#"
+        description: "Professional pet grooming services with appointment booking",
+        fullDescription: "A comprehensive website for a pet grooming business featuring service descriptions, pricing information, and an easy-to-use appointment booking system. The site showcases grooming services for various pet types, includes customer testimonials, and provides care tips for pet owners. The friendly, approachable design appeals to pet lovers while maintaining professionalism.",
+        image: "https://images.unsplash.com/photo-1548681528-6a5c45b66b42?w=600&h=400&fit=crop",
+        technologies: ["HTML5", "CSS3", "JavaScript", "Appointment Booking", "Service Catalog"],
+        liveLink: "https://tlz124.github.io/pet-grooming/"
+    },
+    {
+        id: 3,
+        title: "Modern Dental Office",
+        category: "Small Business",
+        description: "Contemporary dental practice with patient portal and services",
+        fullDescription: "A professional website for a modern dental office featuring comprehensive service descriptions, dentist profiles, patient portal access, and online appointment scheduling. The site includes educational resources about dental health, insurance information, and virtual office tours. The clean, trustworthy design helps patients feel comfortable while emphasizing the practice's expertise and modern technology.",
+        image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&h=400&fit=crop",
+        technologies: ["HTML5", "CSS3", "JavaScript", "Patient Portal", "Appointment System"],
+        liveLink: "https://tlz124.github.io/dental-office-website/"
+    },
+    {
+        id: 4,
+        title: "Fitness Center",
+        category: "Small Business",
+        description: "Modern fitness business with class schedules and membership options",
+        fullDescription: "A dynamic website for a fitness business featuring class schedules, trainer profiles, membership pricing, and online sign-up capabilities. The site showcases fitness programs, includes success stories and testimonials, and provides information about facilities and equipment. The energetic design motivates visitors while making it easy to explore services and join.",
+        image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop",
+        technologies: ["HTML5", "CSS3", "JavaScript", "Class Scheduling", "Membership Portal"],
+        liveLink: "https://tlz124.github.io/fitness/"
+    },
+    {
+        id: 5,
+        title: "Architecture Firm",
+        category: "Small Business",
+        description: "Professional architecture business showcasing portfolio and services",
+        fullDescription: "A sophisticated website for an architecture firm featuring a stunning portfolio gallery, detailed service descriptions, and project case studies. The site highlights the firm's design philosophy, team expertise, and past projects with high-quality imagery. The clean, modern design reflects architectural precision while making it easy for potential clients to explore work and request consultations.",
+        image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop",
+        technologies: ["HTML5", "CSS3", "JavaScript", "Portfolio Gallery", "Project Showcase"],
+        liveLink: "https://tlz124.github.io/architecture/"
+    },
+    {
+        id: 6,
+        title: "K-12 School Website",
+        category: "Education",
+        description: "Comprehensive school website for middle and high school students",
+        fullDescription: "A modern, full-featured website designed for K-12 schools with a focus on middle and high school students. Features include student portals, parent access to grades and attendance, event calendars, staff directories, club and sports information, and news announcements. The responsive design works seamlessly on mobile devices for students and parents on the go.",
+        image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=400&fit=crop",
+        technologies: ["HTML5", "CSS3", "JavaScript", "Student Portal", "Event Calendar", "CMS"],
+        liveLink: "https://tlz124.github.io/school/"
+    },
+    {
+        id: 7,
+        title: "Nonprofit Organization",
+        category: "Education",
+        description: "Versatile nonprofit website template for community organizations",
+        fullDescription: "A flexible, professional website designed for nonprofit organizations. Features include mission statement display, program information, volunteer sign-up forms, donation integration, event calendars, and impact stories. The adaptable design can be customized for various causes and community organizations while maintaining a clean, trustworthy appearance that encourages engagement and support.",
+        image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&h=400&fit=crop",
+        technologies: ["HTML5", "CSS3", "JavaScript", "Donation Forms", "Volunteer Management"],
+        liveLink: "https://tlz124.github.io/nonprofit/"
     }
 ];
 
@@ -132,7 +182,7 @@ viewDetailsButtons.forEach(button => {
         });
 
         // Update live link
-        document.querySelector('.modal-link').href = project.liveLink;
+        document.getElementById('modalLiveLink').href = project.liveLink;
 
         // Show modal
         projectModal.style.display = 'block';
