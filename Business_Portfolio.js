@@ -181,8 +181,13 @@ viewDetailsButtons.forEach(button => {
             techContainer.appendChild(techTag);
         });
 
-        // Update live link
-        document.getElementById('modalLiveLink').href = project.liveLink;
+        // Update live link - make sure it's a valid URL
+        const liveLink = document.getElementById('modalLiveLink');
+        if (liveLink) {
+            liveLink.href = project.liveLink;
+            // Ensure the link works even if clicked multiple times
+            liveLink.onclick = null; // Remove any previous handlers
+        }
 
         // Show modal
         projectModal.style.display = 'block';
@@ -226,8 +231,13 @@ closeModalButtons.forEach(button => {
     });
 });
 
-// Close modal when clicking outside
+// Close modal when clicking outside (but not on links or content)
 window.addEventListener('click', (e) => {
+    // Don't close if clicking on a link inside the modal
+    if (e.target.tagName === 'A' || e.target.closest('a')) {
+        return;
+    }
+    
     if (e.target === projectModal) {
         projectModal.style.display = 'none';
         document.body.style.overflow = 'auto';
