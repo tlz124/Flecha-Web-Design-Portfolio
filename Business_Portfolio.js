@@ -181,12 +181,16 @@ viewDetailsButtons.forEach(button => {
             techContainer.appendChild(techTag);
         });
 
-        // Update live link - make sure it's a valid URL
+        // Update live link - use onclick to force it to work
         const liveLink = document.getElementById('modalLiveLink');
         if (liveLink) {
             liveLink.href = project.liveLink;
-            // Ensure the link works even if clicked multiple times
-            liveLink.onclick = null; // Remove any previous handlers
+            liveLink.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                window.open(project.liveLink, '_blank', 'noopener,noreferrer');
+                return false;
+            };
         }
 
         // Show modal
