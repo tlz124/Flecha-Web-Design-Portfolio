@@ -140,6 +140,7 @@ header {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.45);
 }
 
 .logo-arrow {

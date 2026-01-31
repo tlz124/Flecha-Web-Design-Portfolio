@@ -295,7 +295,7 @@ consultationForm.addEventListener('submit', (e) => {
         `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nI would like to request a consultation for web design services.`
     );
     
-    const mailtoLink = `mailto:Flecha-WebDesign@Flecha-WebDesign.com?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:LMartinez@flecha-webdesign.com?subject=${subject}&body=${body}`;
     
     // Open email client
     window.location.href = mailtoLink;
