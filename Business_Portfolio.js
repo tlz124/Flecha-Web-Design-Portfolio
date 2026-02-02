@@ -79,6 +79,16 @@ const projects = [
         image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&h=400&fit=crop",
         technologies: ["HTML5", "CSS3", "JavaScript", "Donation Forms", "Volunteer Management"],
         liveLink: "https://tlz124.github.io/nonprofit/"
+    },
+    {
+        id: 8,
+        title: "Orthodontist Practice",
+        category: "Healthcare",
+        description: "Modern orthodontist website with treatment information and appointment scheduling",
+        fullDescription: "A clean, professional website designed for an orthodontist practice. Features include detailed treatment information, before-and-after galleries, appointment scheduling, patient resources, and an FAQ section. The modern design builds trust and makes it easy for patients to learn about orthodontic services and book consultations online.",
+        image: "https://tlz124.github.io/orthodontist/istockphoto-1274268165-612x612.webp",
+        technologies: ["HTML5", "CSS3", "JavaScript", "Appointment Scheduling", "Patient Portal"],
+        liveLink: "https://tlz124.github.io/orthodontist/"
     }
 ];
 
