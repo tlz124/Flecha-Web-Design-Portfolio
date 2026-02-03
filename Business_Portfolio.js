@@ -89,6 +89,26 @@ const projects = [
         image: "https://tlz124.github.io/orthodontist/istockphoto-1274268165-612x612.webp",
         technologies: ["HTML5", "CSS3", "JavaScript", "Appointment Scheduling", "Patient Portal"],
         liveLink: "https://tlz124.github.io/orthodontist/"
+    },
+    {
+        id: 9,
+        title: "Beauty Supply Store",
+        category: "Small Business",
+        description: "Modern beauty supply website with curated products and elegant design",
+        fullDescription: "A sophisticated website for Lumière Beauty Supply featuring curated beauty essentials from top brands. Includes product showcases, shopping categories, bestseller highlights, and a clean, elegant design that emphasizes luxury and quality.",
+        image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&h=400&fit=crop",
+        technologies: ["HTML5", "CSS3", "JavaScript", "Product Catalog", "E-commerce Ready"],
+        liveLink: "https://tlz124.github.io/Beauty"
+    },
+    {
+        id: 10,
+        title: "Contemporary Hair Salon",
+        category: "Small Business",
+        description: "Elegant hair salon website showcasing services and portfolio",
+        fullDescription: "A luxurious website for Atelier Noir, a contemporary hair salon. Features include service listings with pricing, visual portfolio gallery, stylist information, appointment booking system, and sophisticated dark theme design that reflects the salon's modern aesthetic.",
+        image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=400&fit=crop",
+        technologies: ["HTML5", "CSS3", "JavaScript", "Appointment Booking", "Portfolio Gallery"],
+        liveLink: "https://tlz124.github.io/salon"
     }
 ];
 
