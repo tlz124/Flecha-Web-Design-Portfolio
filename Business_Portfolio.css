@@ -978,7 +978,11 @@ section {
     }
 
     .section-title {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     .projects-grid {
@@ -1134,17 +1138,57 @@ section {
     .floating-cta {
         bottom: 1rem;
         right: 1rem;
-        padding: 0.75rem 1.5rem;
-        font-size: 0.9rem;
+        padding: 1rem 1.75rem;
+        font-size: 1rem;
+        box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+    }
+    
+    .floating-cta:active {
+        transform: scale(1.05);
+        box-shadow: 0 12px 40px rgba(102, 126, 234, 0.8);
     }
     
     .filter-container {
-        gap: 0.5rem;
+        gap: 0.75rem;
+        padding: 0 1rem;
     }
     
     .filter-btn {
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+        border-width: 2px;
+    }
+    
+    .filter-btn:active {
+        transform: scale(1.05);
+    }
+    
+    .project-card:active {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+    }
+    
+    /* Ensure gradient animation works on mobile */
+    body {
+        background-size: 400% 400%;
+        animation: gradientShift 8s ease infinite;
+    }
+    
+    /* Ensure glassy cards work on mobile */
+    .project-card {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    
+    /* Keep view details buttons dramatic */
+    .view-details {
+        padding: 0.875rem 2rem;
+        font-size: 0.95rem;
+    }
+    
+    .view-details:active {
+        transform: scale(1.08);
+        box-shadow: 0 6px 25px rgba(102, 126, 234, 0.7);
     }
 }
 
