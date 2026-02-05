@@ -27,9 +27,17 @@ body {
     background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #2d1b69, #764ba2, #667eea);
     background-size: 400% 400%;
     animation: gradientShift 8s ease infinite;
+    -webkit-animation: gradientShift 8s ease infinite;
+    min-height: 100vh;
 }
 
 @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@-webkit-keyframes gradientShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
@@ -342,18 +350,26 @@ section {
     text-align: center;
     margin-bottom: 1rem;
     background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+    background: -webkit-linear-gradient(135deg, #667eea, #764ba2, #f093fb);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    color: transparent;
     position: relative;
     display: inline-block;
     width: 100%;
     animation: titlePulse 3s ease infinite;
+    -webkit-animation: titlePulse 3s ease infinite;
 }
 
 @keyframes titlePulse {
     0%, 100% { filter: brightness(1) drop-shadow(0 0 20px rgba(102, 126, 234, 0.3)); }
     50% { filter: brightness(1.2) drop-shadow(0 0 40px rgba(102, 126, 234, 0.6)); }
+}
+
+@-webkit-keyframes titlePulse {
+    0%, 100% { -webkit-filter: brightness(1) drop-shadow(0 0 20px rgba(102, 126, 234, 0.3)); }
+    50% { -webkit-filter: brightness(1.2) drop-shadow(0 0 40px rgba(102, 126, 234, 0.6)); }
 }
 
 .section-subtitle {
@@ -407,6 +423,7 @@ section {
 .project-card {
     background: rgba(26, 26, 26, 0.8);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
@@ -415,12 +432,22 @@ section {
     opacity: 0;
     transform: translateY(50px) scale(0.9);
     animation: fadeInUp 0.8s ease forwards;
+    -webkit-animation: fadeInUp 0.8s ease forwards;
+    will-change: transform, opacity;
 }
 
 @keyframes fadeInUp {
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        -webkit-transform: translateY(0) scale(1);
     }
 }
 
@@ -980,9 +1007,13 @@ section {
     .section-title {
         font-size: 2.5rem;
         background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+        background: -webkit-linear-gradient(135deg, #667eea, #764ba2, #f093fb);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        color: transparent;
+        animation: titlePulse 3s ease infinite;
+        -webkit-animation: titlePulse 3s ease infinite;
     }
 
     .projects-grid {
