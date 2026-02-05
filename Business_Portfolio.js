@@ -109,6 +109,16 @@ const projects = [
         image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=400&fit=crop",
         technologies: ["HTML5", "CSS3", "JavaScript", "Appointment Booking", "Portfolio Gallery"],
         liveLink: "https://tlz124.github.io/salon"
+    },
+    {
+        id: 11,
+        title: "Corporate Law Firm",
+        category: "Professional Services",
+        description: "Professional law firm website showcasing expertise and legal services",
+        fullDescription: "A sophisticated website for Sterling & Associates, a corporate law firm specializing in mergers & acquisitions, securities law, and business litigation. Features include practice area details, attorney profiles, case results, consultation booking, and a professional design that conveys trust and expertise.",
+        image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop",
+        technologies: ["HTML5", "CSS3", "JavaScript", "Consultation Booking", "Attorney Profiles"],
+        liveLink: "https://tlz124.github.io/legal"
     }
 ];
 
