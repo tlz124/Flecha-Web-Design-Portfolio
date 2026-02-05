@@ -420,3 +420,35 @@ testimonialCards.forEach(card => {
     card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(card);
 });
+
+// ===== Portfolio Filter Functionality =====
+const filterButtons = document.querySelectorAll('.filter-btn');
+const allProjectCards = document.querySelectorAll('.project-card');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        const filterValue = button.getAttribute('data-filter');
+        
+        allProjectCards.forEach(card => {
+            const category = card.querySelector('.project-category').textContent;
+            
+            if (filterValue === 'all' || category === filterValue) {
+                card.classList.remove('hidden');
+                // Re-trigger animation
+                card.style.animation = 'none';
+                setTimeout(() => {
+                    card.style.animation = 'fadeInUp 0.6s ease forwards';
+                }, 10);
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    });
+});
+
