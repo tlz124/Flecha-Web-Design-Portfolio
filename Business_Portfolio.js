@@ -452,126 +452,81 @@ filterButtons.forEach(button => {
     });
 });
 
-// ===== Scroll Progress Line Animation =====
-const scrollLine = document.getElementById('scrollProgressLine');
-const lineVertical = document.getElementById('lineVertical');
-const lineCurve = document.getElementById('lineCurve');
-const lineHorizontal = document.getElementById('lineHorizontal');
-const consultationForm = document.querySelector('.consultation-form');
-
-if (scrollLine && lineVertical && lineCurve && lineHorizontal && consultationForm) {
+// ===== Hero Canvas Particle Network =====
+(function() {
+    const heroCanvas = document.getElementById('heroCanvas');
+    if (!heroCanvas) return;
     
-    // Create SVG for the curve
-    const svgNS = "http://www.w3.org/2000/svg";
-    const curveSvg = document.createElementNS(svgNS, "svg");
-    const curvePath = document.createElementNS(svgNS, "path");
-
-    curveSvg.setAttribute("preserveAspectRatio", "none");
-    curveSvg.style.width = "100%";
-    curveSvg.style.height = "100%";
-
-    curvePath.setAttribute("fill", "none");
-    curvePath.setAttribute("stroke", "#667eea");
-    curvePath.setAttribute("stroke-width", "2");
-    curvePath.setAttribute("vector-effect", "non-scaling-stroke");
-    curvePath.style.filter = "drop-shadow(0 0 10px rgba(102, 126, 234, 0.6))";
-
-    curveSvg.appendChild(curvePath);
-    lineCurve.appendChild(curveSvg);
-
-    function updateScrollLine() {
-        // Get scroll info
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight - windowHeight;
+    const ctx = heroCanvas.getContext('2d');
+    
+    function resizeCanvas() {
+        heroCanvas.width = heroCanvas.offsetWidth;
+        heroCanvas.height = heroCanvas.offsetHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    class Particle {
+        constructor() {
+            this.x = Math.random() * heroCanvas.width;
+            this.y = Math.random() * heroCanvas.height;
+            this.vx = (Math.random() - 0.5) * 0.5;
+            this.vy = (Math.random() - 0.5) * 0.5;
+            this.radius = Math.random() * 2 + 1;
+        }
         
-        // Calculate scroll percentage
-        const scrollPercent = scrollTop / documentHeight;
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            
+            if (this.x < 0 || this.x > heroCanvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > heroCanvas.height) this.vy *= -1;
+        }
         
-        // Get consultation form position
-        const formRect = consultationForm.getBoundingClientRect();
-        const formTopFromPage = formRect.top + scrollTop;
-        const formLeft = formRect.left;
-        const formWidth = formRect.width;
-        
-        // Calculate when form enters viewport (we want to start curving before it's visible)
-        const formTriggerPoint = formTopFromPage - windowHeight - 200;
-        
-        // Maximum height the line can reach (just before it needs to curve)
-        const maxLineHeight = formTriggerPoint - 80; // 80 is the top offset
-        
-        if (scrollTop < formTriggerPoint) {
-            // PHASE 1: Growing vertical line proportionally to scroll
-            const lineHeight = (scrollTop / documentHeight) * maxLineHeight;
-            lineVertical.style.height = `${lineHeight}px`;
-            
-            // Hide curve and horizontal parts
-            lineCurve.style.opacity = '0';
-            lineHorizontal.style.opacity = '0';
-            consultationForm.classList.remove('highlighted');
-            
-        } else {
-            // PHASE 2: Line starts curving toward form
-            
-            // Keep vertical line at max height
-            lineVertical.style.height = `${maxLineHeight}px`;
-            
-            // Calculate how far into the curve animation we are
-            const distancePastTrigger = scrollTop - formTriggerPoint;
-            const curveDistance = 400; // Distance over which curve completes
-            const curveProgress = Math.min(distancePastTrigger / curveDistance, 1);
-            
-            if (curveProgress > 0) {
-                // Show curve
-                lineCurve.style.opacity = '1';
-                lineHorizontal.style.opacity = '1';
-                
-                // Calculate curve parameters
-                const curveHeight = 150 * curveProgress;
-                const scrollLineLeft = parseFloat(getComputedStyle(scrollLine).left);
-                const formCenterX = formLeft + (formWidth / 2);
-                const horizontalDistance = Math.max(0, formCenterX - scrollLineLeft - 2);
-                const curveWidth = horizontalDistance * curveProgress;
-                
-                // Position curve at bottom of vertical line
-                lineCurve.style.top = `${maxLineHeight}px`;
-                lineCurve.style.width = `${curveWidth + 10}px`;
-                lineCurve.style.height = `${curveHeight + 10}px`;
-                
-                // Create smooth rightward curve using quadratic bezier
-                // Start at (0,0), control point creates gentle curve, end at (width, height)
-                const pathD = `M 0 0 Q ${curveWidth * 0.5} ${curveHeight * 0.5}, ${curveWidth} ${curveHeight}`;
-                curvePath.setAttribute("d", pathD);
-                
-                // Update horizontal line pointing to form
-                lineHorizontal.style.top = `${maxLineHeight + curveHeight}px`;
-                lineHorizontal.style.left = `${curveWidth}px`;
-                lineHorizontal.style.width = `${Math.min(30 * curveProgress, 30)}px`;
-                
-                // Highlight form when line connects (at 70% progress)
-                if (curveProgress >= 0.7) {
-                    consultationForm.classList.add('highlighted');
-                } else {
-                    consultationForm.classList.remove('highlighted');
-                }
-            }
+        draw() {
+            // Brighter particles with glow
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = 'rgba(102, 126, 234, 0.8)';
+            ctx.fillStyle = 'rgba(102, 126, 234, 0.8)';
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.shadowBlur = 0;
         }
     }
-
-    // Smooth scroll updates
-    let ticking = false;
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            window.requestAnimationFrame(function() {
-                updateScrollLine();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
-
-    // Initial call and resize handler
-    updateScrollLine();
-    window.addEventListener('resize', updateScrollLine);
-}
+    
+    // More particles for better visibility
+    const particles = Array.from({ length: 100 }, () => new Particle());
+    
+    function animateParticles() {
+        ctx.clearRect(0, 0, heroCanvas.width, heroCanvas.height);
+        
+        particles.forEach((particle, i) => {
+            particle.update();
+            particle.draw();
+            
+            // Connect nearby particles with visible lines
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[j].x - particle.x;
+                const dy = particles[j].y - particle.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                // Connect particles within range
+                if (distance < 150) {
+                    const opacity = (150 - distance) / 150 * 0.4;
+                    ctx.strokeStyle = `rgba(102, 126, 234, ${opacity})`;
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(particle.x, particle.y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        });
+        
+        requestAnimationFrame(animateParticles);
+    }
+    
+    animateParticles();
+})();
 

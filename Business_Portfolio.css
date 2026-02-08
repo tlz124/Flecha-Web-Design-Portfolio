@@ -289,6 +289,15 @@ header {
     border-bottom: 2px solid var(--primary-color);
 }
 
+.hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
 .hero::before {
     content: '→';
     position: absolute;
@@ -300,6 +309,7 @@ header {
     pointer-events: none;
     font-weight: 100;
     color: var(--primary-color);
+    z-index: 0;
 }
 
 .hero::after {
@@ -311,13 +321,14 @@ header {
     height: 100px;
     background: linear-gradient(to bottom, transparent, var(--bg-dark));
     pointer-events: none;
+    z-index: 1;
 }
 
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .hero-title {

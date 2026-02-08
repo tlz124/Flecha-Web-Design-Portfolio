@@ -33,13 +33,6 @@
         </nav>
     </header>
 
-    <!-- Scroll Progress Line -->
-    <div class="scroll-progress-line" id="scrollProgressLine">
-        <div class="line-vertical" id="lineVertical"></div>
-        <div class="line-curve" id="lineCurve"></div>
-        <div class="line-horizontal" id="lineHorizontal"></div>
-    </div>
-
     <!-- Hamburger Menu Overlay -->
     <div class="menu-overlay" id="menuOverlay">
         <button class="close-menu" id="closeMenu" aria-label="Close menu">&times;</button>
@@ -56,6 +49,7 @@
 
     <!-- Hero/Landing Section -->
     <section id="home" class="hero">
+        <canvas id="heroCanvas" class="hero-canvas"></canvas>
         <div class="hero-content">
             <h2 class="hero-title">Moving Your Vision Forward</h2>
             <p class="hero-subtitle">Web design for education and local businesses that points you in the right direction</p>
@@ -365,7 +359,7 @@
                     </div>
                 </div>
 
-                <div class="consultation-form">
+                <div class="consultation-form" id="consultationFormBox">
                     <h3>Request a Consultation</h3>
                     <form id="consultationForm">
                         <div class="form-group">
