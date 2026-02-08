@@ -452,3 +452,126 @@ filterButtons.forEach(button => {
     });
 });
 
+// ===== Scroll Progress Line Animation =====
+const scrollLine = document.getElementById('scrollProgressLine');
+const lineVertical = document.getElementById('lineVertical');
+const lineCurve = document.getElementById('lineCurve');
+const lineHorizontal = document.getElementById('lineHorizontal');
+const consultationForm = document.querySelector('.consultation-form');
+
+if (scrollLine && lineVertical && lineCurve && lineHorizontal && consultationForm) {
+    
+    // Create SVG for the curve
+    const svgNS = "http://www.w3.org/2000/svg";
+    const curveSvg = document.createElementNS(svgNS, "svg");
+    const curvePath = document.createElementNS(svgNS, "path");
+
+    curveSvg.setAttribute("preserveAspectRatio", "none");
+    curveSvg.style.width = "100%";
+    curveSvg.style.height = "100%";
+
+    curvePath.setAttribute("fill", "none");
+    curvePath.setAttribute("stroke", "#667eea");
+    curvePath.setAttribute("stroke-width", "2");
+    curvePath.setAttribute("vector-effect", "non-scaling-stroke");
+    curvePath.style.filter = "drop-shadow(0 0 10px rgba(102, 126, 234, 0.6))";
+
+    curveSvg.appendChild(curvePath);
+    lineCurve.appendChild(curveSvg);
+
+    function updateScrollLine() {
+        // Get scroll info
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight - windowHeight;
+        
+        // Calculate scroll percentage
+        const scrollPercent = scrollTop / documentHeight;
+        
+        // Get consultation form position
+        const formRect = consultationForm.getBoundingClientRect();
+        const formTopFromPage = formRect.top + scrollTop;
+        const formLeft = formRect.left;
+        const formWidth = formRect.width;
+        
+        // Calculate when form enters viewport (we want to start curving before it's visible)
+        const formTriggerPoint = formTopFromPage - windowHeight - 200;
+        
+        // Maximum height the line can reach (just before it needs to curve)
+        const maxLineHeight = formTriggerPoint - 80; // 80 is the top offset
+        
+        if (scrollTop < formTriggerPoint) {
+            // PHASE 1: Growing vertical line proportionally to scroll
+            const lineHeight = (scrollTop / documentHeight) * maxLineHeight;
+            lineVertical.style.height = `${lineHeight}px`;
+            
+            // Hide curve and horizontal parts
+            lineCurve.style.opacity = '0';
+            lineHorizontal.style.opacity = '0';
+            consultationForm.classList.remove('highlighted');
+            
+        } else {
+            // PHASE 2: Line starts curving toward form
+            
+            // Keep vertical line at max height
+            lineVertical.style.height = `${maxLineHeight}px`;
+            
+            // Calculate how far into the curve animation we are
+            const distancePastTrigger = scrollTop - formTriggerPoint;
+            const curveDistance = 400; // Distance over which curve completes
+            const curveProgress = Math.min(distancePastTrigger / curveDistance, 1);
+            
+            if (curveProgress > 0) {
+                // Show curve
+                lineCurve.style.opacity = '1';
+                lineHorizontal.style.opacity = '1';
+                
+                // Calculate curve parameters
+                const curveHeight = 150 * curveProgress;
+                const scrollLineLeft = parseFloat(getComputedStyle(scrollLine).left);
+                const formCenterX = formLeft + (formWidth / 2);
+                const horizontalDistance = Math.max(0, formCenterX - scrollLineLeft - 2);
+                const curveWidth = horizontalDistance * curveProgress;
+                
+                // Position curve at bottom of vertical line
+                lineCurve.style.top = `${maxLineHeight}px`;
+                lineCurve.style.width = `${curveWidth + 10}px`;
+                lineCurve.style.height = `${curveHeight + 10}px`;
+                
+                // Create smooth rightward curve using quadratic bezier
+                // Start at (0,0), control point creates gentle curve, end at (width, height)
+                const pathD = `M 0 0 Q ${curveWidth * 0.5} ${curveHeight * 0.5}, ${curveWidth} ${curveHeight}`;
+                curvePath.setAttribute("d", pathD);
+                
+                // Update horizontal line pointing to form
+                lineHorizontal.style.top = `${maxLineHeight + curveHeight}px`;
+                lineHorizontal.style.left = `${curveWidth}px`;
+                lineHorizontal.style.width = `${Math.min(30 * curveProgress, 30)}px`;
+                
+                // Highlight form when line connects (at 70% progress)
+                if (curveProgress >= 0.7) {
+                    consultationForm.classList.add('highlighted');
+                } else {
+                    consultationForm.classList.remove('highlighted');
+                }
+            }
+        }
+    }
+
+    // Smooth scroll updates
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                updateScrollLine();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
+    // Initial call and resize handler
+    updateScrollLine();
+    window.addEventListener('resize', updateScrollLine);
+}
+
