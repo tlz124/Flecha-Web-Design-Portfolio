@@ -458,13 +458,23 @@ filterButtons.forEach(button => {
     if (!heroCanvas) return;
     
     const ctx = heroCanvas.getContext('2d');
+    let particles = [];
     
     function resizeCanvas() {
         heroCanvas.width = heroCanvas.offsetWidth;
         heroCanvas.height = heroCanvas.offsetHeight;
+        
+        // Regenerate particles on resize to fit new dimensions
+        initParticles();
     }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    
+    function initParticles() {
+        const isMobile = window.innerWidth <= 768;
+        const particleCount = isMobile ? 45 : 100;
+        
+        // Clear existing particles and create new ones
+        particles = Array.from({ length: particleCount }, () => new Particle());
+    }
     
     class Particle {
         constructor() {
@@ -495,10 +505,8 @@ filterButtons.forEach(button => {
         }
     }
     
-    // Adjust particle count based on screen size
-    const isMobile = window.innerWidth <= 768;
-    const particleCount = isMobile ? 45 : 100;
-    const particles = Array.from({ length: particleCount }, () => new Particle());
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
     
     function animateParticles() {
         ctx.clearRect(0, 0, heroCanvas.width, heroCanvas.height);

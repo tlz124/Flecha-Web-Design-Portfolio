@@ -182,6 +182,8 @@ header {
     cursor: pointer;
     padding: 0;
     z-index: 2000;
+    position: relative;
+    margin-left: auto;
 }
 
 .hamburger span {
@@ -581,88 +583,52 @@ section {
 
 /* ===== Portfolio Categories Section ===== */
 .portfolio-categories {
-    background: var(--bg-white);
+    background: #000000;
     padding: 5rem 0;
 }
 
+.portfolio-categories .section-title,
+.portfolio-categories .section-subtitle {
+    color: white;
+}
+
 .category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
     margin-top: 3rem;
 }
 
 .category-card {
-    background: var(--bg-card);
-    border: 2px solid var(--border-color);
-    border-radius: 16px;
-    padding: 2.5rem;
-    text-align: center;
-    transition: all 0.3s ease;
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 1rem 2rem;
     text-decoration: none;
-    color: var(--text-dark);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.category-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.category-card:hover::before {
-    transform: scaleX(1);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .category-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
 }
 
-.category-icon {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-    filter: grayscale(0.3);
-    transition: all 0.3s ease;
-}
-
-.category-card:hover .category-icon {
-    transform: scale(1.1);
-    filter: grayscale(0);
-}
-
-.category-card h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--text-dark);
-}
-
-.category-card p {
-    color: var(--text-light);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
+.category-card h3,
+.category-card p,
+.category-icon,
 .category-arrow {
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    transition: transform 0.3s ease;
+    display: none;
 }
 
-.category-card:hover .category-arrow {
-    transform: translateX(8px);
+.category-card::before {
+    content: attr(data-category);
+    color: white;
 }
 
 /* ===== Portfolio Section ===== */
