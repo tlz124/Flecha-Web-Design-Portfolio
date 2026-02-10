@@ -495,8 +495,10 @@ filterButtons.forEach(button => {
         }
     }
     
-    // More particles for better visibility
-    const particles = Array.from({ length: 100 }, () => new Particle());
+    // Adjust particle count based on screen size
+    const isMobile = window.innerWidth <= 768;
+    const particleCount = isMobile ? 45 : 100;
+    const particles = Array.from({ length: particleCount }, () => new Particle());
     
     function animateParticles() {
         ctx.clearRect(0, 0, heroCanvas.width, heroCanvas.height);

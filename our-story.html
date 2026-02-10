@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story - Flecha Web Design</title>
+    <link rel="stylesheet" href="Business_Portfolio.css">
+</head>
+<body>
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="cookie-consent hidden">
+        <div class="cookie-content">
+            <p>We use cookies to improve your experience and analyze our traffic. You can choose to accept all or reject non-essential cookies.</p>
+            <div class="cookie-buttons">
+                <button id="acceptAll" class="cookie-btn accept">Accept All</button>
+                <button id="rejectNonEssential" class="cookie-btn reject">Reject Non-Essential</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-icon">→</span>
+                <span class="logo-text">Flecha Web Design</span>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hamburger Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <button class="close-menu" id="closeMenu" aria-label="Close menu">&times;</button>
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="index.html#home" class="menu-link">Home</a></li>
+                <li><a href="index.html#about" class="menu-link">About</a></li>
+                <li><a href="our-story.html" class="menu-link">Our Story</a></li>
+                <li><a href="index.html#our-process" class="menu-link">Our Process</a></li>
+                <li><a href="portfolio.html" class="menu-link">View Our Work</a></li>
+                <li><a href="index.html#contact" class="menu-link">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Our Story Hero -->
+    <section class="hero" style="margin-top: 80px; padding: 6rem 2rem;">
+        <div class="hero-content">
+            <h2 class="hero-title" style="font-size: 2.5rem;">Our Story</h2>
+            <p class="hero-subtitle">The meaning behind Flecha Web Design</p>
+        </div>
+    </section>
+
+    <!-- About the Name Section -->
+    <section class="about-name" style="background: var(--bg-white); padding: 5rem 0;">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="section-title">About the Name</h2>
+            
+            <div style="background: var(--bg-card); padding: 3rem; border-radius: 16px; border: 2px solid var(--border-color); margin-top: 2rem;">
+                <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 1.5rem;">
+                    The name "Flecha Web Design" holds special meaning for us. "Flecha" is the Spanish word for "arrow," symbolizing direction, precision, and forward movement. Just as an arrow points toward a target with purpose and clarity, we help businesses and educational institutions navigate the digital landscape with confidence.
+                </p>
+                
+                <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-dark);">
+                    We chose this name because we believe great web design should do more than look good—it should guide users exactly where they need to go and help organizations move toward their goals. Every arrow has a direction, and we're here to make sure yours is pointed toward success.
+                </p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); border-radius: 12px;">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">→</div>
+                <h3 style="font-size: 1.5rem; color: var(--primary-color); margin-bottom: 0.5rem;">Direction • Precision • Progress</h3>
+                <p style="color: var(--text-light);">The core principles that guide everything we do</p>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center;">
+                <a href="index.html#contact" class="btn btn-primary" style="display: inline-block; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: transform 0.3s ease;">
+                    Ready to Get Started? <span class="arrow-icon">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Flecha Web Design. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#privacyModal" class="footer-link" id="privacyLink">Privacy Policy</a>
+                <a href="#accessibilityModal" class="footer-link" id="accessibilityLink">Accessibility Statement</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="legal-modal-overlay" aria-hidden="true">
+        <div class="legal-modal">
+            <button class="close-modal" data-modal="privacyModal" aria-label="Close privacy policy">&times;</button>
+            <h2>Privacy Policy</h2>
+            <div class="modal-content">
+                <p><strong>Last Updated:</strong> February 2026</p>
+                <h3>Information Collection</h3>
+                <p>We collect information you provide directly through our contact forms, including your name, email address, and project details.</p>
+                <h3>Use of Information</h3>
+                <p>Your information is used solely to respond to your inquiries and provide web design services.</p>
+                <h3>Data Protection</h3>
+                <p>We implement appropriate security measures to protect your personal information.</p>
+                <h3>Contact</h3>
+                <p>For privacy concerns, email us at LMartinez@flecha-webdesign.com</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accessibility Statement Modal -->
+    <div id="accessibilityModal" class="legal-modal-overlay" aria-hidden="true">
+        <div class="legal-modal">
+            <button class="close-modal" data-modal="accessibilityModal" aria-label="Close accessibility statement">&times;</button>
+            <h2>Accessibility Statement</h2>
+            <div class="modal-content">
+                <p>Flecha Web Design is committed to ensuring digital accessibility for people with disabilities.</p>
+                <h3>Conformance Status</h3>
+                <p>We strive to conform to WCAG 2.1 Level AA standards.</p>
+                <h3>Feedback</h3>
+                <p>We welcome feedback on the accessibility of our website. Please contact us at LMartinez@flecha-webdesign.com</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating CTA Button -->
+    <a href="index.html#contact" class="floating-cta">
+        Request Consultation <span class="arrow-icon">→</span>
+    </a>
+
+    <script src="Business_Portfolio.js"></script>
+</body>
+</html>

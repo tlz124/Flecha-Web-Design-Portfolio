@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work - Flecha Web Design</title>
+    <link rel="stylesheet" href="Business_Portfolio.css">
+</head>
+<body>
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="cookie-consent hidden">
+        <div class="cookie-content">
+            <p>We use cookies to improve your experience and analyze our traffic. You can choose to accept all or reject non-essential cookies.</p>
+            <div class="cookie-buttons">
+                <button id="acceptAll" class="cookie-btn accept">Accept All</button>
+                <button id="rejectNonEssential" class="cookie-btn reject">Reject Non-Essential</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-icon">→</span>
+                <span class="logo-text">Flecha Web Design</span>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hamburger Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <button class="close-menu" id="closeMenu" aria-label="Close menu">&times;</button>
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="index.html#home" class="menu-link">Home</a></li>
+                <li><a href="index.html#about" class="menu-link">About</a></li>
+                <li><a href="our-story.html" class="menu-link">Our Story</a></li>
+                <li><a href="index.html#our-process" class="menu-link">Our Process</a></li>
+                <li><a href="portfolio.html" class="menu-link">View Our Work</a></li>
+                <li><a href="index.html#contact" class="menu-link">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio" style="margin-top: 80px; padding-top: 5rem;">
+        <div class="container">
+            <h2 class="section-title">View Our Work</h2>
+            <p class="section-subtitle">Recent projects across education and small business</p>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="Small Business">Small Business</button>
+                <button class="filter-btn" data-filter="Healthcare">Healthcare</button>
+                <button class="filter-btn" data-filter="Education">Education</button>
+                <button class="filter-btn" data-filter="Professional Services">Professional Services</button>
+            </div>
+            
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projects will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Flecha Web Design. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#privacyModal" class="footer-link" id="privacyLink">Privacy Policy</a>
+                <a href="#accessibilityModal" class="footer-link" id="accessibilityLink">Accessibility Statement</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="legal-modal-overlay" aria-hidden="true">
+        <div class="legal-modal">
+            <button class="close-modal" data-modal="privacyModal" aria-label="Close privacy policy">&times;</button>
+            <h2>Privacy Policy</h2>
+            <div class="modal-content">
+                <p><strong>Last Updated:</strong> February 2026</p>
+                <h3>Information Collection</h3>
+                <p>We collect information you provide directly through our contact forms, including your name, email address, and project details.</p>
+                <h3>Use of Information</h3>
+                <p>Your information is used solely to respond to your inquiries and provide web design services.</p>
+                <h3>Data Protection</h3>
+                <p>We implement appropriate security measures to protect your personal information.</p>
+                <h3>Contact</h3>
+                <p>For privacy concerns, email us at LMartinez@flecha-webdesign.com</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accessibility Statement Modal -->
+    <div id="accessibilityModal" class="legal-modal-overlay" aria-hidden="true">
+        <div class="legal-modal">
+            <button class="close-modal" data-modal="accessibilityModal" aria-label="Close accessibility statement">&times;</button>
+            <h2>Accessibility Statement</h2>
+            <div class="modal-content">
+                <p>Flecha Web Design is committed to ensuring digital accessibility for people with disabilities.</p>
+                <h3>Conformance Status</h3>
+                <p>We strive to conform to WCAG 2.1 Level AA standards.</p>
+                <h3>Feedback</h3>
+                <p>We welcome feedback on the accessibility of our website. Please contact us at LMartinez@flecha-webdesign.com</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating CTA Button -->
+    <a href="index.html#contact" class="floating-cta">
+        Request Consultation <span class="arrow-icon">→</span>
+    </a>
+
+    <script src="Business_Portfolio.js"></script>
+    <script src="portfolio.js"></script>
+</body>
+</html>
