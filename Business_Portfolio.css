@@ -626,11 +626,6 @@ section {
     display: none;
 }
 
-.category-card::before {
-    content: attr(data-category);
-    color: white;
-}
-
 /* ===== Portfolio Section ===== */
 .portfolio {
     background: var(--bg-dark);
