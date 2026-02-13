@@ -452,6 +452,7 @@ filterButtons.forEach(button => {
     });
 });
 
+
 // ===== Hero Canvas Particle Network =====
 (function() {
     const heroCanvas = document.getElementById('heroCanvas');
@@ -463,16 +464,12 @@ filterButtons.forEach(button => {
     function resizeCanvas() {
         heroCanvas.width = heroCanvas.offsetWidth;
         heroCanvas.height = heroCanvas.offsetHeight;
-        
-        // Regenerate particles on resize to fit new dimensions
         initParticles();
     }
     
     function initParticles() {
         const isMobile = window.innerWidth <= 768;
         const particleCount = isMobile ? 45 : 100;
-        
-        // Clear existing particles and create new ones
         particles = Array.from({ length: particleCount }, () => new Particle());
     }
     
@@ -494,7 +491,6 @@ filterButtons.forEach(button => {
         }
         
         draw() {
-            // Brighter particles with glow
             ctx.shadowBlur = 8;
             ctx.shadowColor = 'rgba(102, 126, 234, 0.8)';
             ctx.fillStyle = 'rgba(102, 126, 234, 0.8)';
@@ -515,13 +511,11 @@ filterButtons.forEach(button => {
             particle.update();
             particle.draw();
             
-            // Connect nearby particles with visible lines
             for (let j = i + 1; j < particles.length; j++) {
                 const dx = particles[j].x - particle.x;
                 const dy = particles[j].y - particle.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 
-                // Connect particles within range
                 if (distance < 150) {
                     const opacity = (150 - distance) / 150 * 0.4;
                     ctx.strokeStyle = `rgba(102, 126, 234, ${opacity})`;
@@ -539,4 +533,3 @@ filterButtons.forEach(button => {
     
     animateParticles();
 })();
-

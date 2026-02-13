@@ -182,8 +182,6 @@ header {
     cursor: pointer;
     padding: 0;
     z-index: 2000;
-    position: relative;
-    margin-left: auto;
 }
 
 .hamburger span {
@@ -291,15 +289,6 @@ header {
     border-bottom: 2px solid var(--primary-color);
 }
 
-.hero-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-
 .hero::before {
     content: '→';
     position: absolute;
@@ -311,7 +300,6 @@ header {
     pointer-events: none;
     font-weight: 100;
     color: var(--primary-color);
-    z-index: 0;
 }
 
 .hero::after {
@@ -323,14 +311,13 @@ header {
     height: 100px;
     background: linear-gradient(to bottom, transparent, var(--bg-dark));
     pointer-events: none;
-    z-index: 1;
 }
 
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 
 .hero-title {
@@ -579,51 +566,6 @@ section {
     font-weight: 600;
     color: var(--text-dark);
     margin: 0;
-}
-
-/* ===== Portfolio Categories Section ===== */
-.portfolio-categories {
-    background: #000000;
-    padding: 5rem 0;
-}
-
-.portfolio-categories .section-title,
-.portfolio-categories .section-subtitle {
-    color: white;
-}
-
-.category-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 3rem;
-}
-
-.category-card {
-    background: transparent;
-    border: 2px solid var(--primary-color);
-    border-radius: 8px;
-    padding: 1rem 2rem;
-    text-decoration: none;
-    color: white;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: inline-block;
-}
-
-.category-card:hover {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
-}
-
-.category-card h3,
-.category-card p,
-.category-icon,
-.category-arrow {
-    display: none;
 }
 
 /* ===== Portfolio Section ===== */
@@ -945,14 +887,7 @@ section {
     border-radius: 12px;
     box-shadow: var(--shadow);
     border: 1px solid var(--border-color);
-    transition: box-shadow 0.5s ease, border-color 0.5s ease;
 }
-
-.consultation-form.highlighted {
-    box-shadow: 0 0 30px rgba(102, 126, 234, 0.3), 0 0 60px rgba(102, 126, 234, 0.15);
-    border-color: rgba(102, 126, 234, 0.4);
-}
-
 
 .form-group {
     margin-bottom: 1.5rem;
@@ -1246,18 +1181,8 @@ section {
     }
 
     .process-arrow {
+        transform: rotate(90deg);
         margin: 1rem auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 0;
-    }
-    
-    .process-arrow::after {
-        content: '↓';
-        font-size: 2.5rem;
-        color: var(--primary-color);
-        opacity: 0.6;
     }
 
     .process-step {
@@ -1492,3 +1417,12 @@ section {
     }
 }
 
+
+.hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
