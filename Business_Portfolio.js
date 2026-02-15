@@ -453,13 +453,15 @@ filterButtons.forEach(button => {
 });
 
 
-// ===== Hero Canvas Particle Network =====
+// ===== Hero Canvas Node Network Effect =====
 (function() {
     const heroCanvas = document.getElementById('heroCanvas');
     if (!heroCanvas) return;
     
     const ctx = heroCanvas.getContext('2d');
     let particles = [];
+    let mouse = { x: null, y: null, radius: 150 };
+    let animationFrameId = null;
     
     function resizeCanvas() {
         heroCanvas.width = heroCanvas.offsetWidth;
@@ -468,68 +470,197 @@ filterButtons.forEach(button => {
     }
     
     function initParticles() {
-        const isMobile = window.innerWidth <= 768;
-        const particleCount = isMobile ? 45 : 100;
-        particles = Array.from({ length: particleCount }, () => new Particle());
+        const width = heroCanvas.width;
+        const height = heroCanvas.height;
+        const isMobile = width <= 768;
+        const isPortrait = width < height;
+        
+        // Adjust particle count based on screen size and orientation
+        let particleCount;
+        if (isMobile) {
+            particleCount = isPortrait ? 30 : 40; // Fewer in portrait mode
+        } else {
+            particleCount = 80;
+        }
+        
+        // Calculate connection distance based on screen size
+        const connectionDistance = isMobile ? 100 : 150;
+        
+        particles = Array.from({ length: particleCount }, () => new Particle(connectionDistance));
     }
     
     class Particle {
-        constructor() {
+        constructor(connectionDistance) {
+            this.connectionDistance = connectionDistance;
             this.x = Math.random() * heroCanvas.width;
             this.y = Math.random() * heroCanvas.height;
-            this.vx = (Math.random() - 0.5) * 0.5;
-            this.vy = (Math.random() - 0.5) * 0.5;
-            this.radius = Math.random() * 2 + 1;
+            
+            // Slower movement on mobile for smoother performance
+            const speedMultiplier = window.innerWidth <= 768 ? 0.3 : 0.5;
+            this.vx = (Math.random() - 0.5) * speedMultiplier;
+            this.vy = (Math.random() - 0.5) * speedMultiplier;
+            
+            // Slightly larger nodes on mobile for better visibility
+            this.radius = window.innerWidth <= 768 ? 2.5 : 2;
+            this.baseRadius = this.radius;
         }
         
         update() {
             this.x += this.vx;
             this.y += this.vy;
             
+            // Bounce off edges
             if (this.x < 0 || this.x > heroCanvas.width) this.vx *= -1;
             if (this.y < 0 || this.y > heroCanvas.height) this.vy *= -1;
+            
+            // Clamp position within bounds
+            this.x = Math.max(0, Math.min(heroCanvas.width, this.x));
+            this.y = Math.max(0, Math.min(heroCanvas.height, this.y));
+            
+            // Mouse interaction (desktop only for performance)
+            if (mouse.x !== null && window.innerWidth > 768) {
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < mouse.radius) {
+                    // Repel from mouse
+                    const angle = Math.atan2(dy, dx);
+                    const force = (mouse.radius - distance) / mouse.radius;
+                    this.x -= Math.cos(angle) * force * 2;
+                    this.y -= Math.sin(angle) * force * 2;
+                    this.radius = this.baseRadius * (1 + force * 0.5);
+                } else {
+                    this.radius = this.baseRadius;
+                }
+            } else {
+                this.radius = this.baseRadius;
+            }
         }
         
         draw() {
-            ctx.shadowBlur = 8;
+            // Glowing node effect
+            ctx.shadowBlur = 10;
             ctx.shadowColor = 'rgba(102, 126, 234, 0.8)';
-            ctx.fillStyle = 'rgba(102, 126, 234, 0.8)';
+            ctx.fillStyle = 'rgba(102, 126, 234, 0.9)';
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
             ctx.fill();
             ctx.shadowBlur = 0;
         }
+        
+        connect(otherParticle) {
+            const dx = otherParticle.x - this.x;
+            const dy = otherParticle.y - this.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < this.connectionDistance) {
+                // Fade connection based on distance
+                const opacity = (1 - distance / this.connectionDistance) * 0.5;
+                
+                // Gradient line for better visual effect
+                const gradient = ctx.createLinearGradient(this.x, this.y, otherParticle.x, otherParticle.y);
+                gradient.addColorStop(0, `rgba(102, 126, 234, ${opacity})`);
+                gradient.addColorStop(0.5, `rgba(118, 75, 162, ${opacity})`);
+                gradient.addColorStop(1, `rgba(102, 126, 234, ${opacity})`);
+                
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 1.5;
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(otherParticle.x, otherParticle.y);
+                ctx.stroke();
+            }
+        }
     }
     
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    // Mouse/Touch tracking
+    heroCanvas.addEventListener('mousemove', (e) => {
+        const rect = heroCanvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+    });
     
-    function animateParticles() {
-        ctx.clearRect(0, 0, heroCanvas.width, heroCanvas.height);
+    heroCanvas.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+    
+    // Touch support (simplified for mobile)
+    heroCanvas.addEventListener('touchstart', (e) => {
+        if (window.innerWidth <= 768) return; // Disable on mobile for performance
+        const rect = heroCanvas.getBoundingClientRect();
+        const touch = e.touches[0];
+        mouse.x = touch.clientX - rect.left;
+        mouse.y = touch.clientY - rect.top;
+    });
+    
+    heroCanvas.addEventListener('touchmove', (e) => {
+        if (window.innerWidth <= 768) return;
+        e.preventDefault();
+        const rect = heroCanvas.getBoundingClientRect();
+        const touch = e.touches[0];
+        mouse.x = touch.clientX - rect.left;
+        mouse.y = touch.clientY - rect.top;
+    });
+    
+    heroCanvas.addEventListener('touchend', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+    
+    resizeCanvas();
+    
+    // Debounced resize handler
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(resizeCanvas, 250);
+    });
+    
+    // Animation loop with performance optimization
+    let lastFrameTime = 0;
+    const targetFPS = window.innerWidth <= 768 ? 30 : 60; // Lower FPS on mobile
+    const frameInterval = 1000 / targetFPS;
+    
+    function animateParticles(currentTime) {
+        animationFrameId = requestAnimationFrame(animateParticles);
         
+        const deltaTime = currentTime - lastFrameTime;
+        
+        if (deltaTime < frameInterval) return;
+        
+        lastFrameTime = currentTime - (deltaTime % frameInterval);
+        
+        // Clear with slight trail effect
+        ctx.fillStyle = 'rgba(26, 35, 62, 0.05)';
+        ctx.fillRect(0, 0, heroCanvas.width, heroCanvas.height);
+        
+        // Update and draw particles
         particles.forEach((particle, i) => {
             particle.update();
             particle.draw();
             
+            // Connect to nearby particles
             for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[j].x - particle.x;
-                const dy = particles[j].y - particle.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                
-                if (distance < 150) {
-                    const opacity = (150 - distance) / 150 * 0.4;
-                    ctx.strokeStyle = `rgba(102, 126, 234, ${opacity})`;
-                    ctx.lineWidth = 1;
-                    ctx.beginPath();
-                    ctx.moveTo(particle.x, particle.y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.stroke();
-                }
+                particle.connect(particles[j]);
             }
         });
-        
-        requestAnimationFrame(animateParticles);
     }
     
-    animateParticles();
+    animateParticles(0);
+    
+    // Pause animation when tab is not visible (performance optimization)
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            }
+        } else {
+            if (!animationFrameId) {
+                animateParticles(0);
+            }
+        }
+    });
 })();

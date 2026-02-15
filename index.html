@@ -23,7 +23,9 @@
     <header>
         <nav class="navbar">
             <div class="nav-container">
-                <h1 class="logo"><span class="logo-arrow">→</span> Flecha Web Design</h1>
+                <a href="#home" class="logo">
+                    <img src="flecha-circle-CLEAN-200h.png" alt="Flecha Web Design - Moving Your Vision Forward">
+                </a>
                 <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
@@ -38,11 +40,11 @@
         <button class="close-menu" id="closeMenu" aria-label="Close menu">&times;</button>
         <nav class="menu-nav">
             <ul>
-                <li><a href="index.html#home" class="menu-link">Home</a></li>
-                <li><a href="about.html" class="menu-link">About</a></li>
-                <li><a href="index.html#our-process" class="menu-link">Our Process</a></li>
-                <li><a href="portfolio.html" class="menu-link">View Our Work</a></li>
-                <li><a href="index.html#contact" class="menu-link">Contact Us</a></li>
+                <li><a href="#home" class="menu-link">Home</a></li>
+                <li><a href="#about" class="menu-link">About</a></li>
+                <li><a href="#our-process" class="menu-link">Our Process</a></li>
+                <li><a href="#portfolio" class="menu-link">View Our Work</a></li>
+                <li><a href="#contact" class="menu-link">Contact Us</a></li>
             </ul>
         </nav>
     </div>
@@ -139,21 +141,206 @@
         </div>
     </section>
 
-
-    <!-- Portfolio Categories Section -->
-    <section id="portfolio" class="portfolio-categories">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
         <div class="container">
             <h2 class="section-title">View Our Work</h2>
-            <p class="section-subtitle">Explore our portfolio by category</p>
+            <p class="section-subtitle">Recent projects across education and small business</p>
             
-            <div class="category-grid">
-                <a href="portfolio.html#small-business" class="category-card" data-category="Small Business">Small Business</a>
-                <a href="portfolio.html#healthcare" class="category-card" data-category="Healthcare">Healthcare</a>
-                <a href="portfolio.html#education" class="category-card" data-category="Education">Education</a>
-                <a href="portfolio.html#professional" class="category-card" data-category="Professional Services">Professional Services</a>
+            <!-- Filter Buttons -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="Small Business">Small Business</button>
+                <button class="filter-btn" data-filter="Healthcare">Healthcare</button>
+                <button class="filter-btn" data-filter="Education">Education</button>
+                <button class="filter-btn" data-filter="Professional Services">Professional Services</button>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Small Business Projects -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600&h=400&fit=crop" alt="Local Flower Shop">
+                        <div class="project-overlay">
+                            <button class="view-details" data-project="0">View Details <span class="arrow-icon">→</span></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Small Business</span>
+                        <h3 class="project-title">Local Flower Shop</h3>
+                        <p class="project-description">Modern florist website with online ordering and delivery</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&h=400&fit=crop" alt="Mexican Restaurant">
+                        <div class="project-overlay">
+                            <button class="view-details" data-project="1">View Details <span class="arrow-icon">→</span></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Small Business</span>
+                        <h3 class="project-title">Mexican Restaurant</h3>
+                        <p class="project-description">Authentic Mexican restaurant with menu and reservation system</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1548681528-6a5c45b66b42?w=600&h=400&fit=crop" alt="Pet Grooming Salon">
+                        <div class="project-overlay">
+                            <button class="view-details" data-project="2">View Details <span class="arrow-icon">→</span></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Small Business</span>
+                        <h3 class="project-title">Pet Grooming Salon</h3>
+                        <p class="project-description">Professional pet grooming services with appointment booking</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&h=400&fit=crop" alt="Modern Dental Office">
+                        <div class="project-overlay">
+                            <button class="view-details" data-project="3">View Details <span class="arrow-icon">→</span></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Small Business</span>
+                        <h3 class="project-title">Modern Dental Office</h3>
+                        <p class="project-description">Contemporary dental practice with patient portal and services</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop" alt="Fitness Center">
+                        <div class="project-overlay">
+                            <button class="view-details" data-project="4">View Details <span class="arrow-icon">→</span></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Small Business</span>
+                        <h3 class="project-title">Fitness Center</h3>
+                        <p class="project-description">Modern fitness business with class schedules and membership options</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop" alt="Architecture Firm">
+                        <div class="project-overlay">
+                            <button class="view-details" data-project="5">View Details <span class="arrow-icon">→</span></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Small Business</span>
+                        <h3 class="project-title">Architecture Firm</h3>
+                        <p class="project-description">Professional architecture business showcasing portfolio and services</p>
+                    </div>
+                </div>
+
+                <!-- Education Projects -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=400&fit=crop" alt="K-12 School Website">
+                        <div class="project-overlay">
+                            <button class="view-details" data-project="6">View Details <span class="arrow-icon">→</span></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Education</span>
+                        <h3 class="project-title">K-12 School Website</h3>
+                        <p class="project-description">Comprehensive school website for middle and high school students</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&h=400&fit=crop" alt="Nonprofit Organization">
+                        <div class="project-overlay">
+                            <button class="view-details" data-project="7">View Details <span class="arrow-icon">→</span></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Education</span>
+                        <h3 class="project-title">Nonprofit Organization</h3>
+                        <p class="project-description">Versatile nonprofit website template for community organizations</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://tlz124.github.io/orthodontist/istockphoto-1274268165-612x612.webp" alt="Orthodontist Practice">
+                        <div class="project-overlay">
+                            <button class="view-details" data-project="8">View Details <span class="arrow-icon">→</span></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Healthcare</span>
+                        <h3 class="project-title">Orthodontist Practice</h3>
+                        <p class="project-description">Modern orthodontist website with treatment information and appointment scheduling</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&h=400&fit=crop" alt="Beauty Supply Store">
+                        <div class="project-overlay">
+                            <button class="view-details" data-project="9">View Details <span class="arrow-icon">→</span></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Small Business</span>
+                        <h3 class="project-title">Beauty Supply Store</h3>
+                        <p class="project-description">Modern beauty supply website with curated products and elegant design</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=400&fit=crop" alt="Contemporary Hair Salon">
+                        <div class="project-overlay">
+                            <button class="view-details" data-project="10">View Details <span class="arrow-icon">→</span></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Small Business</span>
+                        <h3 class="project-title">Contemporary Hair Salon</h3>
+                        <p class="project-description">Elegant hair salon website showcasing services and portfolio</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop" alt="Corporate Law Firm">
+                        <div class="project-overlay">
+                            <button class="view-details" data-project="11">View Details <span class="arrow-icon">→</span></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Professional Services</span>
+                        <h3 class="project-title">Corporate Law Firm</h3>
+                        <p class="project-description">Professional law firm website showcasing expertise and legal services</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About the Name</h2>
+            <div class="about-content">
+                <p>The name "Flecha Web Design" holds special meaning for us. "Flecha" is the Spanish word for "arrow," symbolizing direction, precision, and forward movement. Just as an arrow points toward a target with purpose and clarity, we help businesses and educational institutions navigate the digital landscape with confidence.</p>
+                <p>We chose this name because we believe great web design should do more than look good—it should guide users exactly where they need to go and help organizations move toward their goals. Every arrow has a direction, and we're here to make sure yours is pointed toward success.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
@@ -174,7 +361,7 @@
                     </div>
                 </div>
 
-                <div class="consultation-form" id="consultationFormBox">
+                <div class="consultation-form">
                     <h3>Request a Consultation</h3>
                     <form id="consultationForm">
                         <div class="form-group">
@@ -198,8 +385,8 @@
         <div class="container">
             <p>&copy; 2026 Flecha Web Design. All rights reserved.</p>
             <div class="footer-links">
-                <a href="privacy.html" class="footer-link">Privacy Policy</a>
-                <a href="accessibility.html" class="footer-link">Accessibility Statement</a>
+                <a href="#privacyModal" class="footer-link" id="privacyLink">Privacy Policy</a>
+                <a href="#accessibilityModal" class="footer-link" id="accessibilityLink">Accessibility Statement</a>
             </div>
         </div>
     </footer>
