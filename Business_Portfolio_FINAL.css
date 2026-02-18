@@ -328,8 +328,8 @@ header {
 .hero-subtitle {
     font-size: 1.5rem;
     margin-bottom: 2rem;
-    color: var(--text-gray);
-    font-weight: 300;
+    color: var(--text-white);
+    font-weight: 400;
 }
 
 /* ===== Container & Sections ===== */
