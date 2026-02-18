@@ -21,9 +21,9 @@
     --text-gray: #a0a0a0;
     
     /* Subtle Purple Accents */
-    --purple-accent: #8b7ab8;
-    --purple-light: #b8a8d8;
-    --purple-dark: #6a5a8a;
+    --purple-accent: #a78bdb;
+    --purple-light: #c9b3f5;
+    --purple-dark: #7e5fb8;
     
     /* Glow Effects */
     --glow-white: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
@@ -511,12 +511,15 @@ section::before {
 .reassurance-item {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
+    text-align: left;
 }
 
 .reassurance-icon {
     font-size: 2rem;
     color: var(--purple-accent);
+    flex-shrink: 0;
 }
 
 .reassurance-item p {
@@ -1094,6 +1097,8 @@ section::before {
 
     .hero-subtitle {
         font-size: 1.1rem;
+        color: var(--text-light);
+        font-weight: 500;
     }
     
     .logo-image {
@@ -1121,6 +1126,16 @@ section::before {
     .process-step {
         min-height: auto;
         padding: 2rem 1.5rem;
+    }
+    
+    .process-reassurance {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.5rem;
+    }
+    
+    .reassurance-item {
+        flex-direction: column;
+        text-align: center;
     }
 
     .projects-grid {
