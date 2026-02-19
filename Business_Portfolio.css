@@ -1028,7 +1028,7 @@ section::before {
 /* ===== Floating CTA Button ===== */
 .floating-cta {
     position: fixed;
-    bottom: 2rem;
+    bottom: 6rem;
     right: 2rem;
     z-index: 999;
     background: var(--purple-accent);
@@ -1221,7 +1221,7 @@ section::before {
     }
     
     .floating-cta {
-        bottom: 1rem;
+        bottom: 5rem;
         right: 1rem;
         padding: 1rem 1.75rem;
         font-size: 0.9rem;
