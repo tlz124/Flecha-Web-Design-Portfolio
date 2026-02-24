@@ -21,9 +21,9 @@
     --text-gray: #a0a0a0;
     
     /* Subtle Purple Accents */
-    --purple-accent: #c9a0ff;
-    --purple-light: #e5ccff;
-    --purple-dark: #a070e0;
+    --purple-accent: #d4a5ff;
+    --purple-light: #e8ccff;
+    --purple-dark: #b580e6;
     
     /* Glow Effects */
     --glow-white: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
@@ -601,14 +601,14 @@ section::before {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease, filter 0.3s ease;
-    /* Warm amber/honey tone - complements purple beautifully */
-    filter: saturate(0.8) brightness(0.95) contrast(1.1) sepia(0.35) hue-rotate(20deg);
+    /* Enhanced highlights with warm yellow glow - artistic editorial look */
+    filter: saturate(1.1) brightness(1.08) contrast(1.15) sepia(0.25) hue-rotate(15deg);
 }
 
 .project-card:hover .project-image img {
     transform: scale(1.05);
-    /* Slightly warmer on hover */
-    filter: saturate(0.85) brightness(0.98) contrast(1.12) sepia(0.38) hue-rotate(20deg);
+    /* Intensify highlights and warm glow on hover */
+    filter: saturate(1.2) brightness(1.12) contrast(1.2) sepia(0.28) hue-rotate(15deg);
 }
 
 .project-overlay {
@@ -921,8 +921,8 @@ section::before {
     height: 400px;
     object-fit: cover;
     border-radius: 4px 0 0 4px;
-    /* Match warm amber tone */
-    filter: saturate(0.8) brightness(0.95) contrast(1.1) sepia(0.35) hue-rotate(20deg);
+    /* Match enhanced highlights with warm glow */
+    filter: saturate(1.1) brightness(1.08) contrast(1.15) sepia(0.25) hue-rotate(15deg);
 }
 
 .modal-info {
