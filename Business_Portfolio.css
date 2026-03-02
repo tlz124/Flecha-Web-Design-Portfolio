@@ -777,7 +777,7 @@ section::before {
     margin-bottom: 1.5rem;
 }
 
-.form-group input {
+.form-group input, .form-group select {
     width: 100%;
     padding: 1rem;
     background: var(--dark-gray);
@@ -788,7 +788,7 @@ section::before {
     transition: all 0.3s ease;
 }
 
-.form-group input:focus {
+.form-group input:focus, .form-group selct:focus {
     outline: none;
     border-color: var(--purple-accent);
     box-shadow: var(--glow-purple);
