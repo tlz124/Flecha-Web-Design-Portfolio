@@ -129,6 +129,11 @@ header {
     padding: 1rem 0;
 }
 
+
+
+
+
+
 .nav-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -144,13 +149,21 @@ header {
     gap: 0.75rem;
     text-decoration: none;
     transition: all 0.3s ease;
+    border: 1px solid var(--border-gray);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    background: var(--black);
 }
 
 .logo-image {
     height: 100px;
     width: auto;
     transition: all 0.3s ease;
+/* 
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
+ */
+    display: block;
+    margin: -0.5rem 0;
 }
 
 .logo-text {
@@ -177,9 +190,6 @@ header {
     line-height: 1;
 }
 
-.logo:hover .logo-image {
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
-}
 
 .logo:hover .logo-text-main {
     color: var(--text-light);
