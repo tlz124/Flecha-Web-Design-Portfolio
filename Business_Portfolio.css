@@ -788,7 +788,7 @@ section::before {
     transition: all 0.3s ease;
 }
 
-.form-group input:focus, .form-group selct:focus {
+.form-group input:focus, .form-group select:focus {
     outline: none;
     border-color: var(--purple-accent);
     box-shadow: var(--glow-purple);
@@ -1227,3 +1227,17 @@ section::before {
         font-size: 0.9rem;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
