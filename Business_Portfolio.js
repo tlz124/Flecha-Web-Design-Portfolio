@@ -321,31 +321,8 @@ document.addEventListener('keydown', (e) => {
 // ===== Consultation Form Handling =====
 const consultationForm = document.getElementById('consultationForm');
 
-consultationForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form values
-    const name = document.getElementById('consultName').value;
-    const email = document.getElementById('consultEmail').value;
-    const phone = document.getElementById('consultPhone').value;
 
-    // Create mailto link
-    const subject = encodeURIComponent('Consultation Request from ' + name);
-    const body = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nI would like to request a consultation for web design services.`
-    );
-    
-    const mailtoLink = `mailto:LMartinez@flecha-webdesign.com?subject=${subject}&body=${body}`;
-    
-    // Open email client
-    window.location.href = mailtoLink;
 
-    // Show success message
-    alert('Thank you for your interest! Your email client will open to send the consultation request.');
-
-    // Reset form
-    consultationForm.reset();
-});
 
 // ===== Smooth Scroll for Navigation Links =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -665,6 +642,14 @@ filterButtons.forEach(button => {
     });
 })();
 
-
+const dateInput = document.getElementById('preferred_date');
+dateInput.addEventListener('focus', function() {
+    this.type = 'date';
+});
+dateInput.addEventListener('blur', function() {
+    if (!this.value) {
+        this.type = 'text';
+    }
+});
 
 
