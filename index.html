@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https://images.unsplash.com https://tlz124.github.io data:; form-action https://formspree.io; connect-src 'self';">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <title>Flecha Web Design - Web Design for Education & Small Business</title>
     <link rel="stylesheet" href="Business_Portfolio.css">
 </head>
@@ -414,6 +417,7 @@
                         <input type="hidden" name="_subject" value="New Consultation Request - Flecha Web Design">
                         <input type="hidden" name="_captcha" value="true">
                         <input type="hidden" name="_template" value="table">
+                        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
                         <button type="submit" class="submit-btn">Request Consultation <span class="arrow-icon">→</span></button>
                     </form>
                 </div>
