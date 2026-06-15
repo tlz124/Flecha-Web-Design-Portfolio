@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https://images.unsplash.com https://tlz124.github.io data:; form-action https://formspree.io; connect-src 'self';">
+    <meta http-equiv="Content-Security-Policy" content="...">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <title>Flecha Web Design - Web Design for Education & Small Business</title>
+    <link rel="icon" type="image/png" href="flecha-web-design-logo.png">
     <link rel="stylesheet" href="Business_Portfolio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <!-- Cookie Consent Banner -->
@@ -20,23 +22,21 @@
                 <button id="managePreferences" class="cookie-btn manage">Manage Preferences</button>
             </div>
         </div>
-    </div>
-
-
-
-
+    </div>     
 
     <!-- Header/Navigation -->
     <header>
         <nav class="navbar">
             <div class="nav-container">
                 <a href="index.html" class="logo">
-                    <img src="flecha-web-design-logo.png" alt="Flecha chevrons" class="logo-image">
+                    <!-- <img src="flecha-web-design-logo.png" alt="Flecha chevrons" class="logo-image"> -->
+                    <img src="flecha-web-design-logo.svg" alt="Flecha chevrons left" class="logo-chevrons">
                     <div class="logo-text">
                         <span class="logo-text-main">FLECHA</span>
                         <span class="logo-text-sub">WEB DESIGN</span>
                     </div>
-                    <img src="flecha-web-design-logo.png" alt="Flecha chevrons" class="logo-image logo-image-right">
+                    <!-- <img src="flecha-web-design-logo.png" alt="Flecha chevrons" class="logo-image logo-image-right"> -->
+                    <img src="flecha-web-design-logo.svg" alt="Flecha chevrons right" class="logo-chevrons">
                 </a>
                 <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
                     <span></span>
@@ -52,11 +52,21 @@
         <button class="close-menu" id="closeMenu" aria-label="Close menu">&times;</button>
         <nav class="menu-nav">
             <ul>
-                <li><a href="#home" class="menu-link">Home</a></li>
-                <li><a href="#about" class="menu-link">About</a></li>
-                <li><a href="#our-process" class="menu-link">Our Process</a></li>
-                <li><a href="#portfolio" class="menu-link">View Our Work</a></li>
-                <li><a href="#contact" class="menu-link">Contact Us</a></li>
+                <li class="menu-item-parent">
+                    <div class="menu-item-parent-row">
+                    <a href="index.html" class="menu-link active-link menu-link--parent">Home</a>
+                    <button class="menu-submenu-toggle" id="homeSubmenuToggle" aria-label="Toggle Home submenu">&#8964;</button>
+                    </div>
+                    <ul class="menu-submenu menu-submenu--collapsed">
+                        <li><a href="#questionnaire" class="menu-sublink">Client Questionnaire</a></li>
+                        <li><a href="#our-process" class="menu-sublink">Our Process</a></li>
+                        <li><a href="#pricing" class="menu-sublink">Pricing</a></li>
+                        <li><a href="#contact" class="menu-sublink">Contact Us</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="menu-link">About</a></li>
+                <li><a href="what_we_do.html" class="menu-link">What We Do</a></li>
+                <li><a href="portfolio.html" class="menu-link">Portfolio</a></li>
             </ul>
         </nav>
     </div>
@@ -78,60 +88,107 @@
         </div>
     </section>
 
-    <!-- What We Do Section -->
-    <section class="what-we-do">
+
+    <!-- Our Process Section -->
+    <!-- Before We Meet Banner -->
+    <section class="before-we-meet" id="questionnaire">
         <div class="container">
-            <h2 class="section-title">What We Do</h2>
-            <p class="what-we-do-text">Every project begins with understanding your unique goals and audience. We don't believe in one-size-fits-all templates. Instead, we take time to learn about your vision, your values, and what sets you apart. Our design strategy focuses on three core principles: clarity, functionality, and purpose. Whether you're an educational platform helping students achieve their dreams or a local business serving your community, we craft websites that are intuitive, professional, and designed to grow with you. We combine clean aesthetics with practical features to ensure your site doesn't just look good—it works hard for you.</p>
+            <div class="before-we-meet-content">
+                <div class="before-we-meet-text">
+                    <div class="before-we-meet-badge">Required First Step</div>
+                    <h3 class="before-we-meet-title">Before Your Consultation</h3>
+                    <p class="before-we-meet-desc">Before we meet, we ask you to complete a short questionnaire about your business, goals, and vision. This helps us make the most of our time together and come prepared with the right questions and ideas.</p>
+                </div>
+                <div class="before-we-meet-actions">
+                    <a href="flecha-client-questionnaire.pdf" download class="step-q-btn step-q-btn--download"><span>⬇</span> Download PDF</a>
+                    <a href="questionnaire.html" target="_blank" class="step-q-btn step-q-btn--online"><span>✏</span> Fill Out Online</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Our Process Section -->
     <section id="our-process" class="our-process">
         <div class="container">
-            <h2 class="section-title">Our Process</h2>
+            <h2 class="section-title">How It Works</h2>
             <p class="section-subtitle">Simple steps, no tech knowledge required</p>
-            
             <div class="process-timeline">
+
                 <div class="process-step">
-                    <div class="step-number">1</div>
+                    <div class="step-left">
+                        <div class="step-number">1</div>
+                    </div>
                     <div class="step-content">
-                        <h3 class="step-title">Free Consultation</h3>
-                        <p class="step-description">We start with a friendly conversation about your vision, goals, and what success looks like for you. No pressure, no jargon—just getting to know your business.</p>
-                        <span class="step-time">30 minutes</span>
+                        <div class="step-header">
+                            <h3 class="step-title">Free Consultation</h3>
+                            <button class="step-toggle" aria-label="Toggle details">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                        </div>
+                        <div class="step-body">
+                            <p class="step-description">We start with a friendly conversation about your vision, goals, and what success looks like for you. No pressure, no jargon—just getting to know your business.</p>
+                            <p class="step-reminder">Haven't filled out the questionnaire yet? <a href="questionnaire.html" target="_blank">Do it here →</a></p>
+                            <span class="step-time">30 minutes</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="process-arrow">→</div>
 
                 <div class="process-step">
-                    <div class="step-number">2</div>
+                    <div class="step-left">
+                        <div class="step-number">2</div>
+                    </div>
                     <div class="step-content">
-                        <h3 class="step-title">Custom Proposal</h3>
-                        <p class="step-description">You'll receive a clear proposal with timeline, deliverables, and pricing. No surprises, no hidden fees. You approve before we begin any work.</p>
-                        <span class="step-time">2-3 business days</span>
+                        <div class="step-header">
+                            <h3 class="step-title">Custom Proposal</h3>
+                            <button class="step-toggle" aria-label="Toggle details">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                        </div>
+                        <div class="step-body">
+                            <p class="step-description">You'll receive a clear proposal with timeline, deliverables, and pricing. No surprises, no hidden fees. You approve before we begin any work.</p>
+                            <span class="step-time">2-3 business days</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="process-arrow">→</div>
 
                 <div class="process-step">
-                    <div class="step-number">3</div>
+                    <div class="step-left">
+                        <div class="step-number">3</div>
+                    </div>
                     <div class="step-content">
-                        <h3 class="step-title">Design & Build</h3>
-                        <p class="step-description">We handle all the technical stuff while keeping you in the loop. You'll see progress updates and give feedback in plain language—we translate it into code.</p>
-                        <span class="step-time">2-4 weeks</span>
+                        <div class="step-header">
+                            <h3 class="step-title">Design & Build</h3>
+                            <button class="step-toggle" aria-label="Toggle details">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                        </div>
+                        <div class="step-body">
+                            <p class="step-description">We handle all the technical stuff while keeping you in the loop. You'll see progress updates and give feedback in plain language—we translate it into code.</p>
+                            <span class="step-time">2-4 weeks</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="process-arrow">→</div>
 
                 <div class="process-step">
-                    <div class="step-number">4</div>
+                    <div class="step-left">
+                        <div class="step-number">4</div>
+                    </div>
                     <div class="step-content">
-                        <h3 class="step-title">Launch & Support</h3>
-                        <p class="step-description">We'll guide you through launch day and show you how to make simple updates. Plus, we're here if you need help down the road.</p>
-                        <span class="step-time">Ongoing</span>
+                        <div class="step-header">
+                            <h3 class="step-title">Launch & Support</h3>
+                            <button class="step-toggle" aria-label="Toggle details">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                        </div>
+                        <div class="step-body">
+                            <p class="step-description">We'll guide you through launch day and show you how to make simple updates. Plus, we're here if you need help down the road.</p>
+                            <span class="step-time">Ongoing</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -157,199 +214,252 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
             <h2 class="section-title">View Our Work</h2>
-            <p class="section-subtitle">Recent projects across education and small business</p>
-            
-            <!-- Filter Buttons -->
-            <div class="filter-container">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="Small Business">Small Business</button>
-                <button class="filter-btn" data-filter="Healthcare">Healthcare</button>
-                <button class="filter-btn" data-filter="Education">Education</button>
-                <button class="filter-btn" data-filter="Professional Services">Professional Services</button>
-            </div>
-            
-            <div class="projects-grid">
-                <!-- Small Business Projects -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600&h=400&fit=crop" alt="Local Flower Shop">
-                        <div class="project-overlay">
-                            <button class="view-details" data-project="0">View Details <span class="arrow-icon">→</span></button>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Small Business</span>
-                        <h3 class="project-title">Local Flower Shop</h3>
-                        <p class="project-description">Modern florist website with online ordering and delivery</p>
-                    </div>
-                </div>
+            <p class="section-subtitle">Swipe to spin · tap a panel to visit the live site</p>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&h=400&fit=crop" alt="Mexican Restaurant">
-                        <div class="project-overlay">
-                            <button class="view-details" data-project="1">View Details <span class="arrow-icon">→</span></button>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Small Business</span>
-                        <h3 class="project-title">Mexican Restaurant</h3>
-                        <p class="project-description">Authentic Mexican restaurant with menu and reservation system</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1548681528-6a5c45b66b42?w=600&h=400&fit=crop" alt="Pet Grooming Salon">
-                        <div class="project-overlay">
-                            <button class="view-details" data-project="2">View Details <span class="arrow-icon">→</span></button>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Small Business</span>
-                        <h3 class="project-title">Pet Grooming Salon</h3>
-                        <p class="project-description">Professional pet grooming services with appointment booking</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&h=400&fit=crop" alt="Modern Dental Office">
-                        <div class="project-overlay">
-                            <button class="view-details" data-project="3">View Details <span class="arrow-icon">→</span></button>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Small Business</span>
-                        <h3 class="project-title">Modern Dental Office</h3>
-                        <p class="project-description">Contemporary dental practice with patient portal and services</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop" alt="Fitness Center">
-                        <div class="project-overlay">
-                            <button class="view-details" data-project="4">View Details <span class="arrow-icon">→</span></button>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Small Business</span>
-                        <h3 class="project-title">Fitness Center</h3>
-                        <p class="project-description">Modern fitness business with class schedules and membership options</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop" alt="Architecture Firm">
-                        <div class="project-overlay">
-                            <button class="view-details" data-project="5">View Details <span class="arrow-icon">→</span></button>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Small Business</span>
-                        <h3 class="project-title">Architecture Firm</h3>
-                        <p class="project-description">Professional architecture business showcasing portfolio and services</p>
-                    </div>
-                </div>
-
-                <!-- Education Projects -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=400&fit=crop" alt="K-12 School Website">
-                        <div class="project-overlay">
-                            <button class="view-details" data-project="6">View Details <span class="arrow-icon">→</span></button>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Education</span>
-                        <h3 class="project-title">K-12 School Website</h3>
-                        <p class="project-description">Comprehensive school website for middle and high school students</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&h=400&fit=crop" alt="Nonprofit Organization">
-                        <div class="project-overlay">
-                            <button class="view-details" data-project="7">View Details <span class="arrow-icon">→</span></button>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Education</span>
-                        <h3 class="project-title">Nonprofit Organization</h3>
-                        <p class="project-description">Versatile nonprofit website template for community organizations</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://tlz124.github.io/orthodontist/istockphoto-1274268165-612x612.webp" alt="Orthodontist Practice">
-                        <div class="project-overlay">
-                            <button class="view-details" data-project="8">View Details <span class="arrow-icon">→</span></button>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Healthcare</span>
-                        <h3 class="project-title">Orthodontist Practice</h3>
-                        <p class="project-description">Modern orthodontist website with treatment information and appointment scheduling</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&h=400&fit=crop" alt="Beauty Supply Store">
-                        <div class="project-overlay">
-                            <button class="view-details" data-project="9">View Details <span class="arrow-icon">→</span></button>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Small Business</span>
-                        <h3 class="project-title">Beauty Supply Store</h3>
-                        <p class="project-description">Modern beauty supply website with curated products and elegant design</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=400&fit=crop" alt="Contemporary Hair Salon">
-                        <div class="project-overlay">
-                            <button class="view-details" data-project="10">View Details <span class="arrow-icon">→</span></button>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Small Business</span>
-                        <h3 class="project-title">Contemporary Hair Salon</h3>
-                        <p class="project-description">Elegant hair salon website showcasing services and portfolio</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop" alt="Corporate Law Firm">
-                        <div class="project-overlay">
-                            <button class="view-details" data-project="11">View Details <span class="arrow-icon">→</span></button>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-category">Professional Services</span>
-                        <h3 class="project-title">Corporate Law Firm</h3>
-                        <p class="project-description">Professional law firm website showcasing expertise and legal services</p>
-                    </div>
-                </div>
+            <div class="sphere-container">
+                <canvas id="portfolioSphere"></canvas>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+
+   
+    <!-- Pricing & Payment Section -->
+    <section id="pricing" class="pricing-section">
         <div class="container">
-            <h2 class="section-title">About the Name</h2>
-            <div class="about-content">
-                <p>The name "Flecha Web Design" holds special meaning for us. "Flecha" is the Spanish word for "arrow," symbolizing direction, precision, and forward movement. Just as an arrow points toward a target with purpose and clarity, we help businesses and educational institutions navigate the digital landscape with confidence.</p>
-                <p>We chose this name because we believe great web design should do more than look good—it should guide users exactly where they need to go and help organizations move toward their goals. Every arrow has a direction, and we're here to make sure yours is pointed toward success.</p>
+            <h2 class="section-title">Investment</h2>
+            <p class="section-subtitle">Simple, transparent pricing — no surprises</p>
+            <p class="pricing-swipe-hint">← Swipe to explore plans →</p>
+
+            <!-- E-Commerce Toggle -->
+            <div class="pricing-toggle-wrap">
+                <button class="pricing-toggle-btn pricing-toggle-btn--left active" id="nonEcomBtn">
+                    Non E-Commerce
+                </button>
+                <button class="pricing-toggle-btn pricing-toggle-btn--right" id="ecomBtn">
+                    E-Commerce
+                </button>
             </div>
+
+            <div class="pricing-content-wrap">
+            <!-- Non E-Commerce Pricing -->
+            <div class="pricing-grid" id="nonEcomPricing">
+
+                <!-- Tier 1: Essential -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Essential</h3>
+                        <div class="pricing-amount">
+                            <span class="pricing-total">$1,000</span>
+                            <span class="pricing-label">Total Project Price</span>
+                        </div>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li>✓ Mobile Responsive Design</li>
+                            <li>✓ Photo Gallery</li>
+                            <li>✓ Contact Form</li>
+                            <li>✓ Business Hours, Location & Google Maps</li>
+                            <li>✓ Social Media Links</li>
+                        </ul>
+                        <a href="#contact" class="pricing-cta">
+                            Request Consultation <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tier 2: Essential Plus -->
+                <div class="pricing-card pricing-card-featured">
+                    <div class="pricing-featured-label"></div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Essential Plus</h3>
+                        <div class="pricing-amount">
+                            <span class="pricing-total">$3,000</span>
+                            <span class="pricing-label">Total Project Price</span>
+                        </div>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li class="pricing-feature-expandable">
+                                <div class="pricing-feature-header">
+                                    <span>✓ Everything in Essential</span>
+                                    <button class="pricing-feature-toggle" aria-label="Show Essential features">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </button>
+                                </div>
+                                <ul class="pricing-feature-sub">
+                                    <li>— Mobile Responsive Design</li>
+                                    <li>— Photo Gallery</li>
+                                    <li>— Contact Form</li>
+                                    <li>— Business Hours, Location & Google Maps</li>
+                                    <li>— Social Media Links</li>
+                                </ul>
+                            </li>
+                            <li>✓ Product Catalog with Pricing</li>
+                            <li>✓ Delivery Area Section</li>
+                            <li>✓ Testimonials Section</li>
+                            <li>✓ Expanded Navigation</li>
+                        </ul>
+                        <a href="#contact" class="pricing-cta">
+                            Request Consultation <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tier 3: Custom -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Custom</h3>
+                        <div class="pricing-amount">
+                            <span class="pricing-total">$5,000+</span>
+                            <span class="pricing-label">Starting Price</span>
+                        </div>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li class="pricing-feature-expandable">
+                                <div class="pricing-feature-header">
+                                    <span>✓ Everything in Tier 2</span>
+                                    <button class="pricing-feature-toggle" aria-label="Show Tier 2 features">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </button>
+                                </div>
+                                <ul class="pricing-feature-sub">
+                                    <li>— Mobile Responsive Design</li>
+                                    <li>— Photo Gallery</li>
+                                    <li>— Contact Form</li>
+                                    <li>— Business Hours, Location & Google Maps</li>
+                                    <li>— Social Media Links</li>
+                                    <li>— Product Catalog with Pricing</li>
+                                    <li>— Delivery Area Section</li>
+                                    <li>— Testimonials Section</li>
+                                    <li>— Expanded Navigation</li>
+                                </ul>
+                            </li>
+                            <li>✓ Complex Functionality</li>
+                            <li>✓ Custom Quote Based on Scope</li>
+                            <li>✓ Priority Support</li>
+                            <li>✓ Extended Launch Support</li>
+                        </ul>
+                        <a href="#contact" class="pricing-cta">
+                            Request Consultation <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- E-Commerce Pricing -->
+            <div class="pricing-grid" id="ecomPricing" style="display:none;">
+
+                <!-- E-Com Tier 1 -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">E-Com Essential</h3>
+                        <div class="pricing-amount">
+                            <span class="pricing-total">$2,500</span>
+                            <span class="pricing-label">Total Project Price</span>
+                        </div>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li>✓ Mobile Responsive Design</li>
+                            <li>✓ Online Store Setup</li>
+                            <li>✓ Up to 25 Products</li>
+                            <li>✓ Secure Checkout</li>
+                            <li>✓ Payment Gateway Integration</li>
+                        </ul>
+                        <a href="#contact" class="pricing-cta">
+                            Request Consultation <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- E-Com Tier 2 -->
+                <div class="pricing-card pricing-card-featured">
+                    <div class="pricing-featured-label">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">E-Com Plus</h3>
+                        <div class="pricing-amount">
+                            <span class="pricing-total">$4,500</span>
+                            <span class="pricing-label">Total Project Price</span>
+                        </div>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li class="pricing-feature-expandable">
+                                <div class="pricing-feature-header">
+                                    <span>✓ Everything in E-Com Essential</span>
+                                    <button class="pricing-feature-toggle" aria-label="Show features">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </button>
+                                </div>
+                                <ul class="pricing-feature-sub">
+                                    <li>— Mobile Responsive Design</li>
+                                    <li>— Online Store Setup</li>
+                                    <li>— Up to 25 Products</li>
+                                    <li>— Secure Checkout</li>
+                                    <li>— Payment Gateway Integration</li>
+                                </ul>
+                            </li>
+                            <li>✓ Up to 100 Products</li>
+                            <li>✓ Inventory Management</li>
+                            <li>✓ Discount & Coupon System</li>
+                            <li>✓ Customer Accounts</li>
+                        </ul>
+                        <a href="#contact" class="pricing-cta">
+                            Request Consultation <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- E-Com Tier 3 -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">E-Com Custom</h3>
+                        <div class="pricing-amount">
+                            <span class="pricing-total">$7,500+</span>
+                            <span class="pricing-label">Starting Price</span>
+                        </div>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li class="pricing-feature-expandable">
+                                <div class="pricing-feature-header">
+                                    <span>✓ Everything in E-Com Plus</span>
+                                    <button class="pricing-feature-toggle" aria-label="Show features">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </button>
+                                </div>
+                                <ul class="pricing-feature-sub">
+                                    <li>— Mobile Responsive Design</li>
+                                    <li>— Online Store Setup</li>
+                                    <li>— Up to 100 Products</li>
+                                    <li>— Inventory Management</li>
+                                    <li>— Discount & Coupon System</li>
+                                    <li>— Customer Accounts</li>
+                                </ul>
+                            </li>
+                            <li>✓ Unlimited Products</li>
+                            <li>✓ Custom Integrations</li>
+                            <li>✓ Priority Support</li>
+                            <li>✓ Custom Quote Based on Scope</li>
+                        </ul>
+                        <a href="#contact" class="pricing-cta">
+                            Request Consultation <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="pricing-note">
+                All tiers include a 50% deposit at project start with the
+                remaining balance due on delivery. Optional maintenance &amp;
+                support plans available for all tiers.
+            </p>
+            </div>
+
         </div>
     </section>
 
@@ -375,7 +485,7 @@
 
                 <div class="consultation-form">
                     <h3>Request a Consultation</h3>
-                    <form action="https://formspree.io/f/xreavegv" method="POST">
+                    <form id="consultationForm" action="https://formspree.io/f/xreavegv" method="POST">
                         <div class="form-group">
                             <input type="text" name="name" placeholder="Your Name" required pattern="[A-Za-z\s\-']{2,50}" title="Please enter a valid name (letters only, 2-50 characters)">
                         </div>
@@ -385,14 +495,9 @@
                         <div class="form-group">
                             <input type="tel" name="phone" placeholder="Your Phone Number" required pattern="[\d\s\-\+\(\)]{7,15}" title="Please enter a valid phone number">
                         </div>
-                        
-                        
-                        
                         <div class="form-group">
                             <input type="text" id="preferred_date" name="preferred_date" placeholder="Preferred Date" required>
                         </div>
-
-
                         <div class="form-group">
                             <select name="preferred_time" required>
                                 <option value="" disabled selected>Select a Preferred Time</option>
@@ -407,11 +512,6 @@
                                 <option value="5:00 pm">5:00 pm</option>
                             </select>
                         </div>
-
-
-
-
-
 
                         <!-- FormSubmit Configuration -->
                         <input type="hidden" name="_subject" value="New Consultation Request - Flecha Web Design">
@@ -429,6 +529,20 @@
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 Flecha Web Design. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="YOUR_FACEBOOK_URL" class="social-icon" target="_blank" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="YOUR_LINKEDIN_URL" class="social-icon" target="_blank" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="YOUR_X_URL" class="social-icon" target="_blank" aria-label="X">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="YOUR_INSTAGRAM_URL" class="social-icon" target="_blank" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
             <div class="footer-links">
                 <a href="#privacyModal" class="footer-link" id="privacyLink">Privacy Policy</a>
                 <a href="#accessibilityModal" class="footer-link" id="accessibilityLink">Accessibility Statement</a>
@@ -451,7 +565,7 @@
                 <p>We never share your data.</p>
                 
                 <h3>User Rights</h3>
-                <p>You have the right to delete your information at any time. Simply email us at <a href="/cdn-cgi/l/email-protection#51173d343239307c06343315342238363f11173d343239307c06343315342238363f7f323e3c"><span class="__cf_email__" data-cfemail="591f353c3a3138740e3c3b1d3c2a303e37191f353c3a3138740e3c3b1d3c2a303e37773a3634">[email&#160;protected]</span></a>.</p>
+                <p>You have the right to delete your information at any time. Simply email us at <a href="mailto:www.Flecha-WebDesign.com">www.Flecha-WebDesign.com</a>.</p>
                 
                 <h2>Terms of Service</h2>
                 <p>By using our site, you agree to use it for lawful purposes and respect our intellectual property. While we strive for 100% uptime, we cannot guarantee the site will always be error-free.</p>
@@ -499,6 +613,7 @@
             </div>
         </div>
     </div>
+
     <!-- Project Detail Modal -->
     <div id="projectModal" class="modal">
         <div class="modal-content">
@@ -514,6 +629,16 @@
                         <p id="modalFullDescription"></p>
                         <h4>Technologies Used</h4>
                         <div id="modalTechnologies" class="tech-tags"></div>
+
+                        <!-- Tier Demo Buttons (shown only when tiers exist) -->
+                        <div id="modalTiersSection" class="modal-tiers-section" style="display:none;">
+                            <h4 class="modal-tiers-heading">
+                                <span class="modal-tiers-heading__icon">⬡</span>
+                                View Demo By Tier
+                            </h4>
+                            <div id="modalTiers" class="modal-tiers"></div>
+                        </div>
+
                         <div class="modal-links">
                             <a href="#" id="modalLiveLink" class="modal-link" target="_blank" rel="noopener noreferrer">View Live Site <span class="arrow-icon">→</span></a>
                         </div>
@@ -523,28 +648,225 @@
         </div>
     </div>
 
-    <!-- Floating CTA Button -->
-    <a href="#contact" class="floating-cta">
-        Request Consultation <span class="arrow-icon">→</span>
-    </a>
+    <!-- Tier Detail Modal -->
+    <div id="tierModal" class="modal">
+        <div id="tierModalContent" class="tier-modal-content">
+            <button id="closeTierModal" class="close-modal">&times;</button>
+            <div class="tier-modal-header">
+                <span id="tierModalDiamonds" class="tier-modal-diamonds"></span>
+                <h2 id="tierModalName" class="tier-modal-name"></h2>
+                <span id="tierModalPrice" class="tier-modal-price"></span>
+            </div>
+            <div class="tier-modal-body">
+                <p id="tierModalDescription" class="tier-modal-description"></p>
+                <h4 class="tier-modal-features-heading">What's Included</h4>
+                <ul id="tierModalFeatures" class="tier-modal-features"></ul>
+            </div>
+            <div class="tier-modal-footer">
+                <a href="#" id="tierModalDemoLink" class="tier-modal-demo-btn" target="_blank" rel="noopener noreferrer">
+                    View Live Demo <span class="arrow-icon">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"/>
+            <polyline points="6 11 12 5 18 11"/>
+        </svg>
+    </button>
 
     <script src="Business_Portfolio.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script>
+    (function() {
+        const projects = [
+            { title:"Local Flower Shop", category:"Small Business", image:"floral_shop.jpg", link:"https://tlz124.github.io/Watsons-Flowers/" },
+            { title:"Mexican Restaurant", category:"Food & Beverage", image:"https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&h=400&fit=crop", link:"https://tlz124.github.io/restaurant/" },
+            { title:"Modern Dental Office", category:"Healthcare", image:"https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&h=400&fit=crop", link:"https://tlz124.github.io/dental-office-website/" },
+            { title:"Architecture Firm", category:"Professional Services", image:"https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop", link:"https://tlz124.github.io/architecture-essential/" },
+            { title:"K-12 School", category:"Education", image:"https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=400&fit=crop", link:"https://tlz124.github.io/school/" },
+            { title:"Nonprofit Organization", category:"Nonprofit", image:"https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&h=400&fit=crop", link:"https://tlz124.github.io/nonprofit/" },
+            { title:"Beauty Supply Store", category:"Retail", image:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&h=400&fit=crop", link:"https://tlz124.github.io/Beauty" },
+            { title:"Corporate Law Firm", category:"Professional Services", image:"https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop", link:"https://tlz124.github.io/legal" },
+        ];
+
+        const canvas = document.getElementById('portfolioSphere');
+        if (!canvas) return;
+        const cont = canvas.parentElement;
+
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+        camera.position.set(0, 0, 8);
+
+        scene.add(new THREE.AmbientLight(0xffffff, 0.9));
+        const dl1 = new THREE.DirectionalLight(0xd4a5ff, 2.5);
+        dl1.position.set(0, 2, 8); scene.add(dl1);
+        const dl2 = new THREE.DirectionalLight(0xffffff, 1.0);
+        dl2.position.set(-5, 0, 3); scene.add(dl2);
+        const dl3 = new THREE.DirectionalLight(0xffffff, 1.0);
+        dl3.position.set(5, 0, 3); scene.add(dl3);
+
+        const group = new THREE.Group();
+        scene.add(group);
+
+        const n = projects.length;
+        const panelW = 2.1;
+        const R = (panelW * n) / (2 * Math.PI);
+        const panelH = 3.2;
+        const faceMeshes = [];
+
+        function makeFallbackTex(p) {
+            const c = document.createElement('canvas');
+            c.width = 300; c.height = 560;
+            const ctx = c.getContext('2d');
+            ctx.fillStyle = '#1a0a2e';
+            ctx.fillRect(0, 0, 300, 560);
+            addLabel(ctx, p);
+            return new THREE.CanvasTexture(c);
+        }
+
+        function addLabel(ctx, p) {
+            ctx.fillStyle = 'rgba(0,0,0,0.72)';
+            ctx.fillRect(0, 440, 300, 120);
+            ctx.fillStyle = '#9b30d4';
+            ctx.fillRect(0, 440, 300, 3);
+            ctx.fillStyle = '#d4a5ff';
+            ctx.font = 'bold 13px sans-serif';
+            ctx.fillText(p.category.toUpperCase(), 14, 468);
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 22px sans-serif';
+            const words = p.title.split(' ');
+            let line = '', y = 500;
+            words.forEach(w => {
+                const t = line + w + ' ';
+                if (ctx.measureText(t).width > 272 && line) { ctx.fillText(line.trim(), 14, y); y += 26; line = w + ' '; }
+                else line = t;
+            });
+            ctx.fillText(line.trim(), 14, y);
+        }
+
+        projects.forEach((p, i) => {
+            const angle = (2 * Math.PI / n) * i;
+            const x = R * Math.sin(angle);
+            const z = R * Math.cos(angle);
+            const geo = new THREE.PlaneGeometry(panelW, panelH);
+            const mat = new THREE.MeshStandardMaterial({
+                map: makeFallbackTex(p),
+                side: THREE.FrontSide,
+                roughness: 0.3,
+                metalness: 0.1,
+            });
+            const mesh = new THREE.Mesh(geo, mat);
+            mesh.position.set(x, 0, z);
+            mesh.rotation.y = angle;
+            mesh.userData = { project: p };
+            group.add(mesh);
+            faceMeshes.push(mesh);
+
+            // Load real image
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.onload = () => {
+                const c = document.createElement('canvas');
+                c.width = 300; c.height = 560;
+                const ctx = c.getContext('2d');
+                // Crop top of restaurant photo to remove white sliver
+                if (p.title === 'Mexican Restaurant') {
+                    const cropTop = img.height * 0.12;
+                    ctx.drawImage(img, 0, cropTop, img.width, img.height - cropTop, 0, 0, 300, 440);
+                } else {
+                    ctx.drawImage(img, 0, 0, 300, 440);
+                }
+                addLabel(ctx, p);
+                const tex = new THREE.CanvasTexture(c);
+                mesh.material.map = tex;
+                mesh.material.needsUpdate = true;
+            };
+            img.src = p.image;
+        });
+
+        // Caps
+        const capGeo = new THREE.CircleGeometry(R, n);
+        const capMat = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.9 });
+        const topCap = new THREE.Mesh(capGeo, capMat);
+        topCap.rotation.x = -Math.PI / 2; topCap.position.y = panelH / 2; group.add(topCap);
+        const botCap = new THREE.Mesh(capGeo, capMat.clone());
+        botCap.rotation.x = Math.PI / 2; botCap.position.y = -panelH / 2; group.add(botCap);
+
+        // Resize
+        function resize() {
+            const w = cont.clientWidth;
+            const h = cont.clientHeight;
+            renderer.setSize(w, h);
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        // Drag + click
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+        let dragging = false, px = 0, vx = 0;
+
+        function getX(e) { return e.touches ? e.touches[0].clientX : e.clientX; }
+
+        canvas.addEventListener('mousedown', e => { dragging=true; px=getX(e); vx=0; canvas.style.cursor='grabbing'; });
+        canvas.addEventListener('touchstart', e => { dragging=true; px=getX(e); vx=0; e.preventDefault(); }, { passive:false });
+
+        window.addEventListener('mousemove', e => {
+            if (!dragging) return;
+            const cx=getX(e); vx=(cx-px)*0.007; group.rotation.y+=vx; px=cx;
+        });
+        window.addEventListener('touchmove', e => {
+            if (!dragging) return;
+            e.preventDefault();
+            const cx=getX(e); vx=(cx-px)*0.007; group.rotation.y+=vx; px=cx;
+        }, { passive:false });
+
+        window.addEventListener('mouseup', e => {
+            if (!dragging) return; dragging=false; canvas.style.cursor='grab';
+            if (Math.abs(vx) < 0.002) {
+                const rect=canvas.getBoundingClientRect();
+                mouse.x=((e.clientX-rect.left)/rect.width)*2-1;
+                mouse.y=-((e.clientY-rect.top)/rect.height)*2+1;
+                doClick();
+            }
+        });
+        window.addEventListener('touchend', e => {
+            if (!dragging) return; dragging=false;
+            if (Math.abs(vx) < 0.002) {
+                const t=e.changedTouches[0];
+                const rect=canvas.getBoundingClientRect();
+                mouse.x=((t.clientX-rect.left)/rect.width)*2-1;
+                mouse.y=-((t.clientY-rect.top)/rect.height)*2+1;
+                doClick();
+            }
+        });
+
+        function doClick() {
+            raycaster.setFromCamera(mouse, camera);
+            const hits = raycaster.intersectObjects(faceMeshes);
+            if (hits.length) {
+                const link = hits[0].object.userData.project.link;
+                if (link) window.open(link, '_blank');
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            if (!dragging) { vx *= 0.92; group.rotation.y += vx; }
+            renderer.render(scene, camera);
+        }
+        animate();
+    })();
+    </script>
 </body>
 </html>
-
-
-<!-- 
-
-
-Formspree Password: Ccm29W&Lj5~za~]
-
-
- -->
-
-
-
-
-
-
-
-

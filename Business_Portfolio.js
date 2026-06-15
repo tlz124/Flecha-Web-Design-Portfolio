@@ -6,9 +6,50 @@ const projects = [
         category: "Small Business",
         description: "Modern florist website with online ordering and delivery",
         fullDescription: "A beautiful, user-friendly website for a local flower shop featuring an elegant gallery of floral arrangements, easy online ordering with customization options, and delivery scheduling. The site includes information about special occasion packages for weddings, funerals, and events. The design captures elegance and warmth while making it simple for customers to browse and order flowers for any occasion.",
-        image: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600&h=400&fit=crop",
+        image: "floral_shop.jpg",
         technologies: ["HTML5", "CSS3", "JavaScript", "Online Ordering", "Local SEO"],
-        liveLink: "https://tlz124.github.io/Watsons-Flowers/"
+        liveLink: "https://tlz124.github.io/Watsons-Flowers/",
+        tiers: [
+            {
+                label: "Essential",
+                price: "$1,000",
+                description: "A clean, professional online presence for your flower shop — everything you need to get discovered and make a great first impression.",
+                features: [
+                    "Mobile Responsive Design",
+                    "Photo Gallery",
+                    "Contact Form",
+                    "Business Hours, Location & Google Maps",
+                    "Social Media Links"
+                ],
+                link: "https://tlz124.github.io/floral-shop-essential/"
+            },
+            {
+                label: "Essential Plus",
+                price: "$3,000",
+                description: "Everything in Essential, plus expanded features to showcase your products and build customer trust.",
+                features: [
+                    "Everything in Essential",
+                    "Product Catalog with Pricing",
+                    "Delivery Area Section",
+                    "Testimonials Section",
+                    "Expanded Navigation"
+                ],
+                link: "https://tlz124.github.io/floral-shop-essential-plus/"
+            },
+            {
+                label: "Custom",
+                price: "$5,000+",
+                description: "A fully custom build tailored to your exact vision — complex functionality, unique design, and priority support.",
+                features: [
+                    "Everything in Essential Plus",
+                    "Complex Custom Functionality",
+                    "Custom Quote Based on Scope",
+                    "Priority Support",
+                    "Extended Launch Support"
+                ],
+                link: "https://tlz124.github.io/floral-shop-custom/"
+            }
+        ]
     },
     {
         id: 1,
@@ -18,7 +59,48 @@ const projects = [
         fullDescription: "A vibrant website for a Mexican restaurant featuring an interactive menu with high-quality food photography, online reservation system, and information about catering services. The design reflects the restaurant's authentic atmosphere with warm colors and engaging visuals. Includes hours of operation, location details, and special events calendar.",
         image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&h=400&fit=crop",
         technologies: ["HTML5", "CSS3", "JavaScript", "Reservation System", "Menu Display"],
-        liveLink: "https://tlz124.github.io/restaurant/"
+        liveLink: "https://tlz124.github.io/restaurant/",
+        tiers: [
+            {
+                label: "Essential",
+                price: "$1,000",
+                description: "A clean, professional online presence for your restaurant — everything you need to showcase your menu and get more diners through the door.",
+                features: [
+                    "Mobile Responsive Design",
+                    "Menu Display with Photos",
+                    "Contact Form & Reservations",
+                    "Business Hours, Location & Google Maps",
+                    "Social Media Links"
+                ],
+                link: "https://tlz124.github.io/restaurant-essential/"
+            },
+            {
+                label: "Essential Plus",
+                price: "$3,000",
+                description: "Everything in Essential, plus expanded features to highlight your food and build a loyal customer base.",
+                features: [
+                    "Everything in Essential",
+                    "Full Menu Catalog with Pricing",
+                    "Online Reservation System",
+                    "Customer Testimonials Section",
+                    "Expanded Navigation & About Page"
+                ],
+                link: "https://tlz124.github.io/restaurant-essential-plus/"
+            },
+            {
+                label: "Custom",
+                price: "$5,000+",
+                description: "A fully custom build tailored to your restaurant's unique identity — advanced features, custom design, and priority support.",
+                features: [
+                    "Everything in Essential Plus",
+                    "Online Ordering Integration",
+                    "Custom Quote Based on Scope",
+                    "Priority Support",
+                    "Extended Launch Support"
+                ],
+                link: "https://tlz124.github.io/restaurant-custom/"
+            }
+        ]
     },
     {
         id: 2,
@@ -33,7 +115,7 @@ const projects = [
     {
         id: 3,
         title: "Modern Dental Office",
-        category: "Small Business",
+        category: "Healthcare",
         description: "Contemporary dental practice with patient portal and services",
         fullDescription: "A professional website for a modern dental office featuring comprehensive service descriptions, dentist profiles, patient portal access, and online appointment scheduling. The site includes educational resources about dental health, insurance information, and virtual office tours. The clean, trustworthy design helps patients feel comfortable while emphasizing the practice's expertise and modern technology.",
         image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&h=400&fit=crop",
@@ -58,7 +140,7 @@ const projects = [
         fullDescription: "A sophisticated website for an architecture firm featuring a stunning portfolio gallery, detailed service descriptions, and project case studies. The site highlights the firm's design philosophy, team expertise, and past projects with high-quality imagery. The clean, modern design reflects architectural precision while making it easy for potential clients to explore work and request consultations.",
         image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop",
         technologies: ["HTML5", "CSS3", "JavaScript", "Portfolio Gallery", "Project Showcase"],
-        liveLink: "https://tlz124.github.io/architecture/"
+        liveLink: "https://tlz124.github.io/architecture-essential/"
     },
     {
         id: 6,
@@ -98,7 +180,48 @@ const projects = [
         fullDescription: "A sophisticated website for Lumière Beauty Supply featuring curated beauty essentials from top brands. Includes product showcases, shopping categories, bestseller highlights, and a clean, elegant design that emphasizes luxury and quality.",
         image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&h=400&fit=crop",
         technologies: ["HTML5", "CSS3", "JavaScript", "Product Catalog", "E-commerce Ready"],
-        liveLink: "https://tlz124.github.io/Beauty"
+        liveLink: "https://tlz124.github.io/Beauty",
+        tiers: [
+            {
+                label: "Essential",
+                price: "$1,000",
+                description: "A clean, elegant online presence for your beauty supply store — everything you need to showcase your brand and attract customers.",
+                features: [
+                    "Mobile Responsive Design",
+                    "Featured Product Showcase",
+                    "Contact Form",
+                    "Business Hours, Location & Google Maps",
+                    "Social Media Links"
+                ],
+                link: "https://tlz124.github.io/beauty-supply-essential/"
+            },
+            {
+                label: "Essential Plus",
+                price: "$3,000",
+                description: "Everything in Essential, plus a full product catalog to display your inventory and drive more sales.",
+                features: [
+                    "Everything in Essential",
+                    "Full Product Catalog with Pricing",
+                    "Product Categories & Filtering",
+                    "Customer Testimonials Section",
+                    "Expanded Navigation & About Page"
+                ],
+                link: "https://tlz124.github.io/beauty-supply-essential-plus/"
+            },
+            {
+                label: "Custom",
+                price: "$5,000+",
+                description: "A fully custom e-commerce build tailored to your store — advanced shopping features, custom design, and priority support.",
+                features: [
+                    "Everything in Essential Plus",
+                    "Full E-commerce Shopping Cart",
+                    "Custom Quote Based on Scope",
+                    "Priority Support",
+                    "Extended Launch Support"
+                ],
+                link: "https://tlz124.github.io/beauty-supply-custom/"
+            }
+        ]
     },
     {
         id: 10,
@@ -128,35 +251,31 @@ const acceptAllBtn = document.getElementById('acceptAll');
 const rejectAllBtn = document.getElementById('rejectAll');
 const managePreferencesBtn = document.getElementById('managePreferences');
 
-// Check if user has already made a cookie choice
 function checkCookieConsent() {
     const cookieChoice = localStorage.getItem('cookieConsent');
     if (!cookieChoice) {
-        // Show cookie banner after a short delay
         setTimeout(() => {
             cookieConsent.classList.remove('hidden');
         }, 1000);
     }
 }
 
-acceptAllBtn.addEventListener('click', () => {
+if (acceptAllBtn) if (acceptAllBtn) acceptAllBtn.addEventListener('click', () => {
     localStorage.setItem('cookieConsent', 'accepted');
     cookieConsent.classList.add('hidden');
 });
 
-rejectAllBtn.addEventListener('click', () => {
+if (rejectAllBtn) rejectAllBtn.addEventListener('click', () => {
     localStorage.setItem('cookieConsent', 'rejected');
     cookieConsent.classList.add('hidden');
 });
 
-managePreferencesBtn.addEventListener('click', () => {
-    // For now, just open accept dialog - could be expanded to show preferences modal
+if (managePreferencesBtn) managePreferencesBtn.addEventListener('click', () => {
     alert('Cookie preferences: You can customize your cookie settings here. For this demo, we only use essential cookies for site functionality.');
     localStorage.setItem('cookieConsent', 'managed');
     cookieConsent.classList.add('hidden');
 });
 
-// Initialize cookie consent check
 checkCookieConsent();
 
 // ===== Hamburger Menu Functionality =====
@@ -165,19 +284,16 @@ const menuOverlay = document.getElementById('menuOverlay');
 const closeMenuBtn = document.getElementById('closeMenu');
 const menuLinks = document.querySelectorAll('.menu-link');
 
-// Open menu
 hamburgerBtn.addEventListener('click', () => {
     menuOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
 });
 
-// Close menu
 closeMenuBtn.addEventListener('click', () => {
     menuOverlay.classList.remove('active');
     document.body.style.overflow = 'auto';
 });
 
-// Close menu when clicking a link
 menuLinks.forEach(link => {
     link.addEventListener('click', () => {
         menuOverlay.classList.remove('active');
@@ -185,7 +301,14 @@ menuLinks.forEach(link => {
     });
 });
 
-// Close menu when clicking outside
+const menuSublinks = document.querySelectorAll('.menu-sublink');
+menuSublinks.forEach(link => {
+    link.addEventListener('click', () => {
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+});
+
 menuOverlay.addEventListener('click', (e) => {
     if (e.target === menuOverlay) {
         menuOverlay.classList.remove('active');
@@ -193,25 +316,34 @@ menuOverlay.addEventListener('click', (e) => {
     }
 });
 
+// ===== Home Submenu Toggle =====
+const homeSubmenuToggle = document.getElementById('homeSubmenuToggle');
+const homeSubmenu = document.querySelector('.menu-submenu');
+
+if (homeSubmenuToggle && homeSubmenu) {
+    homeSubmenuToggle.addEventListener('click', () => {
+        const isCollapsed = homeSubmenu.classList.contains('menu-submenu--collapsed');
+        homeSubmenu.classList.toggle('menu-submenu--collapsed', !isCollapsed);
+        homeSubmenuToggle.classList.toggle('open', isCollapsed);
+    });
+}
+
 // ===== Project Modal Functionality =====
 const projectModal = document.getElementById('projectModal');
 const viewDetailsButtons = document.querySelectorAll('.view-details');
 
-// Open project modal with details
 viewDetailsButtons.forEach(button => {
     button.addEventListener('click', (e) => {
         e.stopPropagation();
         const projectId = parseInt(button.getAttribute('data-project'));
         const project = projects[projectId];
 
-        // Populate modal with project data
         document.getElementById('modalImage').src = project.image;
         document.getElementById('modalCategory').textContent = project.category;
         document.getElementById('modalTitle').textContent = project.title;
         document.getElementById('modalDescription').textContent = project.description;
         document.getElementById('modalFullDescription').textContent = project.fullDescription;
-        
-        // Add technologies
+
         const techContainer = document.getElementById('modalTechnologies');
         techContainer.innerHTML = '';
         project.technologies.forEach(tech => {
@@ -221,7 +353,6 @@ viewDetailsButtons.forEach(button => {
             techContainer.appendChild(techTag);
         });
 
-        // Update live link - use onclick to force it to work
         const liveLink = document.getElementById('modalLiveLink');
         if (liveLink) {
             liveLink.href = project.liveLink;
@@ -233,57 +364,104 @@ viewDetailsButtons.forEach(button => {
             };
         }
 
-        // Show modal
         projectModal.style.display = 'block';
         document.body.style.overflow = 'hidden';
     });
 });
 
-// ===== Legal Modals Functionality =====
+// ===== Tier Card Click Handlers =====
+const tierModal = document.getElementById('tierModal');
+
+document.querySelectorAll('.tier-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const projectId = parseInt(card.getAttribute('data-project'));
+        const tierIndex = parseInt(card.getAttribute('data-tier'));
+        const project = projects[projectId];
+        const tier = project.tiers[tierIndex];
+        if (!tier) return;
+
+        // Apply tier-specific styling
+        const tierContent = document.getElementById('tierModalContent');
+        tierContent.className = 'tier-modal-content tier-modal-content--' + (tierIndex + 1);
+
+        // Populate modal
+        document.getElementById('tierModalName').textContent = tier.label;
+        document.getElementById('tierModalDiamonds').textContent = '◆'.repeat(tierIndex + 1);
+        document.getElementById('tierModalPrice').textContent = tier.price;
+        document.getElementById('tierModalDescription').textContent = tier.description;
+
+        const featuresList = document.getElementById('tierModalFeatures');
+        featuresList.innerHTML = '';
+        tier.features.forEach(feature => {
+            const li = document.createElement('li');
+            li.textContent = feature;
+            featuresList.appendChild(li);
+        });
+
+        // Wire up demo button — it's a <button> so no anchor/scroll conflicts
+        const demoBtn = document.getElementById('tierModalDemoLink');
+        const newDemoBtn = demoBtn.cloneNode(true);
+        demoBtn.parentNode.replaceChild(newDemoBtn, demoBtn);
+        newDemoBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.open(tier.link, '_blank', 'noopener,noreferrer');
+        });
+
+        tierModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+// Close tier modal
+document.getElementById('closeTierModal').addEventListener('click', () => {
+    tierModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+// ===== Legal Modals =====
 const privacyModal = document.getElementById('privacyModal');
 const accessibilityModal = document.getElementById('accessibilityModal');
 const privacyLink = document.getElementById('privacyLink');
 const accessibilityLink = document.getElementById('accessibilityLink');
 
-// Open privacy modal
 privacyLink.addEventListener('click', (e) => {
     e.preventDefault();
     privacyModal.style.display = 'block';
     document.body.style.overflow = 'hidden';
 });
 
-// Open accessibility modal
 accessibilityLink.addEventListener('click', (e) => {
     e.preventDefault();
     accessibilityModal.style.display = 'block';
     document.body.style.overflow = 'hidden';
 });
 
-// Close modal functionality
+// Close modal buttons (X)
 const closeModalButtons = document.querySelectorAll('.close-modal');
-
 closeModalButtons.forEach(button => {
     button.addEventListener('click', () => {
         const modalId = button.getAttribute('data-modal');
         if (modalId) {
             document.getElementById(modalId).style.display = 'none';
         } else {
-            // Close project modal if no data-modal attribute
             projectModal.style.display = 'none';
+            tierModal.style.display = 'none';
         }
         document.body.style.overflow = 'auto';
     });
 });
 
-// Close modal when clicking outside (but not on links or content)
+// Close modals by clicking outside
 window.addEventListener('click', (e) => {
-    // Don't close if clicking on a link inside the modal
-    if (e.target.tagName === 'A' || e.target.closest('a')) {
-        return;
-    }
-    
     if (e.target === projectModal) {
         projectModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    if (e.target === tierModal) {
+        tierModal.style.display = 'none';
         document.body.style.overflow = 'auto';
     }
     if (e.target === privacyModal) {
@@ -296,21 +474,15 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// Close modal with Escape key
+// Close modals with Escape key
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-        if (projectModal.style.display === 'block') {
-            projectModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        if (privacyModal.style.display === 'block') {
-            privacyModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        if (accessibilityModal.style.display === 'block') {
-            accessibilityModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+        [projectModal, tierModal, privacyModal, accessibilityModal].forEach(modal => {
+            if (modal && modal.style.display === 'block') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
         if (menuOverlay.classList.contains('active')) {
             menuOverlay.classList.remove('active');
             document.body.style.overflow = 'auto';
@@ -318,50 +490,41 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// ===== Consultation Form Handling =====
-const consultationForm = document.getElementById('consultationForm');
-
-
-
-
-// ===== Smooth Scroll for Navigation Links =====
+// ===== Smooth Scroll (navigation links only) =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
-        
-        // Don't prevent default for modal links
-        if (href === '#privacyModal' || href === '#accessibilityModal') {
+
+        // Skip tier card buttons — they have their own handler
+        if (this.classList.contains('tier-card')) return;
+
+        // Allow footer modal links to work normally
+        if (href === '#privacyModal' || href === '#accessibilityModal') return;
+
+        // Prevent bare # from scrolling to top
+        if (href === '#') {
+            e.preventDefault();
             return;
         }
-        
+
         e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
             const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
+            const offsetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
         }
     });
 });
 
-// ===== Add Scroll Effect to Navbar =====
+// ===== Navbar Scroll Effect =====
 let lastScroll = 0;
 const navbar = document.querySelector('header');
-
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-
-    if (currentScroll <= 0) {
-        navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
-    }
-
+    navbar.style.boxShadow = currentScroll <= 0
+        ? '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+        : '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
     lastScroll = currentScroll;
 });
 
@@ -380,44 +543,34 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe project cards
-const projectCards = document.querySelectorAll('.project-card');
-projectCards.forEach(card => {
+document.querySelectorAll('.project-card').forEach(card => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(20px)';
     card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(card);
 });
 
-// Observe testimonial cards
-const testimonialCards = document.querySelectorAll('.testimonial-card');
-testimonialCards.forEach(card => {
+document.querySelectorAll('.testimonial-card').forEach(card => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(20px)';
     card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(card);
 });
 
-// ===== Portfolio Filter Functionality =====
+// ===== Portfolio Filter =====
 const filterButtons = document.querySelectorAll('.filter-btn');
 const allProjectCards = document.querySelectorAll('.project-card');
 
 filterButtons.forEach(button => {
     button.addEventListener('click', () => {
-        // Remove active class from all buttons
         filterButtons.forEach(btn => btn.classList.remove('active'));
-        
-        // Add active class to clicked button
         button.classList.add('active');
-        
+
         const filterValue = button.getAttribute('data-filter');
-        
         allProjectCards.forEach(card => {
             const category = card.querySelector('.project-category').textContent;
-            
             if (filterValue === 'all' || category === filterValue) {
                 card.classList.remove('hidden');
-                // Re-trigger animation
                 card.style.animation = 'none';
                 setTimeout(() => {
                     card.style.animation = 'fadeInUp 0.6s ease forwards';
@@ -429,79 +582,56 @@ filterButtons.forEach(button => {
     });
 });
 
-
 // ===== Hero Canvas Node Network Effect =====
 (function() {
     const heroCanvas = document.getElementById('heroCanvas');
     if (!heroCanvas) return;
-    
+
     const ctx = heroCanvas.getContext('2d');
     let particles = [];
     let mouse = { x: null, y: null, radius: 150 };
     let animationFrameId = null;
-    
+
     function resizeCanvas() {
         heroCanvas.width = heroCanvas.offsetWidth;
         heroCanvas.height = heroCanvas.offsetHeight;
+        ctx.clearRect(0, 0, heroCanvas.width, heroCanvas.height);
         initParticles();
     }
-    
+
     function initParticles() {
-        const width = heroCanvas.width;
-        const height = heroCanvas.height;
-        const isMobile = width <= 768;
-        const isPortrait = width < height;
-        
-        // Adjust particle count based on screen size and orientation
-        let particleCount;
-        if (isMobile) {
-            particleCount = isPortrait ? 30 : 40; // Fewer in portrait mode
-        } else {
-            particleCount = 80;
-        }
-        
-        // Calculate connection distance based on screen size
+        const isMobile = heroCanvas.width <= 768;
+        const isPortrait = heroCanvas.width < heroCanvas.height;
+        let particleCount = isMobile ? (isPortrait ? 30 : 40) : 80;
         const connectionDistance = isMobile ? 100 : 150;
-        
         particles = Array.from({ length: particleCount }, () => new Particle(connectionDistance));
     }
-    
+
     class Particle {
         constructor(connectionDistance) {
             this.connectionDistance = connectionDistance;
             this.x = Math.random() * heroCanvas.width;
             this.y = Math.random() * heroCanvas.height;
-            
-            // Slower movement on mobile for smoother performance
             const speedMultiplier = window.innerWidth <= 768 ? 0.3 : 0.5;
             this.vx = (Math.random() - 0.5) * speedMultiplier;
             this.vy = (Math.random() - 0.5) * speedMultiplier;
-            
-            // Slightly larger nodes on mobile for better visibility
             this.radius = window.innerWidth <= 768 ? 2.5 : 2;
             this.baseRadius = this.radius;
         }
-        
+
         update() {
             this.x += this.vx;
             this.y += this.vy;
-            
-            // Bounce off edges
             if (this.x < 0 || this.x > heroCanvas.width) this.vx *= -1;
             if (this.y < 0 || this.y > heroCanvas.height) this.vy *= -1;
-            
-            // Clamp position within bounds
             this.x = Math.max(0, Math.min(heroCanvas.width, this.x));
             this.y = Math.max(0, Math.min(heroCanvas.height, this.y));
-            
-            // Mouse interaction (desktop only for performance)
+
             if (mouse.x !== null && window.innerWidth > 768) {
                 const dx = mouse.x - this.x;
                 const dy = mouse.y - this.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
-                
                 if (distance < mouse.radius) {
-                    // Repel from mouse
                     const angle = Math.atan2(dy, dx);
                     const force = (mouse.radius - distance) / mouse.radius;
                     this.x -= Math.cos(angle) * force * 2;
@@ -514,9 +644,8 @@ filterButtons.forEach(button => {
                 this.radius = this.baseRadius;
             }
         }
-        
+
         draw() {
-            // Glowing node effect
             ctx.shadowBlur = 10;
             ctx.shadowColor = 'rgba(102, 126, 234, 0.8)';
             ctx.fillStyle = 'rgba(102, 126, 234, 0.9)';
@@ -525,22 +654,17 @@ filterButtons.forEach(button => {
             ctx.fill();
             ctx.shadowBlur = 0;
         }
-        
+
         connect(otherParticle) {
             const dx = otherParticle.x - this.x;
             const dy = otherParticle.y - this.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
-            
             if (distance < this.connectionDistance) {
-                // Fade connection based on distance
                 const opacity = (1 - distance / this.connectionDistance) * 0.5;
-                
-                // Gradient line for better visual effect
                 const gradient = ctx.createLinearGradient(this.x, this.y, otherParticle.x, otherParticle.y);
                 gradient.addColorStop(0, `rgba(102, 126, 234, ${opacity})`);
                 gradient.addColorStop(0.5, `rgba(118, 75, 162, ${opacity})`);
                 gradient.addColorStop(1, `rgba(102, 126, 234, ${opacity})`);
-                
                 ctx.strokeStyle = gradient;
                 ctx.lineWidth = 1.5;
                 ctx.beginPath();
@@ -550,28 +674,21 @@ filterButtons.forEach(button => {
             }
         }
     }
-    
-    // Mouse/Touch tracking
+
     heroCanvas.addEventListener('mousemove', (e) => {
         const rect = heroCanvas.getBoundingClientRect();
         mouse.x = e.clientX - rect.left;
         mouse.y = e.clientY - rect.top;
     });
-    
-    heroCanvas.addEventListener('mouseleave', () => {
-        mouse.x = null;
-        mouse.y = null;
-    });
-    
-    // Touch support (simplified for mobile)
+    heroCanvas.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
+
     heroCanvas.addEventListener('touchstart', (e) => {
-        if (window.innerWidth <= 768) return; // Disable on mobile for performance
+        if (window.innerWidth <= 768) return;
         const rect = heroCanvas.getBoundingClientRect();
         const touch = e.touches[0];
         mouse.x = touch.clientX - rect.left;
         mouse.y = touch.clientY - rect.top;
     });
-    
     heroCanvas.addEventListener('touchmove', (e) => {
         if (window.innerWidth <= 768) return;
         e.preventDefault();
@@ -580,76 +697,114 @@ filterButtons.forEach(button => {
         mouse.x = touch.clientX - rect.left;
         mouse.y = touch.clientY - rect.top;
     });
-    
-    heroCanvas.addEventListener('touchend', () => {
-        mouse.x = null;
-        mouse.y = null;
-    });
-    
+    heroCanvas.addEventListener('touchend', () => { mouse.x = null; mouse.y = null; });
+
     resizeCanvas();
-    
-    // Debounced resize handler
+
     let resizeTimeout;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(resizeCanvas, 250);
     });
-    
-    // Animation loop with performance optimization
+
     let lastFrameTime = 0;
-    const targetFPS = window.innerWidth <= 768 ? 30 : 60; // Lower FPS on mobile
+    const targetFPS = window.innerWidth <= 768 ? 30 : 60;
     const frameInterval = 1000 / targetFPS;
-    
+
     function animateParticles(currentTime) {
         animationFrameId = requestAnimationFrame(animateParticles);
-        
         const deltaTime = currentTime - lastFrameTime;
-        
         if (deltaTime < frameInterval) return;
-        
         lastFrameTime = currentTime - (deltaTime % frameInterval);
-        
-        // Clear with slight trail effect
+
         ctx.fillStyle = 'rgba(26, 35, 62, 0.05)';
         ctx.fillRect(0, 0, heroCanvas.width, heroCanvas.height);
-        
-        // Update and draw particles
+
         particles.forEach((particle, i) => {
             particle.update();
             particle.draw();
-            
-            // Connect to nearby particles
             for (let j = i + 1; j < particles.length; j++) {
                 particle.connect(particles[j]);
             }
         });
     }
-    
+
     animateParticles(0);
-    
-    // Pause animation when tab is not visible (performance optimization)
+
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
-            if (animationFrameId) {
-                cancelAnimationFrame(animationFrameId);
-                animationFrameId = null;
-            }
+            if (animationFrameId) { cancelAnimationFrame(animationFrameId); animationFrameId = null; }
         } else {
-            if (!animationFrameId) {
-                animateParticles(0);
-            }
+            if (!animationFrameId) animateParticles(0);
         }
     });
 })();
 
+
+
+// ===== Process Step Collapsible Toggle =====
+document.querySelectorAll('.process-step:not(.process-step--questionnaire) .step-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const step = btn.closest('.process-step');
+        const body = step.querySelector('.step-body');
+        const isOpen = body.classList.contains('open');
+        body.classList.toggle('open', !isOpen);
+        btn.classList.toggle('open', !isOpen);
+    });
+});
+
+// ===== Date Input =====
 const dateInput = document.getElementById('preferred_date');
-dateInput.addEventListener('focus', function() {
-    this.type = 'date';
-});
-dateInput.addEventListener('blur', function() {
-    if (!this.value) {
-        this.type = 'text';
-    }
-});
+dateInput.addEventListener('focus', function() { this.type = 'date'; });
+dateInput.addEventListener('blur', function() { if (!this.value) this.type = 'text'; });
 
+// ===== Back to Top Button =====
+(function() {
+    const btn = document.getElementById('backToTop');
+    if (!btn) return;
 
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            btn.classList.add('visible');
+        } else {
+            btn.classList.remove('visible');
+        }
+    }, { passive: true });
+
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (navigator.vibrate) navigator.vibrate(30);
+    });
+})();
+
+// ===== E-Commerce / Non E-Commerce Pricing Toggle =====
+const ecomBtn = document.getElementById('ecomBtn');
+const nonEcomBtn = document.getElementById('nonEcomBtn');
+const ecomPricing = document.getElementById('ecomPricing');
+const nonEcomPricing = document.getElementById('nonEcomPricing');
+
+if (ecomBtn && nonEcomBtn) {
+    ecomBtn.addEventListener('click', () => {
+        ecomBtn.classList.add('active');
+        nonEcomBtn.classList.remove('active');
+        ecomPricing.style.display = '';
+        nonEcomPricing.style.display = 'none';
+    });
+
+    nonEcomBtn.addEventListener('click', () => {
+        nonEcomBtn.classList.add('active');
+        ecomBtn.classList.remove('active');
+        nonEcomPricing.style.display = '';
+        ecomPricing.style.display = 'none';
+    });
+}
+
+// ===== Nested Pricing Feature Toggles =====
+document.querySelectorAll('.pricing-feature-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const sub = btn.closest('.pricing-feature-expandable').querySelector('.pricing-feature-sub');
+        const isOpen = sub.classList.contains('open');
+        sub.classList.toggle('open', !isOpen);
+        btn.classList.toggle('open', !isOpen);
+    });
+});

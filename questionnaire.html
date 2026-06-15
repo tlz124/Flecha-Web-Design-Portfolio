@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Questionnaire — Flecha Web Design</title>
+    <link rel="icon" type="image/png" href="flecha-web-design-logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --black: #0a0a0a;
+            --dark: #111111;
+            --card: #1a1a1a;
+            --border: #2a2a2a;
+            --purple-accent: #d4a5ff;
+            --purple-mid: #9b59d4;
+            --white: #ffffff;
+            --grey: #888888;
+            --light-grey: #cccccc;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .q-header {
+            background: var(--dark);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .q-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        .q-logo img { height: 36px; }
+        .q-logo-text { line-height: 1.1; }
+        .q-logo-main { display: block; font-size: 1rem; font-weight: 900; letter-spacing: 3px; color: var(--white); }
+        .q-logo-sub { display: block; font-size: 0.55rem; letter-spacing: 3px; color: var(--purple-accent); }
+
+        .q-back {
+            color: var(--purple-accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: opacity 0.2s;
+        }
+        .q-back:hover { opacity: 0.7; }
+
+        /* Hero */
+        .q-hero {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a0a2e 50%, #0f0f0f 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 3rem 2rem 2.5rem;
+            text-align: center;
+        }
+        .q-hero h1 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+        .q-hero h1 span { color: var(--purple-accent); }
+        .q-hero p {
+            color: var(--grey);
+            font-size: 0.95rem;
+            max-width: 540px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.6;
+        }
+        .q-hero-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(212,165,255,0.08);
+            border: 1px solid rgba(212,165,255,0.2);
+            border-radius: 50px;
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+            color: var(--purple-accent);
+            letter-spacing: 1px;
+        }
+
+        /* Main container */
+        .q-container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        /* Progress bar */
+        .q-progress-wrap {
+            position: sticky;
+            top: 69px;
+            z-index: 50;
+            background: var(--black);
+            padding: 0.6rem 0;
+            margin-bottom: 2rem;
+        }
+        .q-progress-bar-bg {
+            background: var(--border);
+            border-radius: 4px;
+            height: 4px;
+            overflow: hidden;
+        }
+        .q-progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--purple-mid), var(--purple-accent));
+            border-radius: 4px;
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+        .q-progress-label {
+            text-align: right;
+            font-size: 0.75rem;
+            color: var(--grey);
+            margin-top: 0.35rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Section */
+        .q-section {
+            margin-bottom: 2rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .q-section-header {
+            background: linear-gradient(90deg, rgba(212,165,255,0.1), transparent);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .q-section-num {
+            width: 28px; height: 28px;
+            background: var(--purple-accent);
+            color: var(--black);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+        .q-section-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--purple-accent);
+        }
+        .q-section-body { padding: 1.5rem; }
+
+        /* Question */
+        .q-question { margin-bottom: 1.75rem; }
+        .q-question:last-child { margin-bottom: 0; }
+        .q-label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+        .q-label .q-num {
+            color: var(--purple-accent);
+            font-weight: 700;
+            margin-right: 0.35rem;
+        }
+        .q-hint {
+            font-size: 0.78rem;
+            color: var(--grey);
+            font-weight: 400;
+            margin-left: 0.25rem;
+        }
+
+        /* Text inputs */
+        .q-input, .q-textarea {
+            width: 100%;
+            background: #111;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--white);
+            font-size: 0.9rem;
+            font-family: inherit;
+            padding: 0.75rem 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+            resize: vertical;
+        }
+        .q-input:focus, .q-textarea:focus {
+            border-color: var(--purple-accent);
+            box-shadow: 0 0 0 3px rgba(212,165,255,0.1);
+        }
+        .q-textarea { min-height: 100px; }
+
+        /* Checkbox / Radio options */
+        .q-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .q-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            cursor: pointer;
+            padding: 0.6rem 0.85rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .q-option:hover {
+            border-color: rgba(212,165,255,0.4);
+            background: rgba(212,165,255,0.04);
+        }
+        .q-option input[type="checkbox"],
+        .q-option input[type="radio"] {
+            margin-top: 2px;
+            accent-color: var(--purple-accent);
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+        .q-option.selected {
+            border-color: var(--purple-accent);
+            background: rgba(212,165,255,0.07);
+        }
+        .q-option-label {
+            font-size: 0.875rem;
+            color: var(--light-grey);
+            line-height: 1.4;
+            cursor: pointer;
+        }
+
+        /* "Other" text reveal */
+        .q-other-input {
+            display: none;
+            margin-top: 0.5rem;
+            width: 100%;
+        }
+        .q-other-input.visible { display: block; }
+
+        /* Submit section */
+        .q-submit-section {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        .q-submit-section h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .q-submit-section p {
+            color: var(--grey);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+        .q-submit-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--purple-accent);
+            color: var(--black);
+            border: none;
+            border-radius: 4px;
+            padding: 1rem 2.5rem;
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+        .q-submit-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+        /* Save / Resume Controls */
+        .q-save-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .q-save-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.55rem 1.25rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s;
+            text-decoration: none;
+            border: none;
+            font-family: inherit;
+        }
+        .q-save-btn:hover { opacity: 0.82; transform: translateY(-1px); }
+
+        .q-save-btn--download {
+            background: rgba(212, 165, 255, 0.12);
+            border: 1px solid var(--purple-accent);
+            color: var(--purple-accent);
+        }
+
+        .q-save-btn--upload {
+            background: var(--purple-accent);
+            border: 1px solid var(--purple-accent);
+            color: var(--black);
+        }
+
+        .q-autosave-label {
+            font-size: 0.75rem;
+            color: var(--grey);
+            font-style: italic;
+            margin-left: 0.25rem;
+        }
+
+        /* Success message */
+        .q-success {
+            display: none;
+            background: rgba(212,165,255,0.08);
+            border: 1px solid rgba(212,165,255,0.3);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .q-success.visible { display: block; }
+        .q-success-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .q-success h3 { font-size: 1.2rem; color: var(--purple-accent); margin-bottom: 0.5rem; }
+        .q-success p { color: var(--grey); font-size: 0.9rem; }
+
+        /* Footer */
+        .q-footer {
+            background: var(--dark);
+            border-top: 1px solid var(--border);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--grey);
+        }
+        .q-footer a { color: var(--purple-accent); text-decoration: none; }
+        .q-footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .q-header { padding: 1rem; }
+            .q-hero { padding: 2rem 1rem 1.75rem; }
+            .q-container { padding: 1.5rem 1rem 3rem; }
+        }
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #000000;
+            border: 2px solid #d4a5ff;
+            color: #ead6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 12px rgba(212, 165, 255, 0.3);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            box-shadow: 0 0 22px rgba(212, 165, 255, 0.6);
+            transform: translateY(-2px);
+        }
+        .back-to-top svg { width: 20px; height: 20px; }
+
+    </style>
+</head>
+<body>
+
+<header class="q-header">
+    <a href="index.html" class="q-logo">
+        <img src="flecha-web-design-logo.svg" alt="Flecha logo">
+        <div class="q-logo-text">
+            <span class="q-logo-main">FLECHA</span>
+            <span class="q-logo-sub">WEB DESIGN</span>
+        </div>
+    </a>
+    <a href="index.html" class="q-back">← Back to Site</a>
+</header>
+
+<div class="q-hero">
+    <h1>Client <span>Questionnaire</span></h1>
+    <p>Please take a few minutes to fill this out before your consultation. Your answers help us come prepared with the right questions and ideas.</p>
+    <div class="q-hero-meta"><i class="fa-regular fa-clock"></i></div>
+</div>
+
+<div class="q-container">
+
+    <!-- Progress -->
+    <div class="q-progress-wrap">
+        <div class="q-progress-bar-bg">
+            <div class="q-progress-bar-fill" id="progressFill"></div>
+        </div>
+        <div class="q-progress-label" id="progressLabel">0% complete</div>
+    </div>
+
+    <!-- Save / Resume Controls -->
+    <div class="q-save-controls">
+        <label class="q-save-btn q-save-btn--upload" for="resumeFileInput" title="Upload a previously saved progress file">
+            <span>⬆</span> Resume Saved Progress
+        </label>
+        <input type="file" id="resumeFileInput" accept=".json" style="display:none;">
+        <button type="button" class="q-save-btn q-save-btn--download" id="saveProgressBtn" title="Download your answers to continue later">
+            <span>⬇</span> Save Progress
+        </button>
+        <span class="q-autosave-label" id="autosaveLabel"></span>
+    </div>
+
+    <form id="questionnaireForm">
+
+        <!-- Section 1 -->
+        <div class="q-section">
+            <div class="q-section-header">
+                <div class="q-section-num">1</div>
+                <div class="q-section-title">About Your Business</div>
+            </div>
+            <div class="q-section-body">
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">1.</span> Business name</label>
+                    <input type="text" name="business_name" class="q-input" placeholder="Your business name">
+                </div>
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">2.</span> Industry <span class="q-hint">(choose one)</span></label>
+                    <div class="q-options">
+                        <label class="q-option"><input type="radio" name="industry" value="Restaurant / Food & Beverage"><span class="q-option-label">Restaurant / Food & Beverage</span></label>
+                        <label class="q-option"><input type="radio" name="industry" value="Retail / Shop"><span class="q-option-label">Retail / Shop</span></label>
+                        <label class="q-option"><input type="radio" name="industry" value="Health & Wellness"><span class="q-option-label">Health & Wellness</span></label>
+                        <label class="q-option"><input type="radio" name="industry" value="Beauty / Salon / Spa"><span class="q-option-label">Beauty / Salon / Spa</span></label>
+                        <label class="q-option"><input type="radio" name="industry" value="Education / School / Tutoring"><span class="q-option-label">Education / School / Tutoring</span></label>
+                        <label class="q-option"><input type="radio" name="industry" value="Nonprofit / Community Organization"><span class="q-option-label">Nonprofit / Community Organization</span></label>
+                        <label class="q-option"><input type="radio" name="industry" value="Professional Services"><span class="q-option-label">Professional Services (law, finance, consulting, etc.)</span></label>
+                        <label class="q-option"><input type="radio" name="industry" value="Healthcare / Medical / Dental"><span class="q-option-label">Healthcare / Medical / Dental</span></label>
+                        <label class="q-option"><input type="radio" name="industry" value="Fitness / Sports"><span class="q-option-label">Fitness / Sports</span></label>
+                        <label class="q-option"><input type="radio" name="industry" value="Home Services"><span class="q-option-label">Home Services (cleaning, repair, landscaping, etc.)</span></label>
+                        <label class="q-option q-option-other-trigger"><input type="radio" name="industry" value="other_industry"><span class="q-option-label">Other</span></label>
+                        <input type="text" name="industry_other" class="q-input q-other-input" placeholder="Please specify your industry" id="industryOther">
+                    </div>
+                </div>
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">3.</span> Business location <span class="q-hint">(city, state)</span></label>
+                    <input type="text" name="location" class="q-input" placeholder="e.g. Phoenix, AZ">
+                </div>
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">4.</span> How long has your business been operating?</label>
+                    <div class="q-options">
+                        <label class="q-option"><input type="radio" name="years_operating" value="Not yet open"><span class="q-option-label">Not yet open — I'm just getting started</span></label>
+                        <label class="q-option"><input type="radio" name="years_operating" value="Less than 1 year"><span class="q-option-label">Less than 1 year</span></label>
+                        <label class="q-option"><input type="radio" name="years_operating" value="1 to 3 years"><span class="q-option-label">1 to 3 years</span></label>
+                        <label class="q-option"><input type="radio" name="years_operating" value="3 to 10 years"><span class="q-option-label">3 to 10 years</span></label>
+                        <label class="q-option"><input type="radio" name="years_operating" value="More than 10 years"><span class="q-option-label">More than 10 years</span></label>
+                    </div>
+                </div>
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">5.</span> How would you describe your business in one or two sentences?</label>
+                    <textarea name="business_description" class="q-textarea" placeholder="Describe what your business does and who you serve..."></textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="q-section">
+            <div class="q-section-header">
+                <div class="q-section-num">2</div>
+                <div class="q-section-title">Your Current Web Presence</div>
+            </div>
+            <div class="q-section-body">
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">6.</span> Do you currently have a website?</label>
+                    <div class="q-options">
+                        <label class="q-option"><input type="radio" name="has_website" value="Yes"><span class="q-option-label">Yes</span></label>
+                        <label class="q-option"><input type="radio" name="has_website" value="No"><span class="q-option-label">No</span></label>
+                        <label class="q-option"><input type="radio" name="has_website" value="Outdated or incomplete"><span class="q-option-label">I have something but it's outdated or incomplete</span></label>
+                    </div>
+                </div>
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">7.</span> If yes, what is your current website URL? <span class="q-hint">(optional)</span></label>
+                    <input type="text" name="current_url" class="q-input" placeholder="e.g. www.yourbusiness.com">
+                </div>
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">8.</span> Do you already own a domain name?</label>
+                    <div class="q-options">
+                        <label class="q-option"><input type="radio" name="has_domain" value="Yes — I already have one"><span class="q-option-label">Yes — I already have one</span></label>
+                        <label class="q-option"><input type="radio" name="has_domain" value="No — I need one"><span class="q-option-label">No — I need one</span></label>
+                        <label class="q-option"><input type="radio" name="has_domain" value="Not sure"><span class="q-option-label">I'm not sure</span></label>
+                    </div>
+                </div>
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">9.</span> Do you currently have web hosting?</label>
+                    <div class="q-options">
+                        <label class="q-option"><input type="radio" name="has_hosting" value="Yes"><span class="q-option-label">Yes</span></label>
+                        <label class="q-option"><input type="radio" name="has_hosting" value="No"><span class="q-option-label">No</span></label>
+                        <label class="q-option"><input type="radio" name="has_hosting" value="Not sure"><span class="q-option-label">I'm not sure</span></label>
+                    </div>
+                </div>
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">10.</span> Are you on any social media platforms? <span class="q-hint">(check all that apply)</span></label>
+                    <div class="q-options">
+                        <label class="q-option"><input type="checkbox" name="social_media" value="Facebook"><span class="q-option-label">Facebook</span></label>
+                        <label class="q-option"><input type="checkbox" name="social_media" value="Instagram"><span class="q-option-label">Instagram</span></label>
+                        <label class="q-option"><input type="checkbox" name="social_media" value="X (Twitter)"><span class="q-option-label">X (Twitter)</span></label>
+                        <label class="q-option"><input type="checkbox" name="social_media" value="LinkedIn"><span class="q-option-label">LinkedIn</span></label>
+                        <label class="q-option"><input type="checkbox" name="social_media" value="YouTube"><span class="q-option-label">YouTube</span></label>
+                        <label class="q-option"><input type="checkbox" name="social_media" value="TikTok"><span class="q-option-label">TikTok</span></label>
+                        <label class="q-option"><input type="checkbox" name="social_media" value="None yet"><span class="q-option-label">None yet</span></label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="q-section">
+            <div class="q-section-header">
+                <div class="q-section-num">3</div>
+                <div class="q-section-title">Goals & Purpose</div>
+            </div>
+            <div class="q-section-body">
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">11.</span> What is the primary goal of your new website? <span class="q-hint">(choose one)</span></label>
+                    <div class="q-options">
+                        <label class="q-option"><input type="radio" name="primary_goal" value="Get more calls or inquiries"><span class="q-option-label">Get more phone calls or inquiries from potential customers</span></label>
+                        <label class="q-option"><input type="radio" name="primary_goal" value="Online booking"><span class="q-option-label">Allow customers to book appointments online</span></label>
+                        <label class="q-option"><input type="radio" name="primary_goal" value="Sell products online"><span class="q-option-label">Sell products online</span></label>
+                        <label class="q-option"><input type="radio" name="primary_goal" value="Display menu / services / portfolio"><span class="q-option-label">Display my menu, services, or portfolio</span></label>
+                        <label class="q-option"><input type="radio" name="primary_goal" value="Build credibility"><span class="q-option-label">Build credibility and look more professional</span></label>
+                        <label class="q-option"><input type="radio" name="primary_goal" value="Replace / modernize outdated site"><span class="q-option-label">Replace or modernize an outdated site</span></label>
+                        <label class="q-option"><input type="radio" name="primary_goal" value="other_goal"><span class="q-option-label">Other</span></label>
+                        <input type="text" name="primary_goal_other" class="q-input q-other-input" placeholder="Please describe your goal" id="goalOther">
+                    </div>
+                </div>
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">12.</span> What does success look like for your website? What would make it worth the investment?</label>
+                    <textarea name="success_definition" class="q-textarea" placeholder="Describe what a successful website would look like for your business..."></textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="q-section">
+            <div class="q-section-header">
+                <div class="q-section-num">4</div>
+                <div class="q-section-title">Your Target Audience</div>
+            </div>
+            <div class="q-section-body">
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">13.</span> Who are your primary customers? <span class="q-hint">(choose one)</span></label>
+                    <div class="q-options">
+                        <label class="q-option"><input type="radio" name="customers" value="Local individuals / general consumers"><span class="q-option-label">Local individuals / general consumers</span></label>
+                        <label class="q-option"><input type="radio" name="customers" value="Local families"><span class="q-option-label">Local families</span></label>
+                        <label class="q-option"><input type="radio" name="customers" value="Other businesses (B2B)"><span class="q-option-label">Other businesses (B2B)</span></label>
+                        <label class="q-option"><input type="radio" name="customers" value="Students or parents of students"><span class="q-option-label">Students or parents of students</span></label>
+                        <label class="q-option"><input type="radio" name="customers" value="A mix"><span class="q-option-label">A mix of the above</span></label>
+                        <label class="q-option"><input type="radio" name="customers" value="other_customers"><span class="q-option-label">Other</span></label>
+                        <input type="text" name="customers_other" class="q-input q-other-input" placeholder="Please describe your customers" id="customersOther">
+                    </div>
+                </div>
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">14.</span> What geographic area do you serve?</label>
+                    <div class="q-options">
+                        <label class="q-option"><input type="radio" name="service_area" value="A specific neighborhood or city"><span class="q-option-label">A specific neighborhood or city</span></label>
+                        <label class="q-option"><input type="radio" name="service_area" value="Greater Phoenix / Scottsdale metro"><span class="q-option-label">The greater Phoenix / Scottsdale metro area</span></label>
+                        <label class="q-option"><input type="radio" name="service_area" value="All of Arizona"><span class="q-option-label">All of Arizona</span></label>
+                        <label class="q-option"><input type="radio" name="service_area" value="Nationwide"><span class="q-option-label">Nationwide</span></label>
+                        <label class="q-option"><input type="radio" name="service_area" value="other_area"><span class="q-option-label">Other</span></label>
+                        <input type="text" name="service_area_other" class="q-input q-other-input" placeholder="Please describe your service area" id="areaOther">
+                    </div>
+                </div>
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">15.</span> Describe your ideal customer in a sentence or two:</label>
+                    <textarea name="ideal_customer" class="q-textarea" placeholder="Who is your ideal customer? What are they looking for?"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="q-section">
+            <div class="q-section-header">
+                <div class="q-section-num">5</div>
+                <div class="q-section-title">Content & Assets</div>
+            </div>
+            <div class="q-section-body">
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">16.</span> Do you have a logo?</label>
+                    <div class="q-options">
+                        <label class="q-option"><input type="radio" name="has_logo" value="Yes — finalized and ready"><span class="q-option-label">Yes — it's finalized and ready to use</span></label>
+                        <label class="q-option"><input type="radio" name="has_logo" value="Yes — but may want a new one"><span class="q-option-label">Yes — but I'm not happy with it and may want a new one</span></label>
+                        <label class="q-option"><input type="radio" name="has_logo" value="No — I need one"><span class="q-option-label">No — I need one</span></label>
+                    </div>
+                </div>
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">17.</span> Do you have established brand colors or fonts?</label>
+                    <div class="q-options">
+                        <label class="q-option"><input type="radio" name="has_brand" value="Yes"><span class="q-option-label">Yes</span></label>
+                        <label class="q-option"><input type="radio" name="has_brand" value="No"><span class="q-option-label">No</span></label>
+                        <label class="q-option"><input type="radio" name="has_brand" value="Some ideas but nothing finalized"><span class="q-option-label">Not sure — I have some ideas but nothing finalized</span></label>
+                    </div>
+                </div>
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">18.</span> Do you have professional photos of your business, products, or team?</label>
+                    <div class="q-options">
+                        <label class="q-option"><input type="radio" name="has_photos" value="Yes — ready to use"><span class="q-option-label">Yes — I have photos ready to use</span></label>
+                        <label class="q-option"><input type="radio" name="has_photos" value="Partially"><span class="q-option-label">Partially — I have some but will need more</span></label>
+                        <label class="q-option"><input type="radio" name="has_photos" value="No — need stock or photographer"><span class="q-option-label">No — I will need stock photos or a photographer</span></label>
+                    </div>
+                </div>
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">19.</span> Do you have written content ready for the site?</label>
+                    <div class="q-options">
+                        <label class="q-option"><input type="radio" name="has_copy" value="Yes — copy ready to go"><span class="q-option-label">Yes — I have copy ready to go</span></label>
+                        <label class="q-option"><input type="radio" name="has_copy" value="Partially"><span class="q-option-label">Partially — I have some but will need help with the rest</span></label>
+                        <label class="q-option"><input type="radio" name="has_copy" value="No — need help writing"><span class="q-option-label">No — I will need help writing the content</span></label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Section 6 -->
+        <div class="q-section">
+            <div class="q-section-header">
+                <div class="q-section-num">6</div>
+                <div class="q-section-title">Features & Functionality</div>
+            </div>
+            <div class="q-section-body">
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">20.</span> Which features do you need on your website? <span class="q-hint">(check all that apply)</span></label>
+                    <div class="q-options">
+                        <label class="q-option"><input type="checkbox" name="features" value="Contact form"><span class="q-option-label">Contact form</span></label>
+                        <label class="q-option"><input type="checkbox" name="features" value="Photo or work gallery"><span class="q-option-label">Photo or work gallery</span></label>
+                        <label class="q-option"><input type="checkbox" name="features" value="Online appointment booking"><span class="q-option-label">Online appointment booking</span></label>
+                        <label class="q-option"><input type="checkbox" name="features" value="Menu (food/drinks)"><span class="q-option-label">Menu (food/drinks)</span></label>
+                        <label class="q-option"><input type="checkbox" name="features" value="Service or product catalog with pricing"><span class="q-option-label">Service or product catalog with pricing</span></label>
+                        <label class="q-option"><input type="checkbox" name="features" value="Online store / e-commerce"><span class="q-option-label">Online store / e-commerce</span></label>
+                        <label class="q-option"><input type="checkbox" name="features" value="Testimonials / reviews section"><span class="q-option-label">Testimonials / reviews section</span></label>
+                        <label class="q-option"><input type="checkbox" name="features" value="Blog or news section"><span class="q-option-label">Blog or news section</span></label>
+                        <label class="q-option"><input type="checkbox" name="features" value="Staff or team page"><span class="q-option-label">Staff or team page</span></label>
+                        <label class="q-option"><input type="checkbox" name="features" value="Event calendar"><span class="q-option-label">Event calendar</span></label>
+                        <label class="q-option"><input type="checkbox" name="features" value="Google Maps / directions"><span class="q-option-label">Google Maps / directions</span></label>
+                        <label class="q-option"><input type="checkbox" name="features" value="Social media links"><span class="q-option-label">Social media links</span></label>
+                        <label class="q-option"><input type="checkbox" name="features" value="Video integration"><span class="q-option-label">Video integration</span></label>
+                        <label class="q-option"><input type="checkbox" name="features" value="Newsletter or email signup"><span class="q-option-label">Newsletter or email signup</span></label>
+                        <label class="q-option"><input type="checkbox" name="features" value="Client login or portal"><span class="q-option-label">Client login or portal</span></label>
+                        <label class="q-option"><input type="checkbox" name="features" value="Live chat"><span class="q-option-label">Live chat</span></label>
+                        <label class="q-option"><input type="checkbox" name="features" value="other_feature"><span class="q-option-label">Other</span></label>
+                        <input type="text" name="features_other" class="q-input q-other-input" placeholder="Please describe the feature" id="featuresOther">
+                    </div>
+                </div>
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">21.</span> How many pages do you think your site needs?</label>
+                    <div class="q-options">
+                        <label class="q-option"><input type="radio" name="page_count" value="1 page"><span class="q-option-label">1 page (everything on one scrolling page)</span></label>
+                        <label class="q-option"><input type="radio" name="page_count" value="2 to 4 pages"><span class="q-option-label">2 to 4 pages</span></label>
+                        <label class="q-option"><input type="radio" name="page_count" value="5 to 8 pages"><span class="q-option-label">5 to 8 pages</span></label>
+                        <label class="q-option"><input type="radio" name="page_count" value="More than 8 pages"><span class="q-option-label">More than 8 pages</span></label>
+                        <label class="q-option"><input type="radio" name="page_count" value="Not sure"><span class="q-option-label">I'm not sure — I'd like guidance on this</span></label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Section 7 -->
+        <div class="q-section">
+            <div class="q-section-header">
+                <div class="q-section-num">7</div>
+                <div class="q-section-title">Timeline</div>
+            </div>
+            <div class="q-section-body">
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">22.</span> When do you need your website to be live?</label>
+                    <div class="q-options">
+                        <label class="q-option"><input type="radio" name="timeline" value="As soon as possible"><span class="q-option-label">As soon as possible</span></label>
+                        <label class="q-option"><input type="radio" name="timeline" value="Within 1 month"><span class="q-option-label">Within 1 month</span></label>
+                        <label class="q-option"><input type="radio" name="timeline" value="Within 2 to 3 months"><span class="q-option-label">Within 2 to 3 months</span></label>
+                        <label class="q-option"><input type="radio" name="timeline" value="Within 6 months"><span class="q-option-label">Within 6 months</span></label>
+                        <label class="q-option"><input type="radio" name="timeline" value="No hard deadline"><span class="q-option-label">No hard deadline — I want it done right</span></label>
+                    </div>
+                </div>
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">23.</span> Do you have a specific event, opening, or deadline driving your timeline?</label>
+                    <div class="q-options">
+                        <label class="q-option"><input type="radio" name="has_deadline" value="yes_deadline"><span class="q-option-label">Yes</span></label>
+                        <input type="text" name="deadline_details" class="q-input q-other-input" placeholder="Please describe the event or deadline" id="deadlineOther">
+                        <label class="q-option"><input type="radio" name="has_deadline" value="No"><span class="q-option-label">No</span></label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Section 8 -->
+        <div class="q-section">
+            <div class="q-section-header">
+                <div class="q-section-num">8</div>
+                <div class="q-section-title">Budget</div>
+            </div>
+            <div class="q-section-body">
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">24.</span> Which budget range best describes your project?</label>
+                    <div class="q-options">
+                        <label class="q-option"><input type="radio" name="budget" value="$1,000"><span class="q-option-label"><strong>$1,000</strong> — Clean, professional single-page or simple multi-page site with core features</span></label>
+                        <label class="q-option"><input type="radio" name="budget" value="$3,000"><span class="q-option-label"><strong>$3,000</strong> — Expanded site with catalog, testimonials, booking, or more complex structure</span></label>
+                        <label class="q-option"><input type="radio" name="budget" value="$5,000+"><span class="q-option-label"><strong>$5,000+</strong> — Custom functionality, larger scope, or something unique to your business</span></label>
+                        <label class="q-option"><input type="radio" name="budget" value="Not sure yet"><span class="q-option-label">I'm not sure yet — I'd like to discuss during the consultation</span></label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Section 9 -->
+        <div class="q-section">
+            <div class="q-section-header">
+                <div class="q-section-num">9</div>
+                <div class="q-section-title">Anything Else</div>
+            </div>
+            <div class="q-section-body">
+
+                <div class="q-question">
+                    <label class="q-label"><span class="q-num">25.</span> Is there anything else you'd like us to know before the consultation? <span class="q-hint">(optional)</span></label>
+                    <textarea name="anything_else" class="q-textarea" style="min-height:130px;" placeholder="Any specific concerns, past experiences, must-have features, or ideas you want to share..."></textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="q-submit-section">
+            <h3>Ready to Submit?</h3>
+            <p>We'll review your answers before your consultation and come prepared with the right questions.</p>
+            <button type="submit" class="q-submit-btn">
+                Submit Questionnaire <span>→</span>
+            </button>
+        </div>
+
+    </form>
+
+    <div class="q-success" id="successMessage">
+        <div class="q-success-icon">✓</div>
+        <h3>Questionnaire Received!</h3>
+        <p>Thank you for taking the time to fill this out. We'll review your answers and reach out to confirm your consultation.</p>
+    </div>
+
+</div>
+
+<footer class="q-footer">
+    <p>© 2026 Flecha Web Design &nbsp;|&nbsp; <a href="tel:+14809957487">(480) 995-7487</a> &nbsp;|&nbsp; <a href="index.html">Back to Website →</a></p>
+</footer>
+
+<script>
+const STORAGE_KEY = 'flecha_questionnaire_progress';
+
+// ===== Collect all form answers into an object =====
+function collectAnswers() {
+    const data = {};
+    document.querySelectorAll('#questionnaireForm input, #questionnaireForm textarea').forEach(el => {
+        if (!el.name) return;
+        if (el.type === 'radio') {
+            if (el.checked) data[el.name] = el.value;
+        } else if (el.type === 'checkbox') {
+            if (!data[el.name]) data[el.name] = [];
+            if (el.checked) data[el.name].push(el.value);
+        } else {
+            data[el.name] = el.value;
+        }
+    });
+    return data;
+}
+
+// ===== Restore answers from an object =====
+function restoreAnswers(data) {
+    Object.entries(data).forEach(([name, value]) => {
+        const inputs = document.querySelectorAll(`#questionnaireForm [name="${name}"]`);
+        inputs.forEach(input => {
+            if (input.type === 'radio') {
+                if (input.value === value) {
+                    input.checked = true;
+                    input.closest('.q-option')?.classList.add('selected');
+                }
+            } else if (input.type === 'checkbox') {
+                if (Array.isArray(value) && value.includes(input.value)) {
+                    input.checked = true;
+                    input.closest('.q-option')?.classList.add('selected');
+                }
+            } else {
+                input.value = value;
+            }
+        });
+    });
+
+    // Re-trigger other field visibility
+    otherMap.forEach(({ trigger, triggerValue, inputId }) => {
+        const inputs = document.querySelectorAll(`input[name="${trigger}"]`);
+        inputs.forEach(input => {
+            const otherInput = document.getElementById(inputId);
+            if (!otherInput) return;
+            const shouldShow = input.type === 'checkbox'
+                ? document.querySelector(`input[name="${trigger}"][value="${triggerValue}"]`)?.checked
+                : input.value === triggerValue && input.checked;
+            if (shouldShow) otherInput.classList.add('visible');
+        });
+    });
+
+    updateProgress();
+}
+
+// ===== Auto-save to localStorage =====
+function autoSave() {
+    const data = collectAnswers();
+    data._savedAt = new Date().toISOString();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    const label = document.getElementById('autosaveLabel');
+    const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    label.textContent = `Auto-saved at ${time}`;
+}
+
+// ===== Load from localStorage on page load =====
+function loadFromStorage() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return;
+    try {
+        const data = JSON.parse(saved);
+        delete data._savedAt;
+        restoreAnswers(data);
+        const label = document.getElementById('autosaveLabel');
+        label.textContent = 'Progress restored from last session';
+    } catch(e) {}
+}
+
+// ===== Download progress as JSON file =====
+document.getElementById('saveProgressBtn').addEventListener('click', () => {
+    const data = collectAnswers();
+    data._savedAt = new Date().toISOString();
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'flecha-questionnaire-progress.json';
+    a.click();
+    URL.revokeObjectURL(url);
+    const label = document.getElementById('autosaveLabel');
+    label.textContent = 'Progress file downloaded!';
+    if (navigator.vibrate) navigator.vibrate([50, 30, 50]);
+});
+
+// ===== Upload and restore from JSON file =====
+document.getElementById('resumeFileInput').addEventListener('change', function() {
+    const file = this.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const data = JSON.parse(e.target.result);
+            delete data._savedAt;
+            restoreAnswers(data);
+            const label = document.getElementById('autosaveLabel');
+            label.textContent = 'Progress restored from file!';
+            if (navigator.vibrate) navigator.vibrate([50, 30, 50]);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } catch(err) {
+            alert('Could not read the file. Please make sure it is a valid Flecha progress file.');
+        }
+    };
+    reader.readAsText(file);
+});
+
+// ===== Highlight selected options =====
+document.querySelectorAll('.q-option input').forEach(input => {
+    input.addEventListener('change', () => {
+        const name = input.name;
+        if (input.type === 'radio') {
+            document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+                r.closest('.q-option')?.classList.remove('selected');
+            });
+        }
+        if (input.checked) {
+            input.closest('.q-option')?.classList.add('selected');
+        } else {
+            input.closest('.q-option')?.classList.remove('selected');
+        }
+    });
+});
+
+// ===== "Other" text field reveal logic =====
+const otherMap = [
+    { trigger: 'industry',     triggerValue: 'other_industry',  inputId: 'industryOther' },
+    { trigger: 'primary_goal', triggerValue: 'other_goal',      inputId: 'goalOther' },
+    { trigger: 'customers',    triggerValue: 'other_customers',  inputId: 'customersOther' },
+    { trigger: 'service_area', triggerValue: 'other_area',       inputId: 'areaOther' },
+    { trigger: 'features',     triggerValue: 'other_feature',    inputId: 'featuresOther' },
+    { trigger: 'has_deadline', triggerValue: 'yes_deadline',     inputId: 'deadlineOther' },
+];
+
+otherMap.forEach(({ trigger, triggerValue, inputId }) => {
+    document.querySelectorAll(`input[name="${trigger}"]`).forEach(input => {
+        input.addEventListener('change', () => {
+            const otherInput = document.getElementById(inputId);
+            if (!otherInput) return;
+            const shouldShow = input.type === 'checkbox'
+                ? document.querySelector(`input[name="${trigger}"][value="${triggerValue}"]`)?.checked
+                : input.value === triggerValue && input.checked;
+            otherInput.classList.toggle('visible', !!shouldShow);
+        });
+    });
+});
+
+// ===== Progress bar =====
+function updateProgress() {
+    const allInputs = document.querySelectorAll('#questionnaireForm input:not([type="hidden"]):not([type="text"]), #questionnaireForm textarea');
+    const answeredNames = new Set();
+
+    allInputs.forEach(input => {
+        if ((input.type === 'radio' || input.type === 'checkbox') && input.checked) {
+            answeredNames.add(input.name);
+        } else if ((input.tagName === 'TEXTAREA' || input.type === 'text') && input.value.trim() !== '') {
+            answeredNames.add(input.name || input.id || Math.random());
+        }
+    });
+
+    const totalQuestions = 25;
+    const progress = Math.min(Math.round((answeredNames.size / totalQuestions) * 100), 100);
+    document.getElementById('progressFill').style.width = progress + '%';
+    document.getElementById('progressLabel').textContent = progress + '% complete';
+}
+
+// Auto-save and progress update on any input change
+document.querySelectorAll('#questionnaireForm input, #questionnaireForm textarea').forEach(el => {
+    el.addEventListener('change', () => { updateProgress(); autoSave(); });
+    el.addEventListener('input',  () => { updateProgress(); autoSave(); });
+});
+
+// ===== Form submission =====
+document.getElementById('questionnaireForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.q-submit-btn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    setTimeout(() => {
+        localStorage.removeItem(STORAGE_KEY);
+        this.style.display = 'none';
+        document.getElementById('successMessage').classList.add('visible');
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+    }, 800);
+});
+
+// ===== Back to Top Button =====
+(function() {
+    const btn = document.getElementById('backToTop');
+    if (!btn) return;
+    window.addEventListener('scroll', () => {
+        btn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (navigator.vibrate) navigator.vibrate(30);
+    });
+})();
+</script>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"/>
+            <polyline points="6 11 12 5 18 11"/>
+        </svg>
+    </button>
+
+</body>
+</html>

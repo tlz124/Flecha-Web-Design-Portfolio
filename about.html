@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the Name — Flecha Web Design</title>
+    <link rel="icon" type="image/png" href="flecha-web-design-logo.png">
+    <link rel="stylesheet" href="Business_Portfolio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header/Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="flecha-web-design-logo.svg" alt="Flecha chevrons left" class="logo-chevrons">
+                    <div class="logo-text">
+                        <span class="logo-text-main">FLECHA</span>
+                        <span class="logo-text-sub">WEB DESIGN</span>
+                    </div>
+                    <img src="flecha-web-design-logo.svg" alt="Flecha chevrons right" class="logo-chevrons">
+                </a>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hamburger Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <button class="close-menu" id="closeMenu" aria-label="Close menu">&times;</button>
+        <nav class="menu-nav">
+            <ul>
+                <li class="menu-item-parent">
+                    <div class="menu-item-parent-row">
+                    <a href="index.html" class="menu-link menu-link--parent">Home</a>
+                    <button class="menu-submenu-toggle" id="homeSubmenuToggle" aria-label="Toggle Home submenu">&#8964;</button>
+                    </div>
+                    <ul class="menu-submenu menu-submenu--collapsed">
+                        <li><a href="index.html#questionnaire" class="menu-sublink">Client Questionnaire</a></li>
+                        <li><a href="index.html#our-process" class="menu-sublink">Our Process</a></li>
+                        <li><a href="index.html#pricing" class="menu-sublink">Pricing</a></li>
+                        <li><a href="index.html#contact" class="menu-sublink">Contact Us</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="menu-link active-link">About</a></li>
+                <li><a href="what_we_do.html" class="menu-link">What We Do</a></li>
+                <li><a href="portfolio.html" class="menu-link">Portfolio</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero page-hero--3d">
+        <div class="page-hero-content">
+            <div class="page-hero-text">
+                <h1 class="section-title">About Us</h1>
+                <p class="section-subtitle">Why we chose the arrow</p>
+            </div>
+            <div class="page-hero-3d">
+                <canvas id="heroCanvas"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <p>The name "Flecha Web Design" holds special meaning for us. "Flecha" is the Spanish word for "arrow," symbolizing direction, precision, and forward movement. Just as an arrow points toward a target with purpose and clarity, we help businesses and educational institutions navigate the digital landscape with confidence.</p>
+                <p>We chose this name because we believe great web design should do more than look good—it should guide users exactly where they need to go and help organizations move toward their goals. Every arrow has a direction, and we're here to make sure yours is pointed toward success.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Flecha Web Design. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="YOUR_FACEBOOK_URL" class="social-icon" target="_blank" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="YOUR_LINKEDIN_URL" class="social-icon" target="_blank" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="YOUR_X_URL" class="social-icon" target="_blank" aria-label="X">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="YOUR_INSTAGRAM_URL" class="social-icon" target="_blank" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="Business_Portfolio.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+            }
+        }  
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+        const canvas = document.getElementById('heroCanvas');
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
+        camera.position.set(0, 0, 7);
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 3.0);
+        scene.add(ambientLight);   
+
+        const dirLight1 = new THREE.DirectionalLight(0xd4a5ff, 4.0);
+        dirLight1.position.set(5, 5, 5);
+        scene.add(dirLight1);
+
+        const dirLight2 = new THREE.DirectionalLight(0x9b30d4, 4.0);
+        dirLight2.position.set(-5, -2, -3);
+        scene.add(dirLight2);
+		
+		const dirLight3 = new THREE.DirectionalLight(0xffffff, 5.0);
+		dirLight3.position.set(-5, 5, -5);
+		scene.add(dirLight3);
+		
+		const dirLight4 = new THREE.DirectionalLight(0xffffff, 5.0);
+		dirLight4.position.set(5, -5, -5);
+		scene.add(dirLight4);
+
+        const pointLight = new THREE.PointLight(0xffffff, 1, 20);
+        pointLight.position.set(0, 3, 3);
+        scene.add(pointLight);
+
+        // Load model
+        let model;
+        const loader = new GLTFLoader();
+        loader.load('FlechaWebDesign_Logo.glb', (gltf) => {
+            model = gltf.scene;
+
+            // Center the model
+            const box = new THREE.Box3().setFromObject(model);
+            const center = box.getCenter(new THREE.Vector3());
+            model.position.sub(center);
+            model.position.y = -6;
+
+            // Scale to fit nicely
+            const size = box.getSize(new THREE.Vector3());
+            const maxDim = Math.max(size.x, size.y, size.z);
+            const scale = 5 / maxDim;
+            model.scale.setScalar(scale);
+
+            scene.add(model);
+        });
+
+        // Resize handler
+        function resize() {
+            const container = canvas.parentElement;
+            const w = container.clientWidth;
+            const h = container.clientHeight;
+            renderer.setSize(w, h);
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            if (model) {
+                model.rotation.y += 0.008;
+                model.rotation.x = Math.sin(Date.now() * 0.0005) * 0.15;
+            }
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+</html>

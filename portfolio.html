@@ -3,34 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Work - Flecha Web Design</title>
+    <title>Portfolio — Flecha Web Design</title>
+    <link rel="icon" type="image/png" href="flecha-web-design-logo.png">
     <link rel="stylesheet" href="Business_Portfolio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Cookie Consent Banner -->
-    <div id="cookieConsent" class="cookie-consent hidden">
-        <div class="cookie-content">
-            <p>We use cookies to improve your experience and analyze our traffic. You can choose to accept all or reject non-essential cookies.</p>
-            <div class="cookie-buttons">
-                <button id="acceptAll" class="cookie-btn accept">Accept All</button>
-                <button id="rejectNonEssential" class="cookie-btn reject">Reject Non-Essential</button>
-            </div>
-        </div>
-    </div>
 
     <!-- Header/Navigation -->
-    <header class="header">
-        <div class="header-container">
-            <div class="logo">
-                <span class="logo-icon">→</span>
-                <span class="logo-text">Flecha Web Design</span>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="flecha-web-design-logo.svg" alt="Flecha chevrons left" class="logo-chevrons">
+                    <div class="logo-text">
+                        <span class="logo-text-main">FLECHA</span>
+                        <span class="logo-text-sub">WEB DESIGN</span>
+                    </div>
+                    <img src="flecha-web-design-logo.svg" alt="Flecha chevrons right" class="logo-chevrons">
+                </a>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
+        </nav>
     </header>
 
     <!-- Hamburger Menu Overlay -->
@@ -38,22 +36,37 @@
         <button class="close-menu" id="closeMenu" aria-label="Close menu">&times;</button>
         <nav class="menu-nav">
             <ul>
-                <li><a href="index.html#home" class="menu-link">Home</a></li>
-                <li><a href="index.html#about" class="menu-link">About</a></li>
-                <li><a href="our-story.html" class="menu-link">Our Story</a></li>
-                <li><a href="index.html#our-process" class="menu-link">Our Process</a></li>
-                <li><a href="portfolio.html" class="menu-link">View Our Work</a></li>
-                <li><a href="index.html#contact" class="menu-link">Contact Us</a></li>
+                <li class="menu-item-parent">
+                    <div class="menu-item-parent-row">
+                    <a href="index.html" class="menu-link menu-link--parent">Home</a>
+                    <button class="menu-submenu-toggle" id="homeSubmenuToggle" aria-label="Toggle Home submenu">&#8964;</button>
+                    </div>
+                    <ul class="menu-submenu menu-submenu--collapsed">
+                        <li><a href="index.html#questionnaire" class="menu-sublink">Client Questionnaire</a></li>
+                        <li><a href="index.html#our-process" class="menu-sublink">Our Process</a></li>
+                        <li><a href="index.html#pricing" class="menu-sublink">Pricing</a></li>
+                        <li><a href="index.html#contact" class="menu-sublink">Contact Us</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="menu-link">About</a></li>
+                <li><a href="what_we_do.html" class="menu-link">What We Do</a></li>
+                <li><a href="portfolio.html" class="menu-link active-link">Portfolio</a></li>
             </ul>
         </nav>
     </div>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio" style="margin-top: 80px; padding-top: 5rem;">
+    <!-- Page Hero -->
+    <section class="page-hero">
         <div class="container">
-            <h2 class="section-title">View Our Work</h2>
-            <p class="section-subtitle">Recent projects across education and small business</p>
-            
+            <h1 class="section-title">Portfolio</h1>
+            <p class="section-subtitle">A deeper look at our work</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <div class="container">
+
             <!-- Filter Buttons -->
             <div class="filter-container">
                 <button class="filter-btn active" data-filter="all">All Projects</button>
@@ -62,64 +75,227 @@
                 <button class="filter-btn" data-filter="Education">Education</button>
                 <button class="filter-btn" data-filter="Professional Services">Professional Services</button>
             </div>
-            
-            <div class="projects-grid" id="projectsGrid">
-                <!-- Projects will be loaded here by JavaScript -->
+
+            <div class="projects-grid">
+
+                <!-- Pet Grooming Salon -->
+                <div class="project-card" data-category="Small Business">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1548681528-6a5c45b66b42?w=600&h=400&fit=crop" alt="Pet Grooming Salon">
+                        <div class="project-overlay">
+                            <button class="view-details" data-project="0">View Details <span class="arrow-icon">→</span></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Small Business</span>
+                        <h3 class="project-title">Pet Grooming Salon</h3>
+                        <p class="project-description">Professional pet grooming services with appointment booking</p>
+                    </div>
+                </div>
+
+                <!-- Fitness Center -->
+                <div class="project-card" data-category="Small Business">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop" alt="Fitness Center">
+                        <div class="project-overlay">
+                            <button class="view-details" data-project="1">View Details <span class="arrow-icon">→</span></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Small Business</span>
+                        <h3 class="project-title">Fitness Center</h3>
+                        <p class="project-description">Modern fitness business with class schedules and membership options</p>
+                    </div>
+                </div>
+
+                <!-- Orthodontist Practice -->
+                <div class="project-card" data-category="Healthcare">
+                    <div class="project-image">
+                        <img src="https://tlz124.github.io/orthodontist/istockphoto-1274268165-612x612.webp" alt="Orthodontist Practice">
+                        <div class="project-overlay">
+                            <button class="view-details" data-project="2">View Details <span class="arrow-icon">→</span></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Healthcare</span>
+                        <h3 class="project-title">Orthodontist Practice</h3>
+                        <p class="project-description">Modern orthodontist website with treatment information and appointment scheduling</p>
+                    </div>
+                </div>
+
+                <!-- Contemporary Hair Salon -->
+                <div class="project-card" data-category="Small Business">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=400&fit=crop" alt="Contemporary Hair Salon">
+                        <div class="project-overlay">
+                            <button class="view-details" data-project="3">View Details <span class="arrow-icon">→</span></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Small Business</span>
+                        <h3 class="project-title">Contemporary Hair Salon</h3>
+                        <p class="project-description">Elegant hair salon website showcasing services and portfolio</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
+
+    <!-- Project Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content" id="modalContent">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"/>
+            <polyline points="6 11 12 5 18 11"/>
+        </svg>
+    </button>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 Flecha Web Design. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="#privacyModal" class="footer-link" id="privacyLink">Privacy Policy</a>
-                <a href="#accessibilityModal" class="footer-link" id="accessibilityLink">Accessibility Statement</a>
+            <div class="social-icons">
+                <a href="YOUR_FACEBOOK_URL" class="social-icon" target="_blank" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="YOUR_LINKEDIN_URL" class="social-icon" target="_blank" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="YOUR_X_URL" class="social-icon" target="_blank" aria-label="X">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="YOUR_INSTAGRAM_URL" class="social-icon" target="_blank" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
             </div>
         </div>
     </footer>
 
-    <!-- Privacy Policy Modal -->
-    <div id="privacyModal" class="legal-modal-overlay" aria-hidden="true">
-        <div class="legal-modal">
-            <button class="close-modal" data-modal="privacyModal" aria-label="Close privacy policy">&times;</button>
-            <h2>Privacy Policy</h2>
-            <div class="modal-content">
-                <p><strong>Last Updated:</strong> February 2026</p>
-                <h3>Information Collection</h3>
-                <p>We collect information you provide directly through our contact forms, including your name, email address, and project details.</p>
-                <h3>Use of Information</h3>
-                <p>Your information is used solely to respond to your inquiries and provide web design services.</p>
-                <h3>Data Protection</h3>
-                <p>We implement appropriate security measures to protect your personal information.</p>
-                <h3>Contact</h3>
-                <p>For privacy concerns, email us at LMartinez@flecha-webdesign.com</p>
-            </div>
-        </div>
-    </div>
+    <script>
+    // Portfolio project data
+    const portfolioProjects = [
+        {
+            id: 0,
+            title: "Pet Grooming Salon",
+            category: "Small Business",
+            description: "Professional pet grooming services with appointment booking",
+            fullDescription: "A comprehensive website for a pet grooming business featuring service descriptions, pricing information, and an easy-to-use appointment booking system. The site showcases grooming services for various pet types, includes customer testimonials, and provides care tips for pet owners. The friendly, approachable design appeals to pet lovers while maintaining professionalism.",
+            image: "https://images.unsplash.com/photo-1548681528-6a5c45b66b42?w=600&h=400&fit=crop",
+            technologies: ["HTML5", "CSS3", "JavaScript", "Appointment Booking", "Service Catalog"],
+            liveLink: "https://tlz124.github.io/pet-grooming/"
+        },
+        {
+            id: 1,
+            title: "Fitness Center",
+            category: "Small Business",
+            description: "Modern fitness business with class schedules and membership options",
+            fullDescription: "A dynamic website for a fitness business featuring class schedules, trainer profiles, membership pricing, and online sign-up capabilities. The site showcases fitness programs, includes success stories and testimonials, and provides information about facilities and equipment. The energetic design motivates visitors while making it easy to explore services and join.",
+            image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop",
+            technologies: ["HTML5", "CSS3", "JavaScript", "Class Scheduling", "Membership Portal"],
+            liveLink: "https://tlz124.github.io/fitness/"
+        },
+        {
+            id: 2,
+            title: "Orthodontist Practice",
+            category: "Healthcare",
+            description: "Modern orthodontist website with treatment information and appointment scheduling",
+            fullDescription: "A clean, professional website designed for an orthodontist practice. Features include detailed treatment information, before-and-after galleries, appointment scheduling, patient resources, and an FAQ section. The modern design builds trust and makes it easy for patients to learn about orthodontic services and book consultations online.",
+            image: "https://tlz124.github.io/orthodontist/istockphoto-1274268165-612x612.webp",
+            technologies: ["HTML5", "CSS3", "JavaScript", "Appointment Scheduling", "Patient Portal"],
+            liveLink: "https://tlz124.github.io/orthodontist/"
+        },
+        {
+            id: 3,
+            title: "Contemporary Hair Salon",
+            category: "Small Business",
+            description: "Elegant hair salon website showcasing services and portfolio",
+            fullDescription: "A luxurious website for Atelier Noir, a contemporary hair salon. Features include service listings with pricing, visual portfolio gallery, stylist information, appointment booking system, and sophisticated dark theme design that reflects the salon's modern aesthetic.",
+            image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=400&fit=crop",
+            technologies: ["HTML5", "CSS3", "JavaScript", "Appointment Booking", "Portfolio Gallery"],
+            liveLink: "https://tlz124.github.io/salon"
+        }
+    ];
 
-    <!-- Accessibility Statement Modal -->
-    <div id="accessibilityModal" class="legal-modal-overlay" aria-hidden="true">
-        <div class="legal-modal">
-            <button class="close-modal" data-modal="accessibilityModal" aria-label="Close accessibility statement">&times;</button>
-            <h2>Accessibility Statement</h2>
-            <div class="modal-content">
-                <p>Flecha Web Design is committed to ensuring digital accessibility for people with disabilities.</p>
-                <h3>Conformance Status</h3>
-                <p>We strive to conform to WCAG 2.1 Level AA standards.</p>
-                <h3>Feedback</h3>
-                <p>We welcome feedback on the accessibility of our website. Please contact us at LMartinez@flecha-webdesign.com</p>
-            </div>
-        </div>
-    </div>
+    // Filter functionality
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+            document.querySelectorAll('.project-card').forEach(card => {
+                const category = card.dataset.category;
+                card.style.display = (filter === 'all' || category === filter) ? 'block' : 'none';
+            });
+        });
+    });
 
-    <!-- Floating CTA Button -->
-    <a href="index.html#contact" class="floating-cta">
-        Request Consultation <span class="arrow-icon">→</span>
-    </a>
+    // Modal functionality
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalBody = document.getElementById('modalBody');
+    const modalClose = document.getElementById('modalClose');
 
-    <script src="Business_Portfolio.js"></script>
-    <script src="portfolio.js"></script>
+    document.querySelectorAll('.view-details').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const projectId = parseInt(btn.dataset.project);
+            const project = portfolioProjects[projectId];
+            if (!project) return;
+
+            modalBody.innerHTML = `
+                <img src="${project.image}" alt="${project.title}" style="width:100%;border-radius:4px;margin-bottom:1.5rem;">
+                <span class="project-category">${project.category}</span>
+                <h2 style="font-size:1.8rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;margin:0.5rem 0 1rem;">${project.title}</h2>
+                <p style="color:var(--text-light);line-height:1.8;margin-bottom:1.5rem;">${project.fullDescription}</p>
+                <div style="margin-bottom:1.5rem;">
+                    <h4 style="font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--purple-accent);margin-bottom:0.75rem;">Technologies Used</h4>
+                    <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+                        ${project.technologies.map(t => `<span style="background:rgba(212,165,255,0.1);border:1px solid rgba(212,165,255,0.3);border-radius:4px;padding:0.25rem 0.75rem;font-size:0.8rem;color:var(--purple-accent);">${t}</span>`).join('')}
+                    </div>
+                </div>
+                ${project.liveLink ? `<a href="${project.liveLink}" target="_blank" class="submit-btn" style="display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;">View Live Site <span>→</span></a>` : ''}
+            `;
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    modalClose.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    function closeModal() {
+        modalOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Back to top
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        backToTopBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (navigator.vibrate) navigator.vibrate(30);
+    });
+
+    // Hamburger menu
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const closeMenu = document.getElementById('closeMenu');
+
+    hamburgerBtn.addEventListener('click', () => menuOverlay.classList.add('active'));
+    closeMenu.addEventListener('click', () => menuOverlay.classList.remove('active'));
+    document.querySelectorAll('.menu-link').forEach(link => {
+        link.addEventListener('click', () => menuOverlay.classList.remove('active'));
+    });
+    </script>
+
 </body>
 </html>
