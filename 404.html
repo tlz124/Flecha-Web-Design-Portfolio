@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found — Flecha Web Design</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" href="flecha-web-design-logo.png">
+    <link rel="stylesheet" href="Business_Portfolio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .error-404 {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 30%, #2a0a5e 0%, #0f0520 30%, #000000 65%);
+        }
+
+        .error-404-content {
+            position: relative;
+            z-index: 2;
+            max-width: 560px;
+        }
+
+        .error-404-logo {
+            height: 80px;
+            width: auto;
+            display: block;
+            margin: 0 auto 2rem;
+            filter: drop-shadow(0 0 12px rgba(212, 165, 255, 0.4));
+            animation: logo-float 3s ease-in-out infinite;
+        }
+
+        @keyframes logo-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .error-404-code {
+            font-size: clamp(4rem, 12vw, 7rem);
+            font-weight: 700;
+            color: var(--text-white);
+            line-height: 1;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .error-404-title {
+            font-size: clamp(1.3rem, 3vw, 1.7rem);
+            font-weight: 700;
+            color: var(--purple-accent);
+            margin-bottom: 1rem;
+        }
+
+        .error-404-text {
+            font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        .error-404-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .error-404-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.9rem 1.8rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: all 0.25s ease;
+        }
+
+        .error-404-btn--primary {
+            background: var(--purple-accent);
+            color: var(--black);
+            border: 1px solid var(--purple-accent);
+        }
+
+        .error-404-btn--primary:hover {
+            background: var(--purple-light);
+            border-color: var(--purple-light);
+            box-shadow: 0 0 20px rgba(212, 165, 255, 0.35);
+            transform: translateY(-1px);
+        }
+
+        .error-404-btn--secondary {
+            background: rgba(212, 165, 255, 0.08);
+            color: var(--purple-accent);
+            border: 1px solid rgba(212, 165, 255, 0.4);
+        }
+
+        .error-404-btn--secondary:hover {
+            background: rgba(212, 165, 255, 0.16);
+            border-color: var(--purple-accent);
+            color: var(--purple-light);
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 480px) {
+            .error-404-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .error-404-btn {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="error-404">
+        <div class="error-404-content">
+            <img src="flecha-web-design-logo.svg" alt="Flecha Web Design chevrons" class="error-404-logo">
+
+            <p class="error-404-code">404</p>
+            <h1 class="error-404-title">Looks like this arrow missed its mark</h1>
+            <p class="error-404-text">The page you're looking for doesn't exist, or it's moved somewhere else. Let's get you pointed in the right direction.</p>
+
+            <div class="error-404-actions">
+                <a href="index.html" class="error-404-btn error-404-btn--primary">Back to Home</a>
+                <a href="portfolio.html" class="error-404-btn error-404-btn--secondary">View Our Work</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
