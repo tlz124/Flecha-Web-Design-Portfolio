@@ -6,10 +6,36 @@
     <meta http-equiv="Content-Security-Policy" content="...">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-    <title>Flecha Web Design - Web Design for Education & Small Business</title>
+	<title>Flecha Web Design - Web Design for Education & Small Business</title>
+	<meta name="description" content="Flecha Web Design builds purposeful, professional websites for educational institutions and local businesses across Arizona. Mobile-friendly, fast, and built to grow with you.">
+    <meta property="og:title" content="Flecha Web Design - Web Design for Education & Small Business">
+    <meta property="og:description" content="Flecha Web Design builds purposeful, professional websites for educational institutions and local businesses across Arizona. Mobile-friendly, fast, and built to grow with you.">
+    <meta property="og:image" content="https://www.flecha-webdesign.com/flecha-web-design-logo.png">
+    <meta property="og:url" content="https://www.flecha-webdesign.com">
+    <meta property="og:type" content="website">
     <link rel="icon" type="image/png" href="flecha-web-design-logo.png">
     <link rel="stylesheet" href="Business_Portfolio.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Flecha Web Design",
+      "image": "https://www.flecha-webdesign.com/flecha-web-design-logo.png",
+      "url": "https://www.flecha-webdesign.com",
+      "telephone": "+1-480-995-7487",
+      "priceRange": "$1000-$7500+",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Phoenix",
+        "addressRegion": "AZ",
+        "addressCountry": "US"
+      },
+      "areaServed": "Phoenix-Scottsdale Metro Area, Arizona",
+      "description": "Flecha Web Design builds purposeful, professional websites for educational institutions and local businesses across Arizona.",
+      "sameAs": []
+    }
+    </script>
 </head>
 <body>
     <!-- Cookie Consent Banner -->
@@ -54,12 +80,13 @@
             <ul>
                 <li class="menu-item-parent">
                     <div class="menu-item-parent-row">
-                    <a href="index.html" class="menu-link active-link menu-link--parent">Home</a>
-                    <button class="menu-submenu-toggle" id="homeSubmenuToggle" aria-label="Toggle Home submenu">&#8964;</button>
-                    </div>
+                        <a href="index.html" class="menu-link active-link menu-link--parent">Home</a>
+                        <button class="menu-submenu-toggle" id="homeSubmenuToggle" aria-label="Toggle Home submenu">&#8964;</button>
+                    </div>    
                     <ul class="menu-submenu menu-submenu--collapsed">
                         <li><a href="#questionnaire" class="menu-sublink">Client Questionnaire</a></li>
                         <li><a href="#our-process" class="menu-sublink">Our Process</a></li>
+                        <li><a href="index.html#portfolio" class="menu-sublink">Our Work</a></li>
                         <li><a href="#pricing" class="menu-sublink">Pricing</a></li>
                         <li><a href="#contact" class="menu-sublink">Contact Us</a></li>
                     </ul>
@@ -222,8 +249,25 @@
         </div>
     </section>
 
+    <!-- Testimonial Section -->
+<!-- 
+    <section id="testimonial" class="testimonial-section">
+        <div class="container">
 
-   
+            <div class="testimonial-feature">
+                <span class="testimonial-quote-mark">&ldquo;</span>
+                <p class="testimonial-text">
+                    Working with Flecha Web Design completely transformed how our business shows up online. They took the time to understand exactly what we needed and delivered a site that's not just beautiful, but actually works for our customers. We couldn't be happier with the results.
+                </p>
+                <div class="testimonial-author">
+                    <p class="testimonial-name">Client Name</p>
+                    <p class="testimonial-role">Owner, Business Name</p>
+                </div>
+            </div>
+        </div>
+    </section>
+ -->
+
     <!-- Pricing & Payment Section -->
     <section id="pricing" class="pricing-section">
         <div class="container">
@@ -270,9 +314,9 @@
 
                 <!-- Tier 2: Essential Plus -->
                 <div class="pricing-card pricing-card-featured">
-                    <div class="pricing-featured-label"></div>
+                    <!-- <div class="pricing-featured-label"></div> -->
                     <div class="pricing-header">
-                        <h3 class="pricing-name">Essential Plus</h3>
+                        <h3 class="pricing-name">ESSENTIAL PLUS</h3>
                         <div class="pricing-amount">
                             <span class="pricing-total">$3,000</span>
                             <span class="pricing-label">Total Project Price</span>
@@ -377,7 +421,7 @@
 
                 <!-- E-Com Tier 2 -->
                 <div class="pricing-card pricing-card-featured">
-                    <div class="pricing-featured-label">Most Popular</div>
+                    <!-- <div class="pricing-featured-label"></div> -->
                     <div class="pricing-header">
                         <h3 class="pricing-name">E-Com Plus</h3>
                         <div class="pricing-amount">
@@ -529,6 +573,7 @@
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 Flecha Web Design. All rights reserved.</p>
+            <!-- Social media links hidden until accounts are ready
             <div class="social-icons">
                 <a href="YOUR_FACEBOOK_URL" class="social-icon" target="_blank" aria-label="Facebook">
                     <i class="fa-brands fa-facebook"></i>
@@ -543,6 +588,7 @@
                     <i class="fa-brands fa-instagram"></i>
                 </a>
             </div>
+            -->
             <div class="footer-links">
                 <a href="#privacyModal" class="footer-link" id="privacyLink">Privacy Policy</a>
                 <a href="#accessibilityModal" class="footer-link" id="accessibilityLink">Accessibility Statement</a>
@@ -750,8 +796,8 @@
                 else line = t;
             });
             ctx.fillText(line.trim(), 14, y);
-        }
-
+        }  
+    
         projects.forEach((p, i) => {
             const angle = (2 * Math.PI / n) * i;
             const x = R * Math.sin(angle);
@@ -860,9 +906,21 @@
             }
         }
 
+		let lastCenterIndex = null;
+
         function animate() {
             requestAnimationFrame(animate);
             if (!dragging) { vx *= 0.92; group.rotation.y += vx; }
+
+            // Haptic feedback when a panel crosses front-center
+            const step = (2 * Math.PI) / n;
+            const normalized = ((-group.rotation.y % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+            const centerIndex = Math.round(normalized / step) % n;
+            if (centerIndex !== lastCenterIndex) {
+                lastCenterIndex = centerIndex;
+                if (navigator.vibrate) navigator.vibrate(10);
+            }
+
             renderer.render(scene, camera);
         }
         animate();
