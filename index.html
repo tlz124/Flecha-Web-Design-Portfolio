@@ -888,7 +888,7 @@
         });
         window.addEventListener('touchend', e => {
             if (!dragging) return; dragging=false;
-            if (Math.abs(vx) < 0.002) {
+            if (Math.abs(vx) < 0.0005) {
                 const t=e.changedTouches[0];
                 const rect=canvas.getBoundingClientRect();
                 mouse.x=((t.clientX-rect.left)/rect.width)*2-1;
