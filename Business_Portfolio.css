@@ -2850,3 +2850,19 @@ section::before {
         font-size: 4rem;
     }
 }
+
+
+
+
+.step-reminder-link {
+    color: var(--purple-accent);
+    text-decoration: underline;
+}
+
+.step-reminder-link:hover {
+    color: var(--purple-light);
+}
+
+
+
+
