@@ -452,6 +452,16 @@
 
     <form id="questionnaireForm">
 
+        <!-- Contact Info -->
+        <div class="q-section">
+            <div class="q-section-body">
+                <div class="q-question">
+                    <label class="q-label">Your email <span class="q-hint">(so we can follow up with you)</span></label>
+                    <input type="email" name="email" class="q-input" placeholder="you@example.com" required>
+                </div>
+            </div>
+        </div>
+
         <!-- Section 1 -->
         <div class="q-section">
             <div class="q-section-header">
@@ -1001,19 +1011,46 @@ document.querySelectorAll('#questionnaireForm input, #questionnaireForm textarea
 });
 
 // ===== Form submission =====
+const FORM_HANDLER_URL = 'https://flecha-form-handler-gcevauewcefsddef.westus2-01.azurewebsites.net/api/formHandler';
+
 document.getElementById('questionnaireForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    const btn = this.querySelector('.q-submit-btn');
+    const form = this;
+    const btn = form.querySelector('.q-submit-btn');
+    const originalBtnText = btn.textContent;
     btn.textContent = 'Sending...';
     btn.disabled = true;
 
-    setTimeout(() => {
-        localStorage.removeItem(STORAGE_KEY);
-        this.style.display = 'none';
-        document.getElementById('successMessage').classList.add('visible');
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-        if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
-    }, 800);
+    // Gather all form fields (including multi-value checkboxes) into a plain object
+    const formData = new FormData(form);
+    const data = { formType: 'Questionnaire' };
+    for (const [key, value] of formData.entries()) {
+        if (data[key] !== undefined) {
+            // Multiple values for the same name (e.g. checkboxes) become an array
+            data[key] = Array.isArray(data[key]) ? [...data[key], value] : [data[key], value];
+        } else {
+            data[key] = value;
+        }
+    }
+
+    fetch(FORM_HANDLER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+        .then((res) => {
+            if (!res.ok) throw new Error('Request failed');
+            localStorage.removeItem(STORAGE_KEY);
+            form.style.display = 'none';
+            document.getElementById('successMessage').classList.add('visible');
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+        })
+        .catch(() => {
+            btn.textContent = originalBtnText;
+            btn.disabled = false;
+            alert('Something went wrong sending your questionnaire. Please try again, or email us directly at TZwahlen@Flecha-WebDesign.com.');
+        });
 });
 
 // ===== Back to Top Button =====

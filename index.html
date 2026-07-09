@@ -529,7 +529,7 @@
 
                 <div class="consultation-form">
                     <h3>Request a Consultation</h3>
-                    <form id="consultationForm" action="https://formspree.io/f/xreavegv" method="POST">
+                    <form id="consultationForm">
                         <div class="form-group">
                             <input type="text" name="name" placeholder="Your Name" required pattern="[A-Za-z\s\-']{2,50}" title="Please enter a valid name (letters only, 2-50 characters)">
                         </div>
@@ -559,9 +559,8 @@
 
 
 
-                        <!-- Formspree Configuration -->
-						<input type="hidden" name="_subject" value="New Consultation Request - Flecha Web Design">
-						<input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                        <button type="submit" class="submit-btn">Request Consultation <span class="arrow-icon">→</span></button>
+                        <p id="consultationFormStatus" class="form-status" style="display:none; margin-top:1rem;"></p>
                     </form>
                 </div>
             </div>
@@ -923,6 +922,52 @@
             renderer.render(scene, camera);
         }
         animate();
+    })();
+    </script>
+
+    <!-- Consultation Form Submission -->
+    <script>
+    (function() {
+        const FORM_HANDLER_URL = 'https://flecha-form-handler-gcevauewcefsddef.westus2-01.azurewebsites.net/api/formHandler';
+        const form = document.getElementById('consultationForm');
+        if (!form) return;
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = form.querySelector('.submit-btn');
+            const status = document.getElementById('consultationFormStatus');
+            const originalBtnHTML = btn.innerHTML;
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+
+            const formData = new FormData(form);
+            const data = { formType: 'Consultation' };
+            for (const [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+
+            fetch(FORM_HANDLER_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+                .then((res) => {
+                    if (!res.ok) throw new Error('Request failed');
+                    form.reset();
+                    status.textContent = "Thanks! Your consultation request has been sent — we'll be in touch soon.";
+                    status.style.color = '#a5ffc0';
+                    status.style.display = 'block';
+                    btn.innerHTML = originalBtnHTML;
+                    btn.disabled = false;
+                })
+                .catch(() => {
+                    status.textContent = 'Something went wrong sending your request. Please try again, or email us directly at TZwahlen@Flecha-WebDesign.com.';
+                    status.style.color = '#ffb3b3';
+                    status.style.display = 'block';
+                    btn.innerHTML = originalBtnHTML;
+                    btn.disabled = false;
+                });
+        });
     })();
     </script>
 </body>
