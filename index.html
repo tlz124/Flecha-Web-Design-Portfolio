@@ -543,17 +543,10 @@
                             <input type="text" id="preferred_date" name="preferred_date" placeholder="Preferred Date" required>
                         </div>
                         <div class="form-group">
-                            <select name="preferred_time" required>
+                            <select name="preferred_time" id="preferred_time" required>
                                 <option value="" disabled selected>Select a Preferred Time</option>
-                                <option value="9:00 am">9:00 am</option>
-                                <option value="10:00 am">10:00 am</option>
-                                <option value="11:00 am">11:00 am</option>
-                                <option value="12:00 pm">12:00 pm</option>
-                                <option value="1:00 pm">1:00 pm</option>
-                                <option value="2:00 pm">2:00 pm</option>
                                 <option value="3:00 pm">3:00 pm</option>
                                 <option value="4:00 pm">4:00 pm</option>
-                                <option value="5:00 pm">5:00 pm</option>
                             </select>
                         </div>
 
@@ -929,8 +922,57 @@
     <script>
     (function() {
         const FORM_HANDLER_URL = 'https://flecha-form-handler-gcevauewcefsddef.westus2-01.azurewebsites.net/api/formHandler';
+        const CHECK_AVAILABILITY_URL = 'https://flecha-form-handler-gcevauewcefsddef.westus2-01.azurewebsites.net/api/checkAvailability';
         const form = document.getElementById('consultationForm');
         if (!form) return;
+
+        const dateInput = document.getElementById('preferred_date');
+        const timeSelect = document.getElementById('preferred_time');
+
+        // Restrict bookable date range: tomorrow through 30 days out.
+        // (The 24-hour minimum notice is enforced precisely, down to the
+        // hour, on the backend — this date-level range is just the UI guide.)
+        function toISODate(d) {
+            return d.toISOString().slice(0, 10);
+        }
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const maxDate = new Date();
+        maxDate.setDate(maxDate.getDate() + 30);
+        dateInput.min = toISODate(tomorrow);
+        dateInput.max = toISODate(maxDate);
+
+        // Keep each option's original label so we can restore it after
+        // re-enabling a previously-booked time.
+        Array.from(timeSelect.options).forEach((opt) => {
+            opt.dataset.originalText = opt.textContent;
+        });
+
+        function updateAvailableTimes() {
+            const date = dateInput.value;
+            if (!date) return;
+
+            fetch(`${CHECK_AVAILABILITY_URL}?date=${encodeURIComponent(date)}`)
+                .then((res) => (res.ok ? res.json() : { bookedTimes: [] }))
+                .then((data) => {
+                    const bookedTimes = data.bookedTimes || [];
+                    Array.from(timeSelect.options).forEach((opt) => {
+                        if (!opt.value) return; // skip the placeholder option
+                        const isBooked = bookedTimes.includes(opt.value);
+                        opt.disabled = isBooked;
+                        opt.textContent = isBooked
+                            ? `${opt.dataset.originalText} — Booked`
+                            : opt.dataset.originalText;
+                    });
+                    // If the currently selected time just became unavailable, clear it.
+                    if (timeSelect.value && bookedTimes.includes(timeSelect.value)) {
+                        timeSelect.value = '';
+                    }
+                })
+                .catch(() => { /* Availability check failing shouldn't block the form */ });
+        }
+
+        dateInput.addEventListener('change', updateAvailableTimes);
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -951,8 +993,22 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             })
-                .then((res) => {
-                    if (!res.ok) throw new Error('Request failed');
+                .then(async (res) => {
+                    let payload = {};
+                    try { payload = await res.json(); } catch (err) { /* ignore */ }
+
+                    if (res.status === 409) {
+                        status.textContent = payload.message || 'That time was just booked by someone else. Please choose a different time.';
+                        status.style.color = '#ffd27a';
+                        status.style.display = 'block';
+                        btn.innerHTML = originalBtnHTML;
+                        btn.disabled = false;
+                        updateAvailableTimes();
+                        return;
+                    }
+
+                    if (!res.ok) throw new Error(payload.message || 'Request failed');
+
                     form.reset();
                     status.textContent = "Thanks! Your consultation request has been sent — we'll be in touch soon.";
                     status.style.color = '#a5ffc0';
@@ -960,8 +1016,8 @@
                     btn.innerHTML = originalBtnHTML;
                     btn.disabled = false;
                 })
-                .catch(() => {
-                    status.textContent = 'Something went wrong sending your request. Please try again, or email us directly at TZwahlen@Flecha-WebDesign.com.';
+                .catch((err) => {
+                    status.textContent = (err && err.message) || 'Something went wrong sending your request. Please try again, or email us directly at TZwahlen@Flecha-WebDesign.com.';
                     status.style.color = '#ffb3b3';
                     status.style.display = 'block';
                     btn.innerHTML = originalBtnHTML;
