@@ -36,13 +36,22 @@
         <button class="close-menu" id="closeMenu" aria-label="Close menu">&times;</button>
         <nav class="menu-nav">
             <ul>
-                <li><a href="index.html" class="menu-link">Home</a></li>
+                <li class="menu-item-parent">
+                    <div class="menu-item-parent-row">
+                    <a href="index.html" class="menu-link menu-link--parent">Home</a>
+                    <button class="menu-submenu-toggle" id="homeSubmenuToggle" aria-label="Toggle Home submenu">&#8964;</button>
+                    </div>
+                    <ul class="menu-submenu menu-submenu--collapsed">
+                        <li><a href="index.html#questionnaire" class="menu-sublink">Client Questionnaire</a></li>
+                        <li><a href="index.html#our-process" class="menu-sublink">Our Process</a></li>
+                        <li><a href="index.html#portfolio" class="menu-sublink">Our Work</a></li>
+                        <li><a href="index.html#pricing" class="menu-sublink">Pricing</a></li>
+                        <li><a href="index.html#contact" class="menu-sublink">Contact Us</a></li>
+                    </ul>
+                </li>
                 <li><a href="about.html" class="menu-link">About</a></li>
                 <li><a href="what_we_do.html" class="menu-link">What We Do</a></li>
-                <li><a href="index.html#our-process" class="menu-link">Our Process</a></li>
                 <li><a href="portfolio.html" class="menu-link active-link">Portfolio</a></li>
-                <li><a href="index.html#pricing" class="menu-link">Pricing</a></li>
-                <li><a href="index.html#contact" class="menu-link">Contact Us</a></li>
             </ul>
         </nav>
     </div>
