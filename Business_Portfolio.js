@@ -627,7 +627,7 @@ filterButtons.forEach(button => {
             this.x = Math.max(0, Math.min(heroCanvas.width, this.x));
             this.y = Math.max(0, Math.min(heroCanvas.height, this.y));
 
-            if (mouse.x !== null && window.innerWidth > 768) {
+            if (mouse.x !== null) {
                 const dx = mouse.x - this.x;
                 const dy = mouse.y - this.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
@@ -676,18 +676,36 @@ filterButtons.forEach(button => {
     }
 
     heroCanvas.addEventListener('mousemove', (e) => {
+        if (window.innerWidth <= 768) return;
         const rect = heroCanvas.getBoundingClientRect();
         mouse.x = e.clientX - rect.left;
         mouse.y = e.clientY - rect.top;
     });
-    heroCanvas.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
+    heroCanvas.addEventListener('mouseleave', () => {
+        if (window.innerWidth <= 768) return;
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    // Tap-based scatter for touch devices: a tap briefly scatters nearby
+    // nodes, then automatically settles back on its own after a short
+    // delay. Deliberately NOT hooked into touchmove, so normal page
+    // scrolling over the hero canvas is never intercepted.
+    let touchScatterTimeout = null;
+    const TOUCH_SCATTER_DURATION = 400; // ms
 
     heroCanvas.addEventListener('touchstart', (e) => {
-        if (window.innerWidth <= 768) return;
         const rect = heroCanvas.getBoundingClientRect();
         const touch = e.touches[0];
         mouse.x = touch.clientX - rect.left;
         mouse.y = touch.clientY - rect.top;
+
+        if (touchScatterTimeout) clearTimeout(touchScatterTimeout);
+        touchScatterTimeout = setTimeout(() => {
+            mouse.x = null;
+            mouse.y = null;
+            touchScatterTimeout = null;
+        }, TOUCH_SCATTER_DURATION);
     });
     heroCanvas.addEventListener('touchmove', (e) => {
         if (window.innerWidth <= 768) return;
@@ -697,7 +715,12 @@ filterButtons.forEach(button => {
         mouse.x = touch.clientX - rect.left;
         mouse.y = touch.clientY - rect.top;
     });
-    heroCanvas.addEventListener('touchend', () => { mouse.x = null; mouse.y = null; });
+    heroCanvas.addEventListener('touchend', () => {
+        // Intentionally left as a no-op on mobile: the scatter settles back
+        // on its own via the timeout above, not on finger-lift, so a quick
+        // tap still produces a visible little burst rather than snapping
+        // back instantly. Desktop never fires this (no touch events there).
+    });
 
     resizeCanvas();
 
