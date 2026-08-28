@@ -317,6 +317,9 @@ menuOverlay.addEventListener('click', (e) => {
 });
 
 // ===== Home Submenu Toggle =====
+
+
+
 const homeSubmenuToggle = document.getElementById('homeSubmenuToggle');
 const homeSubmenu = document.querySelector('.menu-submenu');
 
@@ -325,6 +328,7 @@ if (homeSubmenuToggle && homeSubmenu) {
         const isCollapsed = homeSubmenu.classList.contains('menu-submenu--collapsed');
         homeSubmenu.classList.toggle('menu-submenu--collapsed', !isCollapsed);
         homeSubmenuToggle.classList.toggle('open', isCollapsed);
+        if (navigator.vibrate) navigator.vibrate(30);
     });
 }
 
@@ -387,7 +391,7 @@ document.querySelectorAll('.tier-card').forEach(card => {
         const tierContent = document.getElementById('tierModalContent');
         tierContent.className = 'tier-modal-content tier-modal-content--' + (tierIndex + 1);
 
-        // Populate modal
+        // Populate modal   
         document.getElementById('tierModalName').textContent = tier.label;
         document.getElementById('tierModalDiamonds').textContent = '◆'.repeat(tierIndex + 1);
         document.getElementById('tierModalPrice').textContent = tier.price;
@@ -591,6 +595,7 @@ filterButtons.forEach(button => {
     let particles = [];
     let mouse = { x: null, y: null, radius: 150 };
     let animationFrameId = null;
+    let hasInteracted = false; // tracks whether the user has already tapped/moved a node
 
     function resizeCanvas() {
         heroCanvas.width = heroCanvas.offsetWidth;
@@ -605,6 +610,18 @@ filterButtons.forEach(button => {
         let particleCount = isMobile ? (isPortrait ? 30 : 40) : 80;
         const connectionDistance = isMobile ? 100 : 150;
         particles = Array.from({ length: particleCount }, () => new Particle(connectionDistance));
+
+        // Pick the particle nearest the canvas center to be the subtle
+        // "breathing" node — a passive visual cue that nodes are interactive.
+        const cx = heroCanvas.width / 2;
+        const cy = heroCanvas.height / 2;
+        let closest = null;
+        let closestDist = Infinity;
+        particles.forEach(p => {
+            const d = Math.hypot(p.x - cx, p.y - cy);
+            if (d < closestDist) { closestDist = d; closest = p; }
+        });
+        if (closest) closest.isHighlighted = true;
     }
 
     class Particle {
@@ -646,11 +663,21 @@ filterButtons.forEach(button => {
         }
 
         draw() {
-            ctx.shadowBlur = 10;
-            ctx.shadowColor = 'rgba(102, 126, 234, 0.8)';
-            ctx.fillStyle = 'rgba(102, 126, 234, 0.9)';
+            let drawRadius = this.radius;
+            if (this.isHighlighted) {
+                // Slow breathing pulse — subtle, continuous invitation to interact.
+                const pulse = Math.sin(Date.now() / 900) * 0.4 + 1; // ranges ~0.6x–1.4x
+                drawRadius = this.radius * pulse;
+                ctx.shadowBlur = 16;
+                ctx.shadowColor = 'rgba(180, 140, 255, 0.9)';
+                ctx.fillStyle = 'rgba(180, 140, 255, 0.95)';
+            } else {
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = 'rgba(102, 126, 234, 0.8)';
+                ctx.fillStyle = 'rgba(102, 126, 234, 0.9)';
+            }
             ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.arc(this.x, this.y, drawRadius, 0, Math.PI * 2);
             ctx.fill();
             ctx.shadowBlur = 0;
         }
@@ -695,6 +722,7 @@ filterButtons.forEach(button => {
     const TOUCH_SCATTER_DURATION = 400; // ms
 
     heroCanvas.addEventListener('touchstart', (e) => {
+        hasInteracted = true;
         const rect = heroCanvas.getBoundingClientRect();
         const touch = e.touches[0];
         mouse.x = touch.clientX - rect.left;
@@ -721,6 +749,26 @@ filterButtons.forEach(button => {
         // tap still produces a visible little burst rather than snapping
         // back instantly. Desktop never fires this (no touch events there).
     });
+
+    // ===== Idle auto-demo scatter =====
+    // If the user hasn't touched a node within a few seconds of load, gently
+    // scatter the cluster near the center on its own — a one-time passive
+    // demo of the tap-to-scatter behavior, no text or instructions needed.
+    // Runs once per browser session, and only on mobile.
+    const DEMO_DELAY = 3500;    // ms after load before the demo fires
+    const DEMO_DURATION = 500;  // ms the scatter holds before settling back
+    if (window.innerWidth <= 768 && !sessionStorage.getItem('flechaHeroDemoPlayed')) {
+        setTimeout(() => {
+            if (hasInteracted) return; // user already found it on their own
+            sessionStorage.setItem('flechaHeroDemoPlayed', '1');
+            mouse.x = heroCanvas.width / 2;
+            mouse.y = heroCanvas.height / 2;
+            setTimeout(() => {
+                mouse.x = null;
+                mouse.y = null;
+            }, DEMO_DURATION);
+        }, DEMO_DELAY);
+    }
 
     resizeCanvas();
 
